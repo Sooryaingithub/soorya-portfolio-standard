@@ -68,6 +68,37 @@ export const projects: Project[] = [
     x: 70,
     y: 55,
     size: "lg",
+    content: {
+      overview: {
+        problem: "Traditional weather forecasting systems struggle with ingestion bottlenecking from real-time IoT sensors, satellites, and massive historical databases, leading to delayed alerts and lower forecasting accuracy for hyper-local regions.",
+        solution: "A scalable cloud system deploying serverless pipelines for real-time ingestion, distributed Apache Spark processing, and LSTM-based deep learning models to deliver hyper-localized forecasts and anomaly detection."
+      },
+      capabilities: [
+        "Distributed Ingestion Pipeline: Hyper-scale parallel ingestion of real-time weather feeds using Apache Spark and cloud data lakes.",
+        "LSTM Predictive Modeling: Neural network models mapping historical trends to generate accurate 7-day localized forecasts.",
+        "Edge-Cloud Processing: Hyper-local IoT weather station data aggregation and early anomaly filtering at the edge.",
+        "Disaster Response Integration: Real-time trigger systems sending automated alerts to urban planners and agricultural systems."
+      ],
+      sections: [
+        {
+          title: "System Architecture",
+          body: "The core platform uses a hybrid edge-cloud infrastructure. Edge nodes process local IoT station sensor inputs to filter out noise before routing aggregated telemetry to a serverless cloud backend, where data is consolidated into a centralized data lake for global dataset training."
+        },
+        {
+          title: "Validation & Results",
+          body: [
+            "Hyper-local prediction accuracy improved by 22% compared to baseline regional models.",
+            "Real-time processing latency dropped to sub-second durations via edge-filtering.",
+            "LSTM models successfully identified extreme weather anomalies up to 72 hours prior to events."
+          ]
+        }
+      ],
+      images: {
+        architecture: "/images/weather-image2.png",
+        results: "/images/weather-image3.png",
+        output: "/images/weather-image4.png"
+      }
+    }
   },
   {
     id: "local-macos-ai-agents",
@@ -220,8 +251,8 @@ export const projects: Project[] = [
       ],
       images: {
         architecture: "/images/helmet-architecture.png",
-        training: "/images/helmet-training.png",
-        output: "/images/helmet-output.png",
+        training: "/images/helmet-training.jpg",
+        output: "/images/helmet-output.jpg",
         results: "/images/helmet-results.png"
       }
     }
@@ -238,6 +269,36 @@ export const projects: Project[] = [
     x: 60,
     y: 85,
     size: "sm",
+    content: {
+      overview: {
+        problem: "Centralized cloud computing frameworks suffer from latency bottlenecks and signal degradation under 5G networks, creating unsafe conditions for time-sensitive tasks like Advanced Driver Assistance Systems (ADAS) and autonomous vehicles.",
+        solution: "A decentralized edge-cloud hybrid computing framework mapping critical ADAS tasks (lidar, radar, camera data parsing) to regional edge computing nodes (mini-clouds) connected over 5G NR to keep processing latency below 10ms."
+      },
+      capabilities: [
+        "Dynamic Edge Offloading: Route time-critical tasks to localized edge servers while sending analytics to centralized cloud databases.",
+        "Ultra-Reliable Communication (URLLC): Leverage 5G New Radio (NR) protocols for seamless and redundant V2X channels.",
+        "Hybrid Drive Integration: Fallback communication schemes (V2X, cellular, Wi-Fi) guaranteeing network stability.",
+        "ADAS Telemetry Dashboards: Low-latency driver display interfaces updating in real-time."
+      ],
+      sections: [
+        {
+          title: "Architecture & Integration",
+          body: "The architecture maps data input layers from local vehicles through V2X communication nodes to localized edge computing units. Heavy workloads are processed locally in parallel, with raw metrics forwarded asynchronously to the cloud for historical model tuning."
+        },
+        {
+          title: "Validation & Results",
+          body: [
+            "Tested network latencies dropped from 85ms on conventional clouds to less than 8ms on localized edge nodes.",
+            "Hybrid switching achieved 99.999% connection uptime in simulated congested urban areas.",
+            "V2X cooperative communications demonstrated significant improvements in localized traffic congestion routing."
+          ]
+        }
+      ],
+      images: {
+        architecture: "/images/5g-edge-image1.png",
+        results: "/images/5g-edge-image2.jpg"
+      }
+    }
   },
 ];
 

@@ -21,7 +21,7 @@ export default function Home() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } },
   };
 
   // Animation for individual words to simulate reading highlight
@@ -41,7 +41,7 @@ export default function Home() {
     visible: { 
       opacity: 1, 
       filter: "blur(0px)",
-      transition: { duration: 0.8, ease: "easeOut" } // slower fade
+      transition: { duration: 0.8, ease: "easeOut" as const } // slower fade
     }
   };
 
