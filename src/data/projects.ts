@@ -39,10 +39,40 @@ export const projects: Project[] = [
     status: "Production Candidate",
     complexity: "High",
     year: 2026,
-    shortDescription: "AI-Powered Adaptive Learning Platform.",
+    shortDescription: "Privacy-First Local Intelligent EdTech Engine.",
     x: 50,
     y: 30,
     size: "lg",
+    content: {
+      overview: {
+        problem: "Cloud-based AI workflows introduce high GPU overhead, latency, and data privacy issues for interactive educational platforms. Traditional orchestration frameworks often add unnecessary bloat and obscure direct model control.",
+        solution: "Engineered a dual-tier, gamified AI education platform running entirely locally on Apple Silicon. The system bypasses third-party orchestrators, communicating directly with local model servers via REST to ensure strict data privacy and optimal performance."
+      },
+      capabilities: [
+        "Direct REST Model Orchestration: Raw HTTP client operations with local Ollama API for precise temperature and token control.",
+        "Dual-Tier Prompt Isolation: Mutually exclusive logic engines separating heavily guardrailed onboarding from an unrestricted RAG sandbox.",
+        "Deterministic Guardrailing & Boundary Enforcement: Rigid firewalls forcing the LLM to refuse out-of-scope queries.",
+        "Raw ChromaDB Vector Pipeline: Independent pipeline parsing and indexing technical markdown into a persistent local vector store.",
+        "Dynamic Context Injection: Custom RAG mechanism extracting top nodes as a real-time reference frame.",
+        "Automated Cloud-Synced Workspace: Modular codebase instantly tracking and backing up system logs."
+      ],
+      sections: [
+        {
+          title: "Software & Technology Stack",
+          body: [
+            "Languages: Python 3.11+",
+            "AI/ML Models: Ollama API (Llama 3 / Qwen), Vector Embeddings",
+            "Databases: ChromaDB",
+            "Networking: Requests, REST APIs",
+            "Infrastructure: Apple Silicon CLI"
+          ]
+        },
+        {
+          title: "Skills Demonstrated",
+          body: "AI Systems Architecture • Retrieval-Augmented Generation (RAG) • Local LLM Deployment • Deterministic Prompt Design • Vector Database Management • API Engineering • System Boundary Enforcement"
+        }
+      ]
+    }
   },
   {
     id: "jarvisgemma",
