@@ -8,7 +8,7 @@ import { Command } from "lucide-react";
 const links = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "/skills", label: "Skills" },
+  { href: "/skills", label: "Primary Skills" },
   { href: "/timeline", label: "Timeline" },
   { href: "/about", label: "About" },
 ];

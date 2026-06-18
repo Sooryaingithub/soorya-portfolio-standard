@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const skillCategories = [
   {
@@ -25,6 +25,21 @@ const skillCategories = [
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
+  const timings = useMemo(() => {
+    let cumulativeDelay = 0.3;
+    return skillCategories.map((category) => {
+      const categoryDelay = cumulativeDelay;
+      cumulativeDelay += 0.2;
+      const skillDelays = category.skills.map(() => {
+        const delay = cumulativeDelay;
+        cumulativeDelay += 0.05;
+        return delay;
+      });
+      cumulativeDelay += 0.15;
+      return { categoryDelay, skillDelays };
+    });
+  }, []);
+
   return (
     <main className="flex-1 flex flex-col min-h-[100dvh] px-4 pt-32 pb-24 relative overflow-hidden">
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-40">
@@ -38,7 +53,7 @@ export default function Skills() {
           className="text-center mb-24"
         >
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tighter mb-4">
-            Technology Universe
+            Primary Skills
           </h1>
           <p className="text-lg text-muted-foreground">
             Ecosystems and tools used to engineer intelligence.
@@ -53,7 +68,7 @@ export default function Skills() {
                 key={category.name}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
+                transition={{ delay: timings[idx].categoryDelay, duration: 0.4 }}
                 onClick={() => setActiveCategory(activeCategory === category.name ? null : category.name)}
                 className={`text-left px-6 py-4 rounded-2xl border transition-all ${
                   activeCategory === category.name || activeCategory === null
@@ -67,7 +82,7 @@ export default function Skills() {
           </div>
 
           <div className="flex-1 w-full min-h-[400px] relative">
-            {skillCategories.map((category) => (
+            {skillCategories.map((category, idx) => (
               <motion.div
                 key={category.name}
                 initial={false}
@@ -90,7 +105,7 @@ export default function Skills() {
                     key={skill}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.05 }}
+                    transition={{ delay: timings[idx].skillDelays[i], duration: 0.3 }}
                     className="glass-panel px-5 py-3 hover:bg-foreground/10 transition-colors cursor-default"
                   >
                     <span className="font-medium tracking-tight text-foreground/90">{skill}</span>
