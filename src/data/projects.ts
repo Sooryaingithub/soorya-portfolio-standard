@@ -76,16 +76,43 @@ export const projects: Project[] = [
   },
   {
     id: "jarvisgemma",
-    title: "JarvisGemma",
+    title: "Gemma Multimodal Spatial AI",
     slug: "jarvisgemma",
-    category: ["Spatial Computing", "Computer Vision", "Mobile AI"],
+    category: ["Spatial Computing", "Computer Vision", "Mobile AI", "CoreML"],
     status: "Prototype",
     complexity: "High",
     year: 2026,
-    shortDescription: "On-Device Spatial AI Assistant.",
+    shortDescription: "Gemma 4 - 3b On-Device Multimodal Spatial AI Agent.",
     x: 30,
     y: 60,
     size: "lg",
+    content: {
+      overview: {
+        problem: "Cloud-based spatial AI assistants suffer from high latency, frame drops during AR rendering, and massive data privacy concerns due to off-device camera streaming.",
+        solution: "Engineered a dual-engine architecture for a native iOS/iPadOS spatial AI assistant. The system eliminates cloud dependencies by running entirely on local Apple Silicon, ensuring real-time AR performance and secure contextual scene translation."
+      },
+      capabilities: [
+        "Hybrid Engine Orchestration: Decouples high-speed spatial pathfinding (YOLOv3Tiny via CoreML) from deep contextual reasoning (Gemma 2 2B via MLX Swift).",
+        "On-Device VLM Deployment: Executes a 4-bit quantized Vision-Language Model directly on iPad hardware using Apple's MLX Swift.",
+        "Spatial ARKit Grounding: Continuously translates 2D bounding boxes into 3D holograms, locking 'Liquid Glass' UI nodes onto physical objects.",
+        "Multimodal State Management: Synchronized state engine injecting high-res camera frames as real-time context into the VLM prompt.",
+        "Actionable System Integration: Invokes programmatic iOS system events (e.g., toggling flashlight, retrieving telemetry) driven by local AI understanding."
+      ],
+      sections: [
+        {
+          title: "Hardware & Software Stack",
+          body: [
+            "Frameworks: Swift, SwiftUI, MLX Swift, ARKit, Vision, CoreML, HuggingFace Swift",
+            "Models: YOLOv3 (Pathfinding), Gemma 2 2B (VLM)",
+            "Platform: iOS/iPadOS, Apple Silicon"
+          ]
+        },
+        {
+          title: "Skills Demonstrated",
+          body: "Spatial Computing (ARKit) • Multimodal AI Systems Architecture • Local VLM Deployment • Apple Silicon Optimization (MLX) • Swift Engineering • CoreML & Vision Integration • System Action Orchestration"
+        }
+      ]
+    }
   },
   {
     id: "weather-platform",
