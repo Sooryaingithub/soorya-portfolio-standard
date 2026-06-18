@@ -7,27 +7,27 @@ const timelineEvents = [
   {
     year: "2024",
     events: [
-      { title: "Road Safety Monitoring", type: "Computer Vision" },
-      { title: "IoT Pipeline", type: "Data Engineering" },
-      { title: "Edge Computing Research", type: "Infrastructure" }
+      { title: "Road Safety Monitoring", type: "Computer Vision", description: "Real-time vehicle detection and speed analytics using Edge AI." },
+      { title: "IoT Pipeline", type: "Data Engineering", description: "Scalable data ingestion and processing for sensor networks." },
+      { title: "Edge Computing Research", type: "Infrastructure", description: "Optimizing ML models for low-power edge devices." }
     ]
   },
   {
     year: "2025",
     events: [
-      { title: "Weather Analytics Platform", type: "Cloud Engineering" },
-      { title: "Cloud Engineering Projects", type: "Infrastructure" },
-      { title: "Privacy-First Remote Access", type: "Security" }
+      { title: "Weather Analytics Platform", type: "Cloud Engineering", description: "Distributed system for analyzing meteorological patterns." },
+      { title: "Cloud Engineering Projects", type: "Infrastructure", description: "Infrastructure as Code and automated deployment pipelines." },
+      { title: "Privacy-First Remote Access", type: "Security", description: "Secure VPN alternative using end-to-end encryption." }
     ]
   },
   {
     year: "2026",
     events: [
-      { title: "SkillTree", type: "AI Systems" },
-      { title: "JarvisGemma", type: "Spatial AI" },
-      { title: "Local AI Infrastructure", type: "Local AI" },
-      { title: "WhisperKit", type: "Speech Intelligence" },
-      { title: "NAS Infrastructure", type: "Hardware" }
+      { title: "JarvisGemma", type: "Spatial AI", description: "Spatial AI agent for desktop interaction and automation." },
+      { title: "Local AI Infrastructure", type: "Local AI", description: "Self-hosted LLMs and vector databases on consumer hardware." },
+      { title: "WhisperKit", type: "Speech Intelligence", description: "Optimized speech-to-text integration for macOS and iOS." },
+      { title: "NAS Infrastructure", type: "Hardware", description: "Custom-built Network Attached Storage with high-speed caching." },
+      { title: "SkillTree", type: "AI Systems", description: "Intelligent platform for tracking and visualizing skill progression." }
     ]
   }
 ];
@@ -69,27 +69,30 @@ export default function Timeline() {
               const { primary } = getTheme(yearBlock.year);
               return (
                 <div key={yearBlock.year} className="flex-none flex items-center gap-12">
-                  <div className="flex flex-col gap-6">
-                    <h2 
-                      className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none select-none transition-all duration-500"
+                  <div className="flex flex-col gap-6 relative">
+                    <motion.h2 
+                      className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none select-none transition-all duration-500 absolute -top-10 left-0"
+                      initial={{ opacity: 0.1, filter: "brightness(0.5)" }}
+                      whileInView={{ opacity: 0.8, filter: "brightness(2)" }}
+                      viewport={{ margin: "0px -30% 0px -30%" }}
                       style={{ 
                         color: "transparent",
                         WebkitTextStroke: `2px ${primary}`,
                         textShadow: `0 0 30px ${primary}80`,
-                        opacity: 0.3
+                        zIndex: 0
                       }}
                     >
                       {yearBlock.year}
-                    </h2>
-                    <div className="flex gap-4 items-start pt-8">
+                    </motion.h2>
+                    <div className="flex gap-4 items-start pt-16 relative z-10">
                       {yearBlock.events.map((event, eIdx) => (
                         <motion.div 
                           key={eIdx}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: eIdx * 0.1 }}
-                          className="glass-panel p-6 w-64 md:w-80 shrink-0 hover:bg-foreground/10 transition-colors duration-300 arcade-scanlines active:scale-95 hover:shadow-[var(--hover-shadow)]"
+                          initial={{ opacity: 0.3, y: 20, filter: "brightness(0.5)" }}
+                          whileInView={{ opacity: 1, y: 0, filter: "brightness(1.2)" }}
+                          viewport={{ margin: "0px -30% 0px -30%" }}
+                          transition={{ delay: eIdx * 0.05, duration: 0.4 }}
+                          className="glass-panel p-6 w-64 md:w-80 shrink-0 hover:bg-foreground/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[var(--hover-shadow)] group"
                           style={{ '--hover-shadow': `inset 0 0 20px ${primary}40` } as React.CSSProperties}
                         >
                           <p 
@@ -98,25 +101,41 @@ export default function Timeline() {
                           >
                             {event.type}
                           </p>
-                          <h3 className="text-xl font-medium tracking-tight">
+                          <h3 className="text-xl font-medium tracking-tight mb-2">
                             {event.title}
                           </h3>
+                          {event.description && (
+                            <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                              {event.description}
+                            </p>
+                          )}
                         </motion.div>
                       ))}
                     </div>
                   </div>
                   
                   {/* Connecting line segment */}
-                  {idx !== timelineEvents.length - 1 && (
-                    <div className="w-24 h-px bg-white/10" />
-                  )}
+                  <div className="w-24 h-px bg-white/10" />
                 </div>
               );
             })}
             
+            {/* End point text */}
+            <div className="flex-none flex items-center gap-6 pr-12">
+              <motion.h2 
+                initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }}
+                whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+                viewport={{ margin: "0px -20% 0px -20%" }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent ml-8"
+              >
+                Great things are on its way
+              </motion.h2>
+            </div>
+
             {/* End point */}
             <div className="flex-none w-24 flex items-center justify-center">
-              <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
+              <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,255,255,0.8)] animate-pulse" />
             </div>
           </motion.div>
         </div>

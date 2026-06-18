@@ -21,11 +21,11 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <Link 
       href={`/project/${project.slug}`} 
-      className="block group glass-panel p-6 h-full flex flex-col hover:bg-foreground/10 transition-colors duration-300 arcade-scanlines active:scale-95 hover:shadow-[var(--hover-shadow)]"
+      className="block group glass-panel p-6 h-full flex flex-col hover:bg-foreground/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[var(--hover-shadow)]"
       style={{ '--hover-shadow': `inset 0 0 20px ${primary}40` } as React.CSSProperties}
     >
       <div className="flex justify-between items-start mb-4 relative z-20">
-        <h3 className="text-xl font-semibold tracking-tight transition-all duration-300 group-hover:glitch-hover">{project.title}</h3>
+        <h3 className="text-xl font-semibold tracking-tight transition-all duration-300 group-hover:scale-[1.02]">{project.title}</h3>
         <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-foreground" />
       </div>
       <p className="text-sm text-muted-foreground flex-1 mb-6">
