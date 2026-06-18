@@ -79,7 +79,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-2 border-b border-white/10 pb-12"
+          className="space-y-2 pb-12"
         >
           <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter bg-gradient-to-br from-white to-white/50 bg-clip-text text-transparent">
             Soorya Sendilnath
@@ -101,6 +101,20 @@ export default function About() {
               LinkedIn
             </a>
           </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="border-t border-white/10 pt-12 pb-4"
+        >
+          <h2 className="text-xl md:text-2xl font-medium tracking-tight mb-6 text-foreground/60">
+            Professional Philosophy
+          </h2>
+          <p className="text-2xl md:text-4xl leading-tight font-medium tracking-tight text-balance">
+            Build scalable, privacy-focused intelligent systems that operate efficiently across cloud, edge, and local environments.
+          </p>
         </motion.div>
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
