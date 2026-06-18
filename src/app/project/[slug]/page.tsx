@@ -289,16 +289,64 @@ export default function ProjectPage() {
                   </motion.div>
                 ) : (
                   <motion.div
-                    key="placeholder"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    key={`abstract-${activeSection}`}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.8 }}
-                    className="relative w-full aspect-square max-h-[80vh] flex items-center justify-center opacity-30"
+                    className="relative w-full aspect-square max-h-[80vh] flex items-center justify-center"
                   >
-                    {/* Abstract shape representing the project category */}
-                    <div className="w-64 h-64 border border-white/20 rounded-full animate-[spin_60s_linear_infinite] flex items-center justify-center">
-                      <div className="w-48 h-48 border border-white/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" style={{ borderColor: primaryColor }} />
+                    {/* Abstract Scroll-Linked Visualizer */}
+                    <motion.div 
+                      style={{ 
+                        rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
+                        scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8])
+                      }}
+                      className="absolute w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] border border-white/10 rounded-full flex items-center justify-center opacity-30"
+                    >
+                      <motion.div 
+                        style={{ 
+                          rotate: useTransform(scrollYProgress, [0, 1], [0, -720]),
+                          borderColor: primaryColor
+                        }}
+                        className="w-[80%] h-[80%] border-t border-b rounded-full flex items-center justify-center"
+                      >
+                        <motion.div 
+                          style={{ 
+                            rotate: useTransform(scrollYProgress, [0, 1], [0, 1080]),
+                            borderColor: secondaryColor
+                          }}
+                          className="w-[60%] h-[60%] border-r border-l rounded-full border-dashed flex items-center justify-center"
+                        >
+                          <motion.div 
+                            style={{ 
+                              scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1.5, 0.5]),
+                              backgroundColor: primaryColor
+                            }}
+                            className="w-16 h-16 rounded-full blur-xl"
+                          />
+                        </motion.div>
+                      </motion.div>
+                    </motion.div>
+
+                    {/* Floating Data Nodes (move on scroll) */}
+                    <motion.div 
+                      style={{ y: useTransform(scrollYProgress, [0, 1], [-100, 100]), x: useTransform(scrollYProgress, [0, 1], [-50, 50]) }}
+                      className="absolute top-1/4 left-1/4 w-12 h-12 glass-panel rounded-xl flex items-center justify-center"
+                    >
+                      <div className="w-2 h-2 rounded-full" style={{ backgroundColor: secondaryColor }} />
+                    </motion.div>
+                    
+                    <motion.div 
+                      style={{ y: useTransform(scrollYProgress, [0, 1], [150, -150]), x: useTransform(scrollYProgress, [0, 1], [100, -50]) }}
+                      className="absolute bottom-1/4 right-1/4 w-16 h-16 glass-panel rounded-full flex items-center justify-center"
+                    >
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: primaryColor }} />
+                    </motion.div>
+
+                    {/* Section Identifier */}
+                    <div className="absolute bottom-0 text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-mono">
+                      Data Object // {activeSection}
                     </div>
                   </motion.div>
                 )}
