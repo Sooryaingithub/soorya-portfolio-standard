@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { projects, Project } from "@/data/projects";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
 // --- Year-Based Theming Engine ---
@@ -32,6 +32,12 @@ export default function ProjectPage() {
 
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity1 = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  // Hack for hydration mismatch with useParams and useScroll
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
 
   if (!project) {
     return (

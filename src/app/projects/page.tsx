@@ -19,38 +19,30 @@ function ProjectCard({ project }: { project: Project }) {
   const { primary } = getTheme(project.year);
   
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
+    <Link 
+      href={`/project/${project.slug}`} 
+      className="block group glass-panel p-6 h-full flex flex-col hover:bg-foreground/10 transition-colors duration-300 arcade-scanlines active:scale-95 hover:shadow-[var(--hover-shadow)]"
+      style={{ '--hover-shadow': `inset 0 0 20px ${primary}40` } as React.CSSProperties}
     >
-      <Link 
-        href={`/project/${project.slug}`} 
-        className="block group glass-panel p-6 h-full flex flex-col hover:bg-foreground/10 transition-colors duration-300 arcade-scanlines active:scale-95 hover:shadow-[var(--hover-shadow)]"
-        style={{ '--hover-shadow': `inset 0 0 20px ${primary}40` } as React.CSSProperties}
-      >
-        <div className="flex justify-between items-start mb-4 relative z-20">
-          <h3 className="text-xl font-semibold tracking-tight transition-all duration-300 group-hover:glitch-hover">{project.title}</h3>
-          <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-foreground" />
-        </div>
-        <p className="text-sm text-muted-foreground flex-1 mb-6">
-          {project.shortDescription}
-        </p>
-        <div className="flex flex-wrap gap-2 mt-auto">
-          <span 
-            className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded border"
-            style={{ backgroundColor: `${primary}1A`, color: primary, borderColor: `${primary}33` }}
-          >
-            {project.status}
-          </span>
-          <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded bg-white/5 text-white/60 border border-white/10">
-            {project.year}
-          </span>
-        </div>
-      </Link>
-    </motion.div>
+      <div className="flex justify-between items-start mb-4 relative z-20">
+        <h3 className="text-xl font-semibold tracking-tight transition-all duration-300 group-hover:glitch-hover">{project.title}</h3>
+        <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-foreground" />
+      </div>
+      <p className="text-sm text-muted-foreground flex-1 mb-6">
+        {project.shortDescription}
+      </p>
+      <div className="flex flex-wrap gap-2 mt-auto">
+        <span 
+          className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded border"
+          style={{ backgroundColor: `${primary}1A`, color: primary, borderColor: `${primary}33` }}
+        >
+          {project.status}
+        </span>
+        <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded bg-white/5 text-white/60 border border-white/10">
+          {project.year}
+        </span>
+      </div>
+    </Link>
   );
 }
 
@@ -109,7 +101,16 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
             ))}
           </AnimatePresence>
         </div>
