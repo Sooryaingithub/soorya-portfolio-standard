@@ -26,6 +26,8 @@ export type Project = {
       training?: string;
       output?: string;
       results?: string;
+      ui?: string;
+      icons?: string;
     };
   };
 };
@@ -36,7 +38,7 @@ export const projects: Project[] = [
     title: "SkillTree",
     slug: "skilltree",
     category: ["AI Education Platform", "Local AI", "Agentic Systems"],
-    status: "Production Candidate",
+    status: "In Development",
     complexity: "High",
     year: 2026,
     shortDescription: "Privacy-First Local Intelligent EdTech Engine.",
@@ -58,6 +60,10 @@ export const projects: Project[] = [
       ],
       sections: [
         {
+          title: "Expected Designs",
+          body: "The following UI mockups and iconography represent the expected end-state of the iOS client application, which is currently in active development."
+        },
+        {
           title: "Software & Technology Stack",
           body: [
             "Languages: Python 3.11+",
@@ -71,7 +77,11 @@ export const projects: Project[] = [
           title: "Skills Demonstrated",
           body: "AI Systems Architecture • Retrieval-Augmented Generation (RAG) • Local LLM Deployment • Deterministic Prompt Design • Vector Database Management • API Engineering • System Boundary Enforcement"
         }
-      ]
+      ],
+      images: {
+        ui: "/images/skilltree-ui.jpg",
+        icons: "/images/skilltree-icons.png"
+      }
     }
   },
   {
