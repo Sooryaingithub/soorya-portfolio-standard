@@ -387,7 +387,7 @@ export const projects: Project[] = [
   },
   {
     id: "nas-deployment",
-    title: "SSSM Liquid Glass NAS",
+    title: "Standalone NAS System",
     slug: "nas-deployment",
     category: ["Infrastructure", "Hardware", "Self-Hosting", "UI Engineering"],
     status: "Production Candidate",
