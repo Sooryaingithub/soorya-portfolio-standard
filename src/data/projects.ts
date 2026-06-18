@@ -22,6 +22,7 @@ export type Project = {
     }[];
     images?: {
       architecture?: string;
+      flowchart?: string;
       training?: string;
       output?: string;
       results?: string;
@@ -259,6 +260,7 @@ export const projects: Project[] = [
       ],
       images: {
         architecture: "/images/helmet-architecture.png",
+        flowchart: "/images/helmet-flowchart.png",
         training: "/images/helmet-training.jpg",
         output: "/images/helmet-output.jpg",
         results: "/images/helmet-results.png"

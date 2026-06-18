@@ -178,11 +178,22 @@ export default function ProjectPage() {
                 )}
 
                 {/* Inject Architecture Diagram into the Architecture section */}
-                {section.title.includes("Architecture") && project.content?.images?.architecture && (
-                  <div className="w-full aspect-video mt-12 rounded-3xl bg-foreground/5 border border-foreground/10 flex items-center justify-center overflow-hidden relative group">
-                    <div className="relative w-full h-full">
-                      <Image src={project.content.images.architecture} alt={`${project.title} Architecture`} fill className="object-contain p-4" />
-                    </div>
+                {section.title.includes("Architecture") && (
+                  <div className={`grid gap-8 mt-12 ${project.content?.images?.architecture && project.content?.images?.flowchart ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'}`}>
+                    {project.content?.images?.architecture && (
+                      <div className="w-full aspect-video rounded-3xl bg-foreground/5 border border-foreground/10 flex items-center justify-center overflow-hidden relative group">
+                        <div className="relative w-full h-full">
+                          <Image src={project.content.images.architecture} alt={`${project.title} Architecture`} fill className="object-contain p-4" unoptimized />
+                        </div>
+                      </div>
+                    )}
+                    {project.content?.images?.flowchart && (
+                      <div className="w-full aspect-video rounded-3xl bg-foreground/5 border border-foreground/10 flex items-center justify-center overflow-hidden relative group bg-white/5">
+                        <div className="relative w-full h-full">
+                          <Image src={project.content.images.flowchart} alt={`${project.title} Flowchart`} fill className="object-contain p-4" unoptimized />
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
                 
