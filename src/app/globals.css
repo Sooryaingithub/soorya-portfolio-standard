@@ -41,77 +41,77 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Apple Light Mode Palette */
-  --background: oklch(0.98 0 0); /* Off white */
-  --foreground: oklch(0.15 0 0); /* Dark text */
+  /* Enforce Deep Dark Mode Palette everywhere for Spatial AI theme */
+  --background: oklch(0.18 0.02 260); /* Deep slate/indigo #0B0C10 */
+  --foreground: oklch(0.98 0 0); /* White text */
   
-  --card: oklch(0.95 0 0);
-  --card-foreground: oklch(0.15 0 0);
-  
-  --popover: oklch(0.98 0 0);
-  --popover-foreground: oklch(0.15 0 0);
-  
-  --primary: oklch(0.15 0 0);
-  --primary-foreground: oklch(0.98 0 0);
-  
-  --secondary: oklch(0.92 0 0);
-  --secondary-foreground: oklch(0.15 0 0);
-  
-  --muted: oklch(0.92 0 0);
-  --muted-foreground: oklch(0.5 0 0);
-  
-  --accent: oklch(0.92 0 0);
-  --accent-foreground: oklch(0.15 0 0);
-  
-  --destructive: oklch(0.60 0.20 20);
-  
-  --border: oklch(0 0 0 / 12%);
-  --input: oklch(0 0 0 / 12%);
-  --ring: oklch(0 0 0 / 25%);
-  
-  --radius: 1rem;
-  
-  /* Custom Glassmorphism Light */
-  --glass: oklch(0 0 0 / 2%);
-  --glass-border: oklch(0 0 0 / 8%);
-
-  /* Custom Particles */
-  --particle-color: 0, 0, 0;
-}
-
-.dark {
-  /* Apple Dark Mode Palette */
-  --background: oklch(0.15 0 0); 
-  --foreground: oklch(0.98 0 0);
-  
-  --card: oklch(0.20 0 0);
+  --card: oklch(0.22 0.02 260); /* Slightly lighter slate */
   --card-foreground: oklch(0.98 0 0);
   
-  --popover: oklch(0.18 0 0);
+  --popover: oklch(0.20 0.02 260);
   --popover-foreground: oklch(0.98 0 0);
   
-  --primary: oklch(0.98 0 0);
+  --primary: oklch(0.70 0.15 200); /* Cyan accent #00F0FF approx */
   --primary-foreground: oklch(0.15 0 0);
   
-  --secondary: oklch(0.25 0 0);
+  --secondary: oklch(0.40 0.20 300); /* Violet accent #8A2BE2 approx */
   --secondary-foreground: oklch(0.98 0 0);
   
-  --muted: oklch(0.25 0 0);
+  --muted: oklch(0.25 0.02 260);
   --muted-foreground: oklch(0.70 0 0);
   
-  --accent: oklch(0.25 0 0);
+  --accent: oklch(0.40 0.20 300); /* Violet */
   --accent-foreground: oklch(0.98 0 0);
   
   --destructive: oklch(0.60 0.20 20);
   
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(1 0 0 / 25%);
+  --border: oklch(0.70 0.15 200 / 15%); /* Cyan tinted borders */
+  --input: oklch(0.70 0.15 200 / 15%);
+  --ring: oklch(0.70 0.15 200 / 40%);
   
-  --glass: oklch(1 0 0 / 4%);
-  --glass-border: oklch(1 0 0 / 8%);
+  --radius: 1rem;
+  
+  /* Custom Glassmorphism Dark */
+  --glass: oklch(0.18 0.02 260 / 40%);
+  --glass-border: oklch(0.70 0.15 200 / 20%);
 
-  --particle-color: 255, 255, 255;
+  /* Custom Particles */
+  --particle-color: 0, 240, 255; /* Cyan particles */
+}
+
+.dark {
+  /* Identical palette to root to force dark mode aesthetic */
+  --background: oklch(0.18 0.02 260); 
+  --foreground: oklch(0.98 0 0);
+  
+  --card: oklch(0.22 0.02 260);
+  --card-foreground: oklch(0.98 0 0);
+  
+  --popover: oklch(0.20 0.02 260);
+  --popover-foreground: oklch(0.98 0 0);
+  
+  --primary: oklch(0.70 0.15 200); 
+  --primary-foreground: oklch(0.15 0 0);
+  
+  --secondary: oklch(0.40 0.20 300); 
+  --secondary-foreground: oklch(0.98 0 0);
+  
+  --muted: oklch(0.25 0.02 260);
+  --muted-foreground: oklch(0.70 0 0);
+  
+  --accent: oklch(0.40 0.20 300); 
+  --accent-foreground: oklch(0.98 0 0);
+  
+  --destructive: oklch(0.60 0.20 20);
+  
+  --border: oklch(0.70 0.15 200 / 15%);
+  --input: oklch(0.70 0.15 200 / 15%);
+  --ring: oklch(0.70 0.15 200 / 40%);
+  
+  --glass: oklch(0.18 0.02 260 / 40%);
+  --glass-border: oklch(0.70 0.15 200 / 20%);
+
+  --particle-color: 0, 240, 255;
 }
 
 @layer base {

@@ -26,10 +26,10 @@ function ProjectCard({ project }: { project: Project }) {
           {project.shortDescription}
         </p>
         <div className="flex flex-wrap gap-2 mt-auto">
-          <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded bg-primary/10 text-primary">
+          <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/20">
             {project.status}
           </span>
-          <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded bg-foreground/5 text-foreground/60">
+          <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded bg-white/5 text-white/60 border border-white/10">
             {project.year}
           </span>
         </div>
@@ -47,7 +47,8 @@ export default function Projects() {
 
   return (
     <main className="flex-1 flex flex-col min-h-[100dvh] px-4 pt-32 pb-24 relative max-w-7xl mx-auto w-full overflow-x-clip">
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/5 blur-[150px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#8A2BE2]/10 blur-[150px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#00F0FF]/5 blur-[150px] rounded-full pointer-events-none -z-10" />
 
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 relative z-20">
         <div>
@@ -64,7 +65,7 @@ export default function Projects() {
       <div className="flex items-center gap-3 overflow-x-auto pb-4 mb-4 scrollbar-hide relative z-20">
         <button 
           onClick={() => setActiveFilter(null)}
-          className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === null ? 'bg-foreground text-background shadow-[0_0_12px_rgba(255,215,0,0.3)]' : 'bg-foreground/5 text-foreground/60 hover:bg-foreground/10'}`}
+          className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors border ${activeFilter === null ? 'bg-[#00F0FF]/10 text-[#00F0FF] border-[#00F0FF]/40 shadow-[0_0_12px_rgba(0,240,255,0.3)]' : 'bg-foreground/5 text-foreground/60 border-foreground/10 hover:bg-foreground/10'}`}
         >
           All Domains
         </button>
@@ -72,7 +73,7 @@ export default function Projects() {
           <button 
             key={cat}
             onClick={() => setActiveFilter(cat === activeFilter ? null : cat)}
-            className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === cat ? 'bg-foreground text-background shadow-[0_0_12px_rgba(255,215,0,0.3)]' : 'bg-foreground/5 text-foreground/60 hover:bg-foreground/10'}`}
+            className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors border ${activeFilter === cat ? 'bg-[#8A2BE2]/10 text-[#8A2BE2] border-[#8A2BE2]/40 shadow-[0_0_12px_rgba(138,43,226,0.3)]' : 'bg-foreground/5 text-foreground/60 border-foreground/10 hover:bg-foreground/10'}`}
           >
             {cat}
           </button>

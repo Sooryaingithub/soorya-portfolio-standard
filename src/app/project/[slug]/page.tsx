@@ -34,9 +34,10 @@ export default function ProjectPage() {
     <main ref={containerRef} className="flex-1 bg-background relative">
       {/* Hero Section */}
       <section className="relative h-[80dvh] flex flex-col items-center justify-center overflow-hidden">
-        <motion.div style={{ y: y1, opacity: opacity1 }} className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background/50 to-background" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[600px] bg-primary/10 blur-[150px] rounded-full" />
+        <motion.div style={{ y: y1, opacity: opacity1 }} className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background z-10" />
+          <div className="absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[#8A2BE2]/15 blur-[150px] rounded-full z-0" />
+          <div className="absolute top-1/2 right-1/4 translate-x-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[#00F0FF]/15 blur-[150px] rounded-full z-0" />
         </motion.div>
 
         <div className="z-10 text-center px-4 max-w-4xl w-full">

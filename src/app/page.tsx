@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Download, Terminal } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import NeuralNodes from "@/components/visuals/NeuralNodes";
 
 export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
@@ -56,8 +57,7 @@ export default function Home() {
   return (
     <main className="flex-1 flex flex-col justify-center min-h-[100dvh] px-4 pt-24 pb-12 relative overflow-hidden">
       {/* Background glow effects */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-foreground/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-background to-transparent pointer-events-none" />
+      <NeuralNodes />
 
       <motion.div
         variants={containerVariants}
@@ -65,10 +65,10 @@ export default function Home() {
         animate="visible"
         className="max-w-4xl mx-auto w-full z-10"
       >
-        <motion.div variants={itemVariants} className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-foreground/5 border border-foreground/10 text-xs font-medium text-muted-foreground backdrop-blur-md">
+        <motion.div variants={itemVariants} className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-foreground/5 border border-[#00F0FF]/30 text-xs font-medium text-[#00F0FF] backdrop-blur-md shadow-[0_0_15px_rgba(0,240,255,0.2)]">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F0FF] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00F0FF]"></span>
           </span>
           AI Systems Engineer
         </motion.div>
@@ -117,17 +117,17 @@ export default function Home() {
             <motion.div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200vw] h-[200vw] rounded-full pointer-events-none z-[-1]"
               style={{
-                background: "radial-gradient(circle, rgba(255,215,0,0.12) 0%, rgba(255,215,0,0.05) 40%, transparent 70%)"
+                background: "radial-gradient(circle, rgba(0,240,255,0.15) 0%, rgba(138,43,226,0.1) 40%, transparent 70%)"
               }}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: isHovered ? 1 : 0, opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             />
 
-            <Link href="/projects" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-xl bg-white px-8 font-medium text-black transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(255,215,0,0.15)] hover:shadow-[0_0_25px_rgba(255,215,0,0.3)]">
+            <Link href="/projects" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-xl bg-white px-8 font-medium text-black transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,240,255,0.2)] hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]">
               <span className="relative flex h-2 w-2 mr-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD700] opacity-100"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFC000]"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8A2BE2] opacity-100"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8A2BE2]"></span>
               </span>
               <span className="mr-2">View Projects</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

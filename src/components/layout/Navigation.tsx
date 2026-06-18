@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Command } from "lucide-react";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -50,7 +49,6 @@ export default function Navigation() {
         </div>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle />
           <button className="flex items-center gap-2 px-3 py-1.5 text-xs text-muted-foreground bg-white/5 hover:bg-white/10 rounded-lg transition-colors border border-white/5">
             <Command className="w-3 h-3" />
             <span>CMD K</span>
