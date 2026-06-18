@@ -282,16 +282,51 @@ export const projects: Project[] = [
   },
   {
     id: "privacy-first-remote-access",
-    title: "Private Remote",
+    title: "Privacy-First Remote Access",
     slug: "privacy-first-remote-access",
-    category: ["Infrastructure", "Networking"],
+    category: ["Infrastructure", "Networking", "Cybersecurity"],
     status: "MVP",
     complexity: "Medium",
     year: 2025,
-    shortDescription: "Privacy-First Remote Access Infrastructure.",
+    shortDescription: "Self-hosted remote access infrastructure utilizing RustDesk, Tailscale, and WireGuard.",
     x: 85,
     y: 65,
     size: "sm",
+    content: {
+      overview: {
+        problem: "Traditional commercial remote desktop solutions route sensitive data through third-party proprietary servers, raising serious security, latency, and data privacy concerns.",
+        solution: "Designed and deployed a highly secure, self-hosted remote access infrastructure enabling completely private remote desktop connectivity between macOS and Windows systems."
+      },
+      capabilities: [
+        "Self-hosted RustDesk server for uncompromising data privacy.",
+        "Encrypted WireGuard-based underlying networking architecture.",
+        "Tailscale mesh VPN for robust zero-configuration secure access.",
+        "Seamless cross-platform (macOS/Windows) remote desktop control.",
+        "Secure end-to-end device-to-device communication."
+      ],
+      sections: [
+        {
+          title: "Hardware & Software Stack",
+          body: [
+            "Platforms: macOS, Windows",
+            "Remote Desktop Engine: RustDesk Server",
+            "Networking & Tunnels: Tailscale, Headscale, WireGuard Protocol"
+          ]
+        },
+        {
+          title: "Key Infrastructure Benefits",
+          body: [
+            "Eliminated third-party dependencies for remote device-to-device communication.",
+            "Established encrypted tunnels ensuring end-to-end data security.",
+            "Achieved high-performance, low-latency connectivity using direct mesh networking."
+          ]
+        },
+        {
+          title: "Skills Demonstrated",
+          body: "Cybersecurity • Zero-Trust Networking • Self-Hosting • Infrastructure Engineering"
+        }
+      ]
+    }
   },
   {
     id: "nas-deployment",
