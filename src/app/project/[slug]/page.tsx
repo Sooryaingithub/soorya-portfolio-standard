@@ -48,6 +48,17 @@ export default function ProjectPage() {
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacity1 = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
+  // Abstract Visualizer Transforms (Must be top-level)
+  const absRotate1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const absScale1 = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8]);
+  const absRotate2 = useTransform(scrollYProgress, [0, 1], [0, -720]);
+  const absRotate3 = useTransform(scrollYProgress, [0, 1], [0, 1080]);
+  const absScale2 = useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1.5, 0.5]);
+  const node1Y = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+  const node1X = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  const node2Y = useTransform(scrollYProgress, [0, 1], [150, -150]);
+  const node2X = useTransform(scrollYProgress, [0, 1], [100, -50]);
+
   // Hack for hydration mismatch with useParams
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -299,28 +310,28 @@ export default function ProjectPage() {
                     {/* Abstract Scroll-Linked Visualizer */}
                     <motion.div 
                       style={{ 
-                        rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
-                        scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8])
+                        rotate: absRotate1,
+                        scale: absScale1
                       }}
                       className="absolute w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] border border-white/10 rounded-full flex items-center justify-center opacity-30"
                     >
                       <motion.div 
                         style={{ 
-                          rotate: useTransform(scrollYProgress, [0, 1], [0, -720]),
+                          rotate: absRotate2,
                           borderColor: primaryColor
                         }}
                         className="w-[80%] h-[80%] border-t border-b rounded-full flex items-center justify-center"
                       >
                         <motion.div 
                           style={{ 
-                            rotate: useTransform(scrollYProgress, [0, 1], [0, 1080]),
+                            rotate: absRotate3,
                             borderColor: secondaryColor
                           }}
                           className="w-[60%] h-[60%] border-r border-l rounded-full border-dashed flex items-center justify-center"
                         >
                           <motion.div 
                             style={{ 
-                              scale: useTransform(scrollYProgress, [0, 0.5, 1], [0.5, 1.5, 0.5]),
+                              scale: absScale2,
                               backgroundColor: primaryColor
                             }}
                             className="w-16 h-16 rounded-full blur-xl"
@@ -331,14 +342,14 @@ export default function ProjectPage() {
 
                     {/* Floating Data Nodes (move on scroll) */}
                     <motion.div 
-                      style={{ y: useTransform(scrollYProgress, [0, 1], [-100, 100]), x: useTransform(scrollYProgress, [0, 1], [-50, 50]) }}
+                      style={{ y: node1Y, x: node1X }}
                       className="absolute top-1/4 left-1/4 w-12 h-12 glass-panel rounded-xl flex items-center justify-center"
                     >
                       <div className="w-2 h-2 rounded-full" style={{ backgroundColor: secondaryColor }} />
                     </motion.div>
                     
                     <motion.div 
-                      style={{ y: useTransform(scrollYProgress, [0, 1], [150, -150]), x: useTransform(scrollYProgress, [0, 1], [100, -50]) }}
+                      style={{ y: node2Y, x: node2X }}
                       className="absolute bottom-1/4 right-1/4 w-16 h-16 glass-panel rounded-full flex items-center justify-center"
                     >
                       <div className="w-3 h-3 rounded-full" style={{ backgroundColor: primaryColor }} />
