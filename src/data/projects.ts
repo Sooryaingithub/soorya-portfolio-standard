@@ -387,57 +387,46 @@ export const projects: Project[] = [
   },
   {
     id: "nas-deployment",
-    title: "Standalone NAS Server",
+    title: "SSSM Liquid Glass NAS",
     slug: "nas-deployment",
-    category: ["Infrastructure", "Hardware", "Self-Hosting"],
+    category: ["Infrastructure", "Hardware", "Self-Hosting", "UI Engineering"],
     status: "Production Candidate",
-    complexity: "Low",
+    complexity: "High",
     year: 2026,
-    shortDescription: "Self-hosted NAS solution using Raspberry Pi and OpenMediaVault.",
+    shortDescription: "Custom-built home cloud storage system with a native Liquid Glass UI.",
     x: 75,
     y: 75,
-    size: "sm",
+    size: "lg",
     content: {
       overview: {
-        problem: "Reliance on commercial cloud storage often results in recurring subscription costs, potential data privacy vulnerabilities, and reliance on internet bandwidth for local file access.",
-        solution: "Designed and deployed a self-hosted NAS solution using a Raspberry Pi 3 and OpenMediaVault to provide centralized storage, backup management, and secure local network file sharing."
+        problem: "Commercial NAS devices cost hundreds of dollars for decent UIs, while open-source alternatives like OpenMediaVault and FreeNAS suffer from overly technical, aesthetically outdated admin panels. Raw SMB shares offer zero monitoring or accessibility.",
+        solution: "Engineered a custom-built home cloud storage system on a $35 Raspberry Pi 3. Designed 'SSSM Liquid Glass,' a premium, iOS 26-inspired browser-based dashboard running alongside deeply kernel-tuned Samba 4 for maximum network throughput."
       },
       capabilities: [
-        "Centralized file storage accessible across the local network.",
-        "SMB network sharing for seamless cross-platform file transfers.",
-        "Secure remote system administration and management via SSH.",
-        "Automated backup workflows for high data reliability.",
-        "Highly efficient, low-power home server deployment."
+        "Kernel-Level Performance Tuning: Achieved 30+ MB/s sustained read speeds (up from 12 MB/s) via mq-deadline schedulers, 4MB USB read-ahead, and Google BBR congestion control.",
+        "Liquid Glass UI: Pure Vanilla JS/CSS dashboard featuring glassmorphism, spring-curve animations, and a unified media library supporting RAW photos.",
+        "10Hz Hardware Telemetry: Live monitor updating per-core CPU, GPU waves, RAM, temperature, and TCP connections every 100ms.",
+        "Advanced I/O Heuristics: 'Focused Bandwidth' ionice prioritization and 'Predictive RAM Preheating' triggered instantly on UI hover events.",
+        "Native macOS Integration: Samba 4 with Apple's vfs_fruit extension for seamless Finder mounting via smb://192.168.1.15."
       ],
       sections: [
         {
-          title: "Hardware & Software Stack",
+          title: "Hardware & Tech Stack",
           body: [
-            "Hardware: Raspberry Pi 3",
-            "OS & Platforms: OpenMediaVault, Linux",
-            "Protocols & Services: SMB, SSH"
+            "Hardware: Raspberry Pi 3 Model B, External USB 2.0 HDDs",
+            "Network: 100 Mbps Ethernet (Shared USB Bus), SMB, SSH",
+            "Backend: Python Flask (1,100+ lines), systemd, Samba 4",
+            "Frontend: Vanilla JS (1,200+ lines), Vanilla CSS (1,100+ lines) - Zero Dependencies",
+            "OS: Raspberry Pi OS (Debian Linux ARM)"
           ]
         },
         {
-          title: "Key Achievements",
+          title: "Results & Impact",
           body: [
-            "Built a highly cost-effective, high-availability NAS solution.",
-            "Enabled true secure local data ownership with zero reliance on external cloud providers.",
-            "Significantly improved backup redundancy and local data availability."
+            "Performance: Sustained 200-300 Mbps network links with 30+ MB/s read speeds overcoming strict USB 2.0 limitations.",
+            "Responsiveness: 10Hz UI refresh rates—up to 10x faster telemetry than commercial enterprise NAS interfaces.",
+            "Cost Efficiency: Achieved premium hardware performance and UI design for ~$35 compared to $300-$2000 commercial alternatives."
           ]
-        },
-        {
-          title: "Potential Extensions",
-          body: [
-            "Tailscale Integration for zero-configuration, secure remote access.",
-            "Headscale Deployment for a self-hosted, open-source mesh VPN.",
-            "Deployment of self-hosted cloud storage interfaces (e.g., Nextcloud).",
-            "RustDesk Server Hosting for self-hosted remote desktop control."
-          ]
-        },
-        {
-          title: "Skills Demonstrated",
-          body: "Linux Administration • Networking • Storage Systems • Self-Hosting Hardware"
         }
       ]
     }
