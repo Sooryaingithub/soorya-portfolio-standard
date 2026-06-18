@@ -32,6 +32,13 @@ const timelineEvents = [
   }
 ];
 
+function getTheme(year: string) {
+  if (year === "2026") return { primary: "#8A2BE2", secondary: "#00F0FF" };
+  if (year === "2025") return { primary: "#10B981", secondary: "#06B6D4" };
+  if (year === "2024") return { primary: "#F59E0B", secondary: "#E11D48" };
+  return { primary: "#8A2BE2", secondary: "#00F0FF" };
+}
+
 export default function Timeline() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -58,39 +65,48 @@ export default function Timeline() {
               <div className="w-3 h-3 rounded-full bg-white/20" />
             </div>
 
-            {timelineEvents.map((yearBlock, idx) => (
-              <div key={yearBlock.year} className="flex-none flex items-center gap-12">
-                <div className="flex flex-col gap-6">
-                  <h2 className="text-8xl md:text-[12rem] font-bold tracking-tighter text-foreground/5 leading-none select-none">
-                    {yearBlock.year}
-                  </h2>
-                  <div className="flex gap-4 items-start pt-8">
-                    {yearBlock.events.map((event, eIdx) => (
-                      <motion.div 
-                        key={eIdx}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: eIdx * 0.1 }}
-                        className="glass-panel p-6 w-64 md:w-80 shrink-0 hover:bg-white/10 transition-colors"
-                      >
-                        <p className="text-xs font-medium uppercase tracking-widest text-primary mb-3">
-                          {event.type}
-                        </p>
-                        <h3 className="text-xl font-medium tracking-tight">
-                          {event.title}
-                        </h3>
-                      </motion.div>
-                    ))}
+            {timelineEvents.map((yearBlock, idx) => {
+              const { primary } = getTheme(yearBlock.year);
+              return (
+                <div key={yearBlock.year} className="flex-none flex items-center gap-12">
+                  <div className="flex flex-col gap-6">
+                    <h2 
+                      className="text-8xl md:text-[12rem] font-bold tracking-tighter text-foreground/5 leading-none select-none transition-colors duration-500"
+                    >
+                      {yearBlock.year}
+                    </h2>
+                    <div className="flex gap-4 items-start pt-8">
+                      {yearBlock.events.map((event, eIdx) => (
+                        <motion.div 
+                          key={eIdx}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: eIdx * 0.1 }}
+                          className="glass-panel p-6 w-64 md:w-80 shrink-0 hover:bg-foreground/10 transition-colors duration-300 arcade-scanlines active:scale-95 hover:shadow-[var(--hover-shadow)]"
+                          style={{ '--hover-shadow': `inset 0 0 20px ${primary}40` } as React.CSSProperties}
+                        >
+                          <p 
+                            className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded border inline-block mb-4"
+                            style={{ backgroundColor: `${primary}1A`, color: primary, borderColor: `${primary}33` }}
+                          >
+                            {event.type}
+                          </p>
+                          <h3 className="text-xl font-medium tracking-tight">
+                            {event.title}
+                          </h3>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
+                  
+                  {/* Connecting line segment */}
+                  {idx !== timelineEvents.length - 1 && (
+                    <div className="w-24 h-px bg-white/10" />
+                  )}
                 </div>
-                
-                {/* Connecting line segment */}
-                {idx !== timelineEvents.length - 1 && (
-                  <div className="w-24 h-px bg-white/10" />
-                )}
-              </div>
-            ))}
+              );
+            })}
             
             {/* End point */}
             <div className="flex-none w-24 flex items-center justify-center">
