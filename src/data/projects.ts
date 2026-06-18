@@ -116,16 +116,59 @@ export const projects: Project[] = [
   },
   {
     id: "whisperkit-integration",
-    title: "WhisperKit",
+    title: "WhisperKit Integration",
     slug: "whisperkit-integration",
-    category: ["Local AI", "Apple Ecosystem"],
+    category: ["Local AI", "Apple Ecosystem", "CoreML"],
     status: "Research",
     complexity: "Medium",
     year: 2026,
-    shortDescription: "WhisperKit Speech Intelligence Integration.",
+    shortDescription: "Fast, privacy-preserving local speech-to-text transcription on Apple devices.",
     x: 35,
     y: 50,
     size: "md",
+    content: {
+      overview: {
+        problem: "Traditional speech-to-text workflows rely heavily on cloud APIs, which introduce latency, require constant internet connectivity, and raise significant data privacy concerns for sensitive audio recordings.",
+        solution: "Integrated WhisperKit into local AI workflows to provide fast, privacy-preserving speech-to-text transcription directly on Apple Silicon and CoreML-supported devices."
+      },
+      capabilities: [
+        "Real-time, fully local speech transcription with zero cloud dependency.",
+        "Robust support for multilingual audio processing.",
+        "Deep integration with local AI agents for offline interactions.",
+        "Optimized hardware acceleration utilizing CoreML and Swift."
+      ],
+      sections: [
+        {
+          title: "Hardware & Software Stack",
+          body: [
+            "Frameworks: WhisperKit, CoreML",
+            "Languages: Swift",
+            "Platforms: macOS & CoreML Supported Devices"
+          ]
+        },
+        {
+          title: "Key Achievements",
+          body: [
+            "Significantly reduced transcription latency through direct Apple Silicon hardware optimization.",
+            "Enabled highly secure, privacy-first voice processing workflows.",
+            "Built a foundational architecture for voice-interaction with local Large Language Models (LLMs)."
+          ]
+        },
+        {
+          title: "End User Benefits",
+          body: [
+            "100% private transcription with no audio leaving the device.",
+            "Faster turnaround times compared to traditional cloud-based workflows.",
+            "Seamless offline speech recognition capabilities.",
+            "Direct model integration combining local speech-to-text input with local LLMs."
+          ]
+        },
+        {
+          title: "Skills Demonstrated",
+          body: "Speech AI • CoreML Optimization • Local AI Systems Architecture • Apple Ecosystem Development"
+        }
+      ]
+    }
   },
   {
     id: "document-intelligence",
