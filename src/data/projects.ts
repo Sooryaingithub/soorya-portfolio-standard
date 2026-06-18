@@ -235,16 +235,50 @@ export const projects: Project[] = [
   },
   {
     id: "github-automation",
-    title: "GitHub Auto",
+    title: "GitHub Automation using Google Jules",
     slug: "github-automation",
-    category: ["Cloud Engineering", "Infrastructure"],
+    category: ["Cloud Engineering", "Infrastructure", "DevOps"],
     status: "Production Candidate",
     complexity: "Medium",
     year: 2025,
-    shortDescription: "GitHub Workflow Automation.",
+    shortDescription: "AI-assisted software development workflow leveraging Google Jules.",
     x: 80,
     y: 40,
     size: "sm",
+    content: {
+      overview: {
+        problem: "Repetitive software engineering tasks, such as issue triaging, boilerplate code generation, and repository maintenance, consume significant developer time and slow down iteration cycles.",
+        solution: "Developed an AI-assisted software development workflow leveraging Google Jules to intelligently automate repetitive engineering tasks and streamline GitHub repository management."
+      },
+      capabilities: [
+        "Automated issue handling, categorization, and initial triaging.",
+        "AI-assisted code generation for rapid prototyping and boilerplate creation.",
+        "Pull request workflow acceleration through automated reviews and summaries.",
+        "Intelligent repository maintenance and administration automation."
+      ],
+      sections: [
+        {
+          title: "Hardware & Software Stack",
+          body: [
+            "AI Agent: Google Jules",
+            "Platforms: GitHub",
+            "Workflows: GitHub Actions, CI/CD Pipelines"
+          ]
+        },
+        {
+          title: "Key Achievements",
+          body: [
+            "Drastically reduced manual repository administration overhead.",
+            "Improved overall development velocity and productivity.",
+            "Accelerated feature iteration cycles through AI-assisted workflows."
+          ]
+        },
+        {
+          title: "Skills Demonstrated",
+          body: "DevOps • CI/CD • Software Automation • AI-Assisted Development"
+        }
+      ]
+    }
   },
   {
     id: "privacy-first-remote-access",
