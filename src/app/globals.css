@@ -140,8 +140,37 @@
   ::-webkit-scrollbar-thumb:hover {
     background: oklch(1 0 0 / 30%); 
   }
-}
 
-.glass-panel {
-  @apply bg-glass border border-glass-border backdrop-blur-2xl rounded-2xl shadow-2xl;
+  .glass-panel {
+    @apply bg-glass border border-glass-border backdrop-blur-xl rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+
+  .arcade-scanlines {
+    @apply relative overflow-hidden;
+  }
+  
+  .arcade-scanlines::before {
+    content: "";
+    @apply absolute inset-0 pointer-events-none z-10 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+    background-size: 100% 4px;
+  }
+  
+  .arcade-scanlines:hover::before {
+    @apply opacity-100;
+  }
+
+  @keyframes glitch-anim {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+  }
+
+  .glitch-hover:hover {
+    animation: glitch-anim 0.2s linear infinite;
+    text-shadow: 2px 0 #00F0FF, -2px 0 #8A2BE2;
+  }
 }
