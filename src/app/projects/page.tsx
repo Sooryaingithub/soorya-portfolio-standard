@@ -8,7 +8,16 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const allCategories = Array.from(new Set(projects.flatMap(p => p.category)));
 
+function getTheme(year: number) {
+  if (year === 2026) return { primary: "#8A2BE2", secondary: "#00F0FF" };
+  if (year === 2025) return { primary: "#10B981", secondary: "#06B6D4" };
+  if (year === 2024) return { primary: "#F59E0B", secondary: "#E11D48" };
+  return { primary: "#8A2BE2", secondary: "#00F0FF" };
+}
+
 function ProjectCard({ project }: { project: Project }) {
+  const { primary } = getTheme(project.year);
+  
   return (
     <motion.div
       layout
@@ -17,7 +26,11 @@ function ProjectCard({ project }: { project: Project }) {
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3 }}
     >
-      <Link href={`/project/${project.slug}`} className="block group glass-panel p-6 h-full flex flex-col hover:bg-foreground/10 transition-colors duration-300 arcade-scanlines active:scale-95 hover:shadow-[inset_0_0_20px_rgba(0,240,255,0.3)]">
+      <Link 
+        href={`/project/${project.slug}`} 
+        className="block group glass-panel p-6 h-full flex flex-col hover:bg-foreground/10 transition-colors duration-300 arcade-scanlines active:scale-95 hover:shadow-[var(--hover-shadow)]"
+        style={{ '--hover-shadow': `inset 0 0 20px ${primary}40` } as React.CSSProperties}
+      >
         <div className="flex justify-between items-start mb-4 relative z-20">
           <h3 className="text-xl font-semibold tracking-tight transition-all duration-300 group-hover:glitch-hover">{project.title}</h3>
           <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-foreground" />
@@ -26,7 +39,10 @@ function ProjectCard({ project }: { project: Project }) {
           {project.shortDescription}
         </p>
         <div className="flex flex-wrap gap-2 mt-auto">
-          <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/20">
+          <span 
+            className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded border"
+            style={{ backgroundColor: `${primary}1A`, color: primary, borderColor: `${primary}33` }}
+          >
             {project.status}
           </span>
           <span className="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded bg-white/5 text-white/60 border border-white/10">
