@@ -129,16 +129,66 @@ export const projects: Project[] = [
   },
   {
     id: "document-intelligence",
-    title: "Doc Intel",
+    title: "Kosmos-DB Doc Intel",
     slug: "document-intelligence",
-    category: ["AI", "Data Engineering"],
+    category: ["AI", "Data Engineering", "Azure"],
     status: "MVP",
     complexity: "High",
     year: 2025,
-    shortDescription: "AI-Powered Document Processing System.",
+    shortDescription: "Kosmos-DB Document Intelligence Pipeline for automated extraction and analysis.",
     x: 60,
     y: 40,
     size: "md",
+    content: {
+      overview: {
+        problem: "Organizations spend significant time manually processing documents and extracting information from unstructured content.",
+        solution: "An intelligent document processing system capable of extracting, classifying, and analyzing information from documents using AI and cloud-native workflows."
+      },
+      capabilities: [
+        "Automated document processing and orchestration",
+        "OCR-based extraction for unstructured texts",
+        "AI-driven classification and data modeling",
+        "Cloud scalability using serverless integrations"
+      ],
+      sections: [
+        {
+          title: "Objectives & Challenges",
+          body: [
+            "Automate document ingestion to handle massive unstructured document flows.",
+            "Extract text using advanced OCR and improve overall extraction accuracy.",
+            "Classify documents intelligently using trained AI models.",
+            "Generate and store structured outputs for fast retrieval.",
+            "Automate complex workflow orchestration."
+          ]
+        },
+        {
+          title: "Architecture Pipeline",
+          body: [
+            "1. Documents uploaded to secure cloud storage.",
+            "2. OCR engine extracts textual content automatically.",
+            "3. AI models analyze and classify the documents based on context.",
+            "4. Structured information is stored persistently.",
+            "5. Results are made available downstream through APIs and dashboards."
+          ]
+        },
+        {
+          title: "Software & Technology Stack",
+          body: [
+            "Microsoft Azure (Azure Functions, Azure Logic Apps, Cloud Storage)",
+            "Python for backend orchestration and AI integration",
+            "Advanced OCR Technologies & AI/ML Classification Models"
+          ]
+        },
+        {
+          title: "Attempted Outcomes",
+          body: [
+            "Dramatically reduced manual document processing effort.",
+            "Increased operational efficiency and data turnaround time.",
+            "Successfully demonstrated practical AI automation use cases in production environments."
+          ]
+        }
+      ]
+    }
   },
   {
     id: "github-automation",
