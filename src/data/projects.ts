@@ -261,16 +261,60 @@ export const projects: Project[] = [
   },
   {
     id: "nas-deployment",
-    title: "NAS System",
+    title: "Standalone NAS Server",
     slug: "nas-deployment",
-    category: ["Infrastructure", "Hardware"],
+    category: ["Infrastructure", "Hardware", "Self-Hosting"],
     status: "Production Candidate",
     complexity: "Low",
     year: 2026,
-    shortDescription: "Standalone NAS Deployment.",
+    shortDescription: "Self-hosted NAS solution using Raspberry Pi and OpenMediaVault.",
     x: 75,
     y: 75,
     size: "sm",
+    content: {
+      overview: {
+        problem: "Reliance on commercial cloud storage often results in recurring subscription costs, potential data privacy vulnerabilities, and reliance on internet bandwidth for local file access.",
+        solution: "Designed and deployed a self-hosted NAS solution using a Raspberry Pi 3 and OpenMediaVault to provide centralized storage, backup management, and secure local network file sharing."
+      },
+      capabilities: [
+        "Centralized file storage accessible across the local network.",
+        "SMB network sharing for seamless cross-platform file transfers.",
+        "Secure remote system administration and management via SSH.",
+        "Automated backup workflows for high data reliability.",
+        "Highly efficient, low-power home server deployment."
+      ],
+      sections: [
+        {
+          title: "Hardware & Software Stack",
+          body: [
+            "Hardware: Raspberry Pi 3",
+            "OS & Platforms: OpenMediaVault, Linux",
+            "Protocols & Services: SMB, SSH"
+          ]
+        },
+        {
+          title: "Key Achievements",
+          body: [
+            "Built a highly cost-effective, high-availability NAS solution.",
+            "Enabled true secure local data ownership with zero reliance on external cloud providers.",
+            "Significantly improved backup redundancy and local data availability."
+          ]
+        },
+        {
+          title: "Potential Extensions",
+          body: [
+            "Tailscale Integration for zero-configuration, secure remote access.",
+            "Headscale Deployment for a self-hosted, open-source mesh VPN.",
+            "Deployment of self-hosted cloud storage interfaces (e.g., Nextcloud).",
+            "RustDesk Server Hosting for self-hosted remote desktop control."
+          ]
+        },
+        {
+          title: "Skills Demonstrated",
+          body: "Linux Administration • Networking • Storage Systems • Self-Hosting Hardware"
+        }
+      ]
+    }
   },
   {
     id: "iot-data-pipeline",
