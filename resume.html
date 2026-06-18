@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soorya Sendilnath - Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  
+  :root {
+    --primary: #111;
+    --secondary: #444;
+    --accent: #000;
+    --light-border: #e5e5e5;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+    color: var(--primary);
+    margin: 0;
+    padding: 0;
+    font-size: 10.5pt;
+  }
+
+  h1 {
+    font-size: 24pt;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    letter-spacing: -0.5px;
+  }
+
+  h2 {
+    font-size: 14pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--light-border);
+    padding-bottom: 4px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    color: var(--secondary);
+  }
+
+  h3 {
+    font-size: 12pt;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .subtitle {
+    font-size: 11pt;
+    color: var(--secondary);
+    font-weight: 400;
+    margin: 0 0 8px 0;
+  }
+
+  .contact-info {
+    font-size: 10pt;
+    color: var(--secondary);
+    margin-bottom: 20px;
+  }
+
+  .contact-info span {
+    margin-right: 15px;
+  }
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  ul {
+    margin: 0 0 15px 0;
+    padding-left: 20px;
+  }
+
+  li {
+    margin-bottom: 4px;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skills-list li {
+    background: #f4f4f5;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 9.5pt;
+    color: #3f3f46;
+    margin-bottom: 0;
+  }
+
+  .project {
+    margin-bottom: 15px;
+    page-break-inside: avoid;
+  }
+  
+  .tech-stack {
+    font-style: italic;
+    color: var(--secondary);
+    font-size: 9.5pt;
+    margin-bottom: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Soorya Sendilnath</h1>
+    <div class="subtitle">AI Systems Architect & Software Engineer</div>
+    <div class="contact-info">
+      <span>SRM Institute of Science and Technology, Ramapuram</span>
+      <span>sooryasendilnath@example.com</span>
+    </div>
+  </header>
+
+  <div class="section">
+    <h2>Profile</h2>
+    <p>Forward-thinking AI Systems Architect and Software Engineer specializing in local AI deployment, spatial computing, cloud infrastructure, and low-latency edge systems. Proven track record of designing highly optimized, privacy-first AI workflows, ranging from on-device Vision-Language Models (VLMs) to scalable 5G edge networks and fully autonomous dual-tier AI education platforms.</p>
+  </div>
+
+  <div class="section">
+    <h2>Core Skills</h2>
+    <ul class="skills-list">
+      <li>Python 3.11+</li>
+      <li>Swift & SwiftUI</li>
+      <li>Apple Silicon (MLX, CoreML)</li>
+      <li>ARKit & Spatial Computing</li>
+      <li>Local LLM & VLM Deployment</li>
+      <li>Azure (Functions, Logic Apps)</li>
+      <li>RAG Architecture & Vector DBs</li>
+      <li>Linux Administration & Kernel Tuning</li>
+      <li>Zero-Trust Networking (Tailscale, WireGuard)</li>
+      <li>React, Next.js, Vanilla JS/CSS</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Key Engineering Projects</h2>
+
+    <div class="project">
+      <h3>Gemma 4 - 3b On-Device Multimodal Spatial AI Agent</h3>
+      <div class="tech-stack">Swift, SwiftUI, MLX Swift, ARKit, CoreML, YOLOv3, Gemma 2 2B</div>
+      <ul>
+        <li>Engineered a native iOS/iPadOS spatial AI assistant utilizing a dual-engine architecture to completely eliminate cloud latency and privacy concerns.</li>
+        <li>Implemented high-frequency spatial tracking (YOLOv3Tiny via CoreML) decoupled from a 4-bit quantized Vision-Language Model (Gemma 2 2B via MLX Swift), ensuring zero AR frame drops.</li>
+        <li>Developed a real-time 3D coordinate mapping pipeline to translate 2D bounding boxes into 'Liquid Glass' AR holograms anchored to physical objects.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>SkillTree: Privacy-First Local Intelligent EdTech Engine</h3>
+      <div class="tech-stack">Python 3.11+, Ollama API, ChromaDB, RAG, REST APIs</div>
+      <ul>
+        <li>Scaffolded the core intelligence architecture for a dual-tier, gamified AI education platform running entirely locally to bypass cloud GPU overhead.</li>
+        <li>Engineered a raw ChromaDB vector pipeline indexing technical markdown for a dynamic context injection RAG sandbox.</li>
+        <li>Implemented deterministic guardrailing, forcing the local LLM to refuse out-of-scope queries via strict system prompt firewalls and raw REST orchestrations.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>5G Edge Computing & ADAS Network Architecture</h3>
+      <div class="tech-stack">5G NR V2X, Nvidia Drive Pegasus, Mobileye EyeQ5, C-V2X</div>
+      <ul>
+        <li>Designed a decentralized edge-cloud hybrid computing framework mapping critical Advanced Driver Assistance Systems (ADAS) tasks to regional edge nodes.</li>
+        <li>Reduced tested network latencies from 85ms on conventional clouds to under 8ms, ensuring real-time response for autonomous safety systems.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>SSSM Liquid Glass NAS (Kernel-Tuned Home Cloud)</h3>
+      <div class="tech-stack">Raspberry Pi 3, OpenMediaVault, Python Flask, Vanilla JS/CSS, Samba 4</div>
+      <ul>
+        <li>Engineered a custom $35 home cloud storage solution rivaling $2,000 commercial NAS devices, complete with a zero-dependency iOS 26-inspired 'Liquid Glass' UI.</li>
+        <li>Achieved 30+ MB/s sustained read speeds over USB 2.0 via deep Linux kernel tuning (mq-deadline schedulers, 4MB read-ahead, Google BBR congestion control).</li>
+        <li>Implemented 10Hz live hardware telemetry (CPU/GPU/RAM) and native macOS Finder integration via Samba `vfs_fruit`.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>Kosmos-DB Document Intelligence Pipeline</h3>
+      <div class="tech-stack">Azure Functions, Azure Logic Apps, Python, OCR, AI/ML</div>
+      <ul>
+        <li>Developed an automated cloud-native workflow to ingest, extract, and intelligently classify unstructured document data at scale.</li>
+        <li>Utilized serverless Azure orchestration to generate structured outputs for rapid downstream API and dashboard retrieval.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>WhisperKit Speech Intelligence Integration</h3>
+      <div class="tech-stack">WhisperKit, CoreML, Swift, macOS</div>
+      <ul>
+        <li>Integrated WhisperKit into local AI workflows for 100% private, zero-dependency, real-time speech-to-text transcription on Apple Silicon hardware.</li>
+      </ul>
+    </div>
+    
+  </div>
+
+</body>
+</html>

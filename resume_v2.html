@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Soorya Sendilnath - Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  
+  :root {
+    --primary: #1e293b;
+    --secondary: #475569;
+    --accent: #0f172a;
+    --border: #cbd5e1;
+  }
+
+  @page {
+    size: A4;
+    margin: 1.25cm 1.5cm;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+    color: var(--primary);
+    margin: 0;
+    padding: 0;
+    font-size: 10pt;
+  }
+
+  header {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 24pt;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--secondary);
+    margin: 0 0 8px 0;
+  }
+
+  .contact-info {
+    font-size: 9.5pt;
+    color: var(--secondary);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .contact-info span {
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 3px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .section-content {
+    margin-bottom: 15px;
+  }
+
+  .flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .title {
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0;
+  }
+
+  .date {
+    font-size: 9.5pt;
+    color: var(--secondary);
+    font-weight: 500;
+  }
+
+  .organization {
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 2px 0 6px 0;
+  }
+  
+  .tech-stack {
+    font-size: 9.5pt;
+    font-style: italic;
+    color: var(--secondary);
+    margin: 2px 0 6px 0;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  li {
+    margin-bottom: 4px;
+    line-height: 1.45;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 4px;
+  }
+  
+  .skills-grid strong {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .item-group {
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Soorya Sendilnath</h1>
+    <div class="subtitle">AI Engineer</div>
+    <div class="contact-info">
+      <span>Chennai, Tamil Nadu</span>
+      <span>sooryasendilnath@gmail.com</span>
+      <span>+91 95661 64326</span>
+      <span>LinkedIn: soorya.s</span>
+    </div>
+  </header>
+
+  <div class="section">
+    <h2>Experience</h2>
+    <div class="item-group">
+      <div class="flex-row">
+        <div class="title">AI Engineer</div>
+        <div class="date"></div>
+      </div>
+      <div class="organization">IITM Pravartak Innovation Hub</div>
+      <ul>
+        <li>Develop, test, and train AI models based on OCR, optimizing for efficiency and performance tailored to current requirements.</li>
+        <li>Integrate company-specific functional requirements into models to enhance overall product experience and precision.</li>
+        <li>Engineer lighter, more efficient running systems for maximum hardware compatibility and faster inference times.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+    <div class="item-group">
+      <div class="flex-row">
+        <div class="title">B.Tech – Computer Science Engineering (IoT Specialization)</div>
+        <div class="date"></div>
+      </div>
+      <div class="organization">SRM University, Chennai</div>
+      <div class="organization">GPA: 8.5/10</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Key Projects</h2>
+
+    <div class="item-group">
+      <div class="flex-row">
+        <div class="title">SkillTree: Privacy-First Local Intelligent EdTech Engine</div>
+        <div class="date">Ongoing Project</div>
+      </div>
+      <div class="tech-stack">Python 3.11+, Ollama API (Llama 3), ChromaDB, RAG, REST APIs</div>
+      <ul>
+        <li>Scaffolded the core intelligence architecture for a dual-tier, gamified AI education platform running entirely locally on Apple Silicon to bypass cloud GPU overhead and ensure strict data privacy.</li>
+        <li>Engineered a raw ChromaDB vector pipeline indexing technical markdown for a dynamic context injection RAG sandbox.</li>
+        <li>Implemented deterministic guardrailing via strict system prompt firewalls and raw REST orchestrations, forcing the local LLM to refuse out-of-scope queries.</li>
+      </ul>
+    </div>
+
+    <div class="item-group">
+      <div class="flex-row">
+        <div class="title">Gemma 4 - 3b On-Device Multimodal Spatial AI Agent</div>
+        <div class="date">2026</div>
+      </div>
+      <div class="tech-stack">Swift, SwiftUI, MLX Swift, ARKit, CoreML, YOLOv3, Gemma 2 2B</div>
+      <ul>
+        <li>Engineered a native iOS/iPadOS spatial AI assistant utilizing a dual-engine architecture to completely eliminate cloud latency and privacy concerns.</li>
+        <li>Implemented high-frequency spatial tracking (YOLOv3Tiny via CoreML) decoupled from a 4-bit quantized Vision-Language Model (Gemma 2 2B via MLX Swift), ensuring zero AR frame drops.</li>
+        <li>Developed a real-time 3D coordinate mapping pipeline to translate 2D bounding boxes into AR holograms anchored to physical objects.</li>
+      </ul>
+    </div>
+
+    <div class="item-group">
+      <div class="flex-row">
+        <div class="title">Real-Time Road Safety Monitoring System</div>
+        <div class="date">2024</div>
+      </div>
+      <div class="tech-stack">Azure Custom Vision, JupyterLabs, OpenCV, Python</div>
+      <ul>
+        <li>Developed and trained a high-accuracy computer vision model to detect helmet rule violations using Azure Video Analyzer and ML techniques.</li>
+        <li>Achieved 92% accuracy in real-time inference detection during live traffic monitoring tests.</li>
+        <li>Successfully demonstrated the ability to integrate cloud AI services for large-scale public safety solutions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Skills & Technologies</h2>
+    <div class="skills-grid">
+      <div><strong>Machine Learning & AI:</strong> Data preprocessing, training, evaluation, deployment of ML models, Computer Vision, Predictive Analytics, RAG Architectures</div>
+      <div><strong>Cloud Platforms:</strong> Microsoft Azure, IBM Cloud, AWS</div>
+      <div><strong>Data Processing:</strong> API integration, pipelines, automation, Vector DBs (ChromaDB)</div>
+      <div><strong>Programming & Tools:</strong> Python, Swift, SwiftUI, MLX, CoreML, ARKit</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Certifications</h2>
+    <div class="item-group" style="margin-bottom: 0;">
+      <ul>
+        <li><strong>OCI Foundations</strong> – Oracle University</li>
+        <li><strong>Prompt Engineering</strong> – Vanderbilt University</li>
+        <li><strong>Microsoft Azure Fundamentals (AZ-900)</strong> – Microsoft</li>
+        <li><strong>IBM Cloud Core</strong> – IBM SkillsBuild</li>
+        <li><strong>IBM Data Science</strong> – IBM SkillsBuild</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>Strengths</h2>
+    <div class="item-group" style="margin-bottom: 0;">
+      <ul>
+        <li>Proficient in Agentic Software Development and AI Assisted Learning & Deployment.</li>
+        <li>Quick learner with a strong interest in emerging technologies.</li>
+        <li>Good understanding of the software development lifecycle.</li>
+        <li>Strong problem-solving and analytical skills.</li>
+        <li>Familiar with risk analysis theory.</li>
+        <li>Deeply involved commitment towards work and technologies.</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
