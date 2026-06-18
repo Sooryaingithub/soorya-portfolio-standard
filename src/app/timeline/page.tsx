@@ -45,11 +45,11 @@ export default function Timeline() {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"]);
 
   return (
     <main className="bg-background">
-      <div className="h-[400vh] relative" ref={targetRef}>
+      <div className="h-[600vh] relative" ref={targetRef}>
         <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
           
           <div className="px-4 md:px-12 mb-12 max-w-7xl mx-auto w-full">
@@ -59,7 +59,7 @@ export default function Timeline() {
             <p className="text-lg text-muted-foreground">Scroll to explore the timeline.</p>
           </div>
 
-          <motion.div style={{ x }} className="flex gap-12 px-4 md:px-12 pb-24 items-center">
+          <motion.div style={{ x }} className="flex gap-12 px-4 md:px-12 pb-24 items-center w-max pr-[100vw]">
             {/* Start point */}
             <div className="flex-none w-24 flex items-center justify-center">
               <div className="w-3 h-3 rounded-full bg-white/20" />
@@ -71,8 +71,13 @@ export default function Timeline() {
                 <div key={yearBlock.year} className="flex-none flex items-center gap-12">
                   <div className="flex flex-col gap-6">
                     <h2 
-                      className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none select-none transition-colors duration-500 opacity-[0.08]"
-                      style={{ color: primary }}
+                      className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none select-none transition-all duration-500"
+                      style={{ 
+                        color: "transparent",
+                        WebkitTextStroke: `2px ${primary}`,
+                        textShadow: `0 0 30px ${primary}80`,
+                        opacity: 0.3
+                      }}
                     >
                       {yearBlock.year}
                     </h2>
