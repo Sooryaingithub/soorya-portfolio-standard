@@ -59,7 +59,7 @@ export default function Timeline() {
             <p className="text-lg text-muted-foreground">Scroll to explore the timeline.</p>
           </div>
 
-          <motion.div style={{ x }} className="flex gap-12 px-4 md:px-12 pb-24 items-center w-max pr-[100vw]">
+          <motion.div style={{ x }} className="flex gap-12 px-4 md:px-12 pb-24 items-center w-max pr-[50vw]">
             {/* Start point */}
             <div className="flex-none w-24 flex items-center justify-center">
               <div className="w-3 h-3 rounded-full bg-white/20" />
@@ -69,29 +69,27 @@ export default function Timeline() {
               const { primary } = getTheme(yearBlock.year);
               return (
                 <div key={yearBlock.year} className="flex-none flex items-center gap-12">
-                  <div className="flex flex-col gap-6 relative">
-                    <motion.h2 
-                      className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none select-none transition-all duration-500 absolute -top-10 left-0"
-                      initial={{ opacity: 0.1, filter: "brightness(0.5)" }}
-                      whileInView={{ opacity: 0.8, filter: "brightness(2)" }}
-                      viewport={{ margin: "0px -30% 0px -30%" }}
+                  <motion.div 
+                    className="flex flex-col gap-6"
+                    initial={{ opacity: 0.3, filter: "brightness(0.5) grayscale(50%)" }}
+                    whileInView={{ opacity: 1, filter: "brightness(1.1) grayscale(0%)" }}
+                    viewport={{ margin: "0px -30% 0px -30%" }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h2 
+                      className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none select-none transition-all duration-500"
                       style={{ 
                         color: "transparent",
                         WebkitTextStroke: `2px ${primary}`,
-                        textShadow: `0 0 30px ${primary}80`,
-                        zIndex: 0
+                        textShadow: `0 0 30px ${primary}80`
                       }}
                     >
                       {yearBlock.year}
-                    </motion.h2>
-                    <div className="flex gap-4 items-start pt-16 relative z-10">
+                    </h2>
+                    <div className="flex gap-4 items-start pt-4">
                       {yearBlock.events.map((event, eIdx) => (
-                        <motion.div 
+                        <div 
                           key={eIdx}
-                          initial={{ opacity: 0.3, y: 20, filter: "brightness(0.5)" }}
-                          whileInView={{ opacity: 1, y: 0, filter: "brightness(1.2)" }}
-                          viewport={{ margin: "0px -30% 0px -30%" }}
-                          transition={{ delay: eIdx * 0.05, duration: 0.4 }}
                           className="glass-panel p-6 w-64 md:w-80 shrink-0 hover:bg-foreground/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[var(--hover-shadow)] group"
                           style={{ '--hover-shadow': `inset 0 0 20px ${primary}40` } as React.CSSProperties}
                         >
@@ -109,10 +107,10 @@ export default function Timeline() {
                               {event.description}
                             </p>
                           )}
-                        </motion.div>
+                        </div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                   
                   {/* Connecting line segment */}
                   <div className="w-24 h-px bg-white/10" />
@@ -121,21 +119,21 @@ export default function Timeline() {
             })}
             
             {/* End point text */}
-            <div className="flex-none flex items-center gap-6 pr-12">
+            <div className="flex-none flex items-center gap-6 ml-12">
               <motion.h2 
-                initial={{ opacity: 0, filter: "blur(10px)", scale: 0.9 }}
-                whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
-                viewport={{ margin: "0px -20% 0px -20%" }}
+                initial={{ opacity: 0.3, filter: "blur(10px) brightness(0.5)", scale: 0.9 }}
+                whileInView={{ opacity: 1, filter: "blur(0px) brightness(1.2)", scale: 1 }}
+                viewport={{ margin: "0px -30% 0px -30%" }}
                 transition={{ duration: 0.8 }}
-                className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent ml-8"
+                className="text-8xl md:text-[10rem] font-bold tracking-tighter leading-none select-none pr-12"
+                style={{ 
+                  color: "transparent",
+                  WebkitTextStroke: `2px #00F0FF`,
+                  textShadow: `0 0 40px rgba(0,240,255,0.5)`,
+                }}
               >
                 Great things are on its way
               </motion.h2>
-            </div>
-
-            {/* End point */}
-            <div className="flex-none w-24 flex items-center justify-center">
-              <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_15px_rgba(255,255,255,0.8)] animate-pulse" />
             </div>
           </motion.div>
         </div>
