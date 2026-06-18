@@ -217,6 +217,14 @@ export const projects: Project[] = [
       ],
       sections: [
         {
+          title: "Project Team",
+          body: [
+            "Team Members: M. Yashaswini, Soorya Sendilnath, Sathiya Sendilnath",
+            "Supervisor: Ms. Kudiyarasudevi C (Assistant Professor, Department of Computer Science and Engineering)",
+            "Institution: SRM Institute of Science and Technology, Ramapuram"
+          ]
+        },
+        {
           title: "Objectives & Scope",
           body: [
             "Development of an Automated Helmet Violation Detection System capable of real-time monitoring and post-event batch processing.",
