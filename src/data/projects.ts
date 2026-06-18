@@ -333,8 +333,7 @@ export const projects: Project[] = [
         }
       ],
       images: {
-        architecture: "/images/5g-edge-image1.png",
-        results: "/images/5g-edge-image2.jpg"
+        architecture: "/images/5g-edge-image2.jpg"
       }
     }
   },
