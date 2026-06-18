@@ -3,7 +3,7 @@ export type Project = {
   title: string;
   slug: string;
   category: string[];
-  status: "Research" | "Prototype" | "MVP" | "Production Candidate";
+  status: "Research" | "Prototype" | "MVP" | "Production Candidate" | "In Development";
   complexity: "High" | "Medium" | "Low";
   year: number;
   shortDescription: string;
