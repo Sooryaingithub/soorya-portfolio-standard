@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 
 const skillCategories = [
   {
@@ -23,7 +23,6 @@ const skillCategories = [
 ];
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const timings = useMemo(() => {
     let cumulativeDelay = 0.3;
@@ -60,60 +59,37 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="relative w-full max-w-4xl mx-auto min-h-[500px] flex flex-col md:flex-row gap-8 items-start md:items-center justify-center">
-          
-          <div className="flex md:flex-col flex-wrap justify-center gap-4 w-full md:w-1/3">
-            {skillCategories.map((category, idx) => (
-              <motion.button
-                key={category.name}
+        <div className="w-full max-w-5xl mx-auto flex flex-col gap-16">
+          {skillCategories.map((category, idx) => (
+            <div key={category.name} className="flex flex-col md:flex-row gap-8 items-start">
+              
+              {/* Primary Bubble (Left) */}
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: timings[idx].categoryDelay, duration: 0.4 }}
-                onClick={() => setActiveCategory(activeCategory === category.name ? null : category.name)}
-                className={`text-left px-6 py-4 rounded-2xl border transition-all ${
-                  activeCategory === category.name || activeCategory === null
-                    ? "bg-foreground/10 border-foreground/20 shadow-lg text-foreground" 
-                    : "bg-transparent border-transparent text-foreground/40 hover:text-foreground/60"
-                }`}
+                className="w-full md:w-1/3 shrink-0 px-6 py-4 rounded-2xl border bg-foreground/5 border-foreground/10 shadow-lg"
               >
-                <h2 className="font-medium tracking-tight">{category.name}</h2>
-              </motion.button>
-            ))}
-          </div>
+                <h2 className="font-medium tracking-tight text-xl text-foreground/90">{category.name}</h2>
+              </motion.div>
 
-          <div className="flex-1 w-full min-h-[400px] relative">
-            {skillCategories.map((category, idx) => (
-              <motion.div
-                key={category.name}
-                initial={false}
-                animate={{ 
-                  opacity: activeCategory === null || activeCategory === category.name ? 1 : 0,
-                  scale: activeCategory === null || activeCategory === category.name ? 1 : 0.9,
-                  pointerEvents: activeCategory === null || activeCategory === category.name ? "auto" : "none"
-                }}
-                className={`absolute inset-0 flex flex-wrap content-start gap-3 p-6 ${activeCategory === null ? 'opacity-100' : ''}`}
-                style={{ display: activeCategory !== null && activeCategory !== category.name ? 'none' : 'flex' }}
-              >
-                {activeCategory === category.name && (
-                  <div className="w-full mb-4">
-                    <h3 className="text-sm uppercase tracking-wider text-white/40 font-medium">Nodes in {category.name}</h3>
-                  </div>
-                )}
-                
+              {/* Nodes Parallel (Right) */}
+              <div className="flex-1 flex flex-wrap content-start gap-3">
                 {category.skills.map((skill, i) => (
                   <motion.div
                     key={skill}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: timings[idx].skillDelays[i], duration: 0.3 }}
-                    className="glass-panel px-5 py-3 hover:bg-foreground/10 transition-colors cursor-default"
+                    className="glass-panel px-5 py-3 hover:bg-foreground/10 transition-colors cursor-default border border-white/5"
                   >
-                    <span className="font-medium tracking-tight text-foreground/90">{skill}</span>
+                    <span className="font-medium tracking-tight text-foreground/80">{skill}</span>
                   </motion.div>
                 ))}
-              </motion.div>
-            ))}
-          </div>
+              </div>
+              
+            </div>
+          ))}
         </div>
       </div>
     </main>
