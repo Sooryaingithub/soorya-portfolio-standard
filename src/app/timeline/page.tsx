@@ -45,11 +45,11 @@ export default function Timeline() {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
 
   return (
     <main className="bg-background">
-      <div className="h-[300vh] relative" ref={targetRef}>
+      <div className="h-[400vh] relative" ref={targetRef}>
         <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
           
           <div className="px-4 md:px-12 mb-12 max-w-7xl mx-auto w-full">
@@ -71,7 +71,8 @@ export default function Timeline() {
                 <div key={yearBlock.year} className="flex-none flex items-center gap-12">
                   <div className="flex flex-col gap-6">
                     <h2 
-                      className="text-8xl md:text-[12rem] font-bold tracking-tighter text-foreground/5 leading-none select-none transition-colors duration-500"
+                      className="text-8xl md:text-[12rem] font-bold tracking-tighter leading-none select-none transition-colors duration-500 opacity-[0.08]"
+                      style={{ color: primary }}
                     >
                       {yearBlock.year}
                     </h2>
