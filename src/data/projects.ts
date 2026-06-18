@@ -292,8 +292,20 @@ export const projects: Project[] = [
       ],
       sections: [
         {
-          title: "Architecture & Integration",
-          body: "The architecture maps data input layers from local vehicles through V2X communication nodes to localized edge computing units. Heavy workloads are processed locally in parallel, with raw metrics forwarded asynchronously to the cloud for historical model tuning."
+          title: "Architecture & Implementation",
+          body: [
+            "Cloud Services & 5G Network: High-speed connectivity mapping ADAS components to cloud data storage and remote analytics processing.",
+            "ADAS System & Edge Nodes: In-vehicle sensors (cameras, LiDAR, radar) connect to edge computing nodes for initial data processing to reduce latency before cloud transmission.",
+            "Driver Interface & Data Flow: Bidirectional real-time data flow connecting cloud-based analytics to an intuitive human-machine interface (HMI) for the driver."
+          ]
+        },
+        {
+          title: "Hardware & Software Stack",
+          body: [
+            "Hardware: Nvidia Drive Pegasus, Mobileye EyeQ5/Ultra, Renesas R-Car V3H, Qualcomm Snapdragon Ride",
+            "Communication: Dedicated Short-Range Communications (DSRC), Cellular V2X (C-V2X), 5G New Radio (NR) V2X",
+            "Infrastructure: Industrial IoT Edge Computing Units, Sensor Packages, Security Hardware"
+          ]
         },
         {
           title: "Validation & Results",
@@ -301,6 +313,22 @@ export const projects: Project[] = [
             "Tested network latencies dropped from 85ms on conventional clouds to less than 8ms on localized edge nodes.",
             "Hybrid switching achieved 99.999% connection uptime in simulated congested urban areas.",
             "V2X cooperative communications demonstrated significant improvements in localized traffic congestion routing."
+          ]
+        },
+        {
+          title: "Project Outcomes",
+          body: [
+            "Enhanced Road Safety: Real-time data processing and V2X communication to proactively detect and respond to hazards.",
+            "Improved Driving Experience: Anticipatory assistance reduces cognitive load on drivers.",
+            "Traffic & Energy Efficiency: Localized traffic prediction optimizes routing, reducing congestion and fuel emissions."
+          ]
+        },
+        {
+          title: "Future Work",
+          body: [
+            "Integration of personalized driver profiles and seamless multi-cloud coordination.",
+            "Environmental and sustainability features for eco-friendly transportation.",
+            "Advanced collaborative traffic management and enhanced fleet management solutions."
           ]
         }
       ],
