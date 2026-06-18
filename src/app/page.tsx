@@ -5,6 +5,7 @@ import { ArrowRight, Download, Terminal } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import NeuralNodes from "@/components/visuals/NeuralNodes";
+import ArcadeBackground from "@/components/visuals/ArcadeBackground";
 
 export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
@@ -58,6 +59,7 @@ export default function Home() {
     <main className="flex-1 flex flex-col justify-center min-h-[100dvh] px-4 pt-24 pb-12 relative overflow-hidden">
       {/* Background glow effects */}
       <NeuralNodes />
+      <ArcadeBackground />
 
       <motion.div
         variants={containerVariants}
