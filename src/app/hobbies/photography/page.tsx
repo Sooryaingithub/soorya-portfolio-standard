@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { useRef } from "react";
 
 const photos = [
   { src: "photography/_DSC7693.jpg", title: "The Golden Hour", description: "A fleeting moment captured as the sun dips below the horizon, painting the world in warm, transient hues." },
@@ -21,83 +22,117 @@ const photos = [
 
 export default function PhotographyGallery() {
   return (
-    <main className="bg-[#faf9f6] text-stone-800 min-h-screen selection:bg-stone-300">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-24">
-        
-        <nav className="mb-24 flex items-center justify-between">
-          <Link href="/hobbies" className="flex items-center gap-2 text-stone-500 hover:text-stone-800 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium uppercase tracking-widest">Back</span>
-          </Link>
-          <span className="text-sm font-medium uppercase tracking-widest text-stone-400">Vol. 1</span>
-        </nav>
+    <main className="bg-[#fcfbf9] text-[#2a2724] min-h-screen selection:bg-[#d4af37]/30 font-serif">
+      
+      {/* Navigation Overlay */}
+      <nav className="fixed top-0 left-0 w-full z-50 p-6 md:p-12 mix-blend-difference text-white flex justify-between items-center pointer-events-none">
+        <Link href="/hobbies" className="flex items-center gap-3 hover:opacity-70 transition-opacity pointer-events-auto">
+          <ArrowLeft className="w-5 h-5" />
+          <span className="text-xs uppercase tracking-[0.3em] font-sans">Return</span>
+        </Link>
+        <span className="text-xs uppercase tracking-[0.3em] font-sans opacity-70">Vol. 1</span>
+      </nav>
 
-        <header className="mb-32 text-center md:text-left space-y-6">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-8xl font-serif italic font-medium tracking-tight text-stone-900"
-          >
-            A Study in Light.
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-2xl text-stone-500 max-w-2xl leading-relaxed"
-          >
-            An ongoing exploration of moments, shadows, and the quiet spaces in between.
-          </motion.p>
-        </header>
+      {/* Intro Header */}
+      <header className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-8 z-10"
+        >
+          <span className="text-sm uppercase tracking-[0.4em] text-[#a8a39a] font-sans block">A Visual Journal</span>
+          <h1 className="text-6xl md:text-9xl italic font-light tracking-tight text-[#1a1816]">
+            Through the Lens.
+          </h1>
+          <div className="h-[1px] w-24 bg-[#d4af37]/50 mx-auto mt-12" />
+        </motion.div>
+      </header>
 
-        <div className="space-y-48">
-          {photos.map((photo, i) => {
-            const isEven = i % 2 === 0;
-            return (
-              <motion.section 
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24`}
-              >
-                {/* Image Side */}
-                <div className="w-full md:w-[55%]">
-                  <div className="relative aspect-[4/5] w-full shadow-2xl bg-stone-200">
-                    <Image 
-                      src={`/images/${photo.src}`}
-                      alt={photo.title}
-                      fill
-                      unoptimized={photo.src.endsWith('.heic')}
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                </div>
-
-                {/* Text Side */}
-                <div className="w-full md:w-[45%] space-y-6 flex flex-col justify-center">
-                  <span className="text-stone-400 font-mono text-sm tracking-widest">
-                    {String(i + 1).padStart(2, '0')} / {photos.length}
-                  </span>
-                  <h2 className="text-3xl md:text-5xl font-serif text-stone-900">
-                    {photo.title}
-                  </h2>
-                  <p className="text-lg text-stone-600 leading-relaxed font-serif italic">
-                    {photo.description}
-                  </p>
-                </div>
-              </motion.section>
-            );
-          })}
-        </div>
-        
-        <footer className="mt-48 pt-12 border-t border-stone-200 text-center">
-           <p className="font-serif italic text-stone-400">End of Volume 1.</p>
-        </footer>
-
+      {/* Full Bleed Sections */}
+      <div className="w-full">
+        {photos.map((photo, i) => {
+          const isEven = i % 2 === 0;
+          return (
+            <PhotoSection key={i} photo={photo} index={i} isEven={isEven} total={photos.length} />
+          );
+        })}
       </div>
+      
+      <footer className="h-screen flex items-center justify-center text-center px-4 bg-[#1a1816] text-[#fcfbf9]">
+         <div className="space-y-8">
+           <div className="w-12 h-12 border border-[#d4af37]/30 rounded-full mx-auto flex items-center justify-center">
+             <span className="text-[#d4af37] text-xl font-serif italic">fin</span>
+           </div>
+           <p className="text-sm uppercase tracking-[0.3em] text-[#a8a39a] font-sans">End of Volume 1.</p>
+         </div>
+      </footer>
+
     </main>
+  );
+}
+
+function PhotoSection({ photo, index, isEven, total }: { photo: any, index: number, isEven: boolean, total: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  // Subtle parallax effect for the text
+  const yText = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  // Subtle scale effect for the image
+  const scaleImg = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+
+  return (
+    <section 
+      ref={ref}
+      className={`relative min-h-[100svh] w-full flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} overflow-hidden`}
+    >
+      {/* Image Half */}
+      <div className="w-full md:w-1/2 relative h-[60vh] md:h-screen overflow-hidden">
+        <motion.div 
+          className="absolute inset-0 w-full h-full"
+          style={{ 
+            scale: scaleImg,
+            // The gradient mask blends the image into the background color
+            maskImage: `linear-gradient(to ${isEven ? 'right' : 'left'}, black 60%, transparent 100%)`,
+            WebkitMaskImage: `linear-gradient(to ${isEven ? 'right' : 'left'}, black 60%, transparent 100%)`
+          }}
+        >
+          <Image 
+            src={`/images/${photo.src}`}
+            alt={photo.title}
+            fill
+            unoptimized={photo.src.endsWith('.heic')}
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </motion.div>
+      </div>
+
+      {/* Text Half */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-24 relative z-10 bg-[#fcfbf9]">
+        <motion.div 
+          style={{ y: yText }}
+          className="max-w-md space-y-8"
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-xs uppercase tracking-[0.3em] text-[#a8a39a] font-sans">
+              No. {String(index + 1).padStart(2, '0')}
+            </span>
+            <div className="h-[1px] w-12 bg-[#d4af37]/30" />
+          </div>
+          
+          <h2 className="text-4xl md:text-6xl font-light italic text-[#1a1816]">
+            {photo.title}
+          </h2>
+          
+          <p className="text-lg md:text-xl text-[#6b655f] leading-relaxed">
+            {photo.description}
+          </p>
+        </motion.div>
+      </div>
+    </section>
   );
 }

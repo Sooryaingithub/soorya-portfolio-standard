@@ -11,102 +11,101 @@ const hobbies = [
     title: "Photography",
     description: "Capturing moments, mastering light, and exploring visual storytelling through the lens.",
     icon: Camera,
-    color: "from-blue-500/20 to-blue-500/0",
-    iconColor: "text-blue-400"
   },
   {
     id: "pranic-healing",
     title: "Pranic Healing",
     description: "Practicing the ancient art of energy medicine, balancing the chakras and aura for holistic wellness.",
     icon: Flower2,
-    color: "from-green-500/20 to-green-500/0",
-    iconColor: "text-green-400"
   },
   {
     id: "pro-audio",
     title: "Pro Audio",
     description: "Engineering sound, mastering acoustics, and building immersive auditory experiences.",
     icon: AudioLines,
-    color: "from-purple-500/20 to-purple-500/0",
-    iconColor: "text-purple-400"
   }
 ];
 
 export default function HobbiesPage() {
   return (
-    <div className="min-h-screen pt-32 pb-16 px-4">
-      <div className="max-w-4xl mx-auto space-y-24">
+    <main className="min-h-screen bg-[#fcfbf9] text-[#2a2724] selection:bg-[#d4af37]/30">
+      <div className="max-w-5xl mx-auto px-4 pt-32 pb-24">
         
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-4"
+          className="space-y-6 text-center md:text-left mb-32"
         >
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter bg-gradient-to-br from-white to-white/50 bg-clip-text text-transparent">
-            Hobbies & Passions
+          <h1 className="text-6xl md:text-8xl font-serif italic tracking-tight text-[#1a1816]">
+            Passions & Pursuits.
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground font-medium tracking-tight">
-            Beyond the code and systems.
+          <p className="text-xl md:text-2xl text-[#6b655f] font-light tracking-wide max-w-2xl">
+            A curated collection of interests outside the digital realm.
           </p>
-        </motion.div>
+        </motion.header>
 
-        <div className="space-y-32">
+        <div className="space-y-40">
           {hobbies.map((hobby, index) => (
             <motion.section
               key={hobby.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="relative group"
             >
-              <div className={`absolute inset-0 bg-gradient-to-b ${hobby.color} opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-3xl -z-10`} />
               
-              <div className="glass-panel p-8 md:p-12 rounded-3xl border border-white/10 hover:border-white/20 transition-colors">
-                <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                  <div className={`p-6 rounded-2xl bg-white/5 border border-white/10 ${hobby.iconColor}`}>
-                    <hobby.icon className="w-12 h-12" />
+              <div className="flex flex-col md:flex-row gap-12 items-start md:items-center">
+                {/* Icon & Title */}
+                <div className="flex-1 space-y-6">
+                  <div className="inline-flex p-4 rounded-full border border-[#d4af37]/30 bg-white shadow-sm text-[#d4af37]">
+                    <hobby.icon className="w-8 h-8" strokeWidth={1.5} />
                   </div>
-                  
-                  <div className="space-y-4 flex-1">
-                    <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
-                      {hobby.title}
-                    </h2>
-                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-balance">
-                      {hobby.description}
-                    </p>
-                  </div>
+                  <h2 className="text-4xl md:text-5xl font-serif text-[#1a1816]">
+                    {hobby.title}
+                  </h2>
+                  <p className="text-xl text-[#6b655f] leading-relaxed max-w-lg font-light">
+                    {hobby.description}
+                  </p>
                 </div>
-                
-                {hobby.id === "photography" ? (
-                  <div className="mt-12 flex items-center justify-center">
-                    <Link href="/hobbies/photography" className="group/btn relative px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl transition-all duration-300 flex items-center gap-4 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                      <span className="text-lg font-medium text-foreground relative z-10">Step into the Gallery</span>
-                      <motion.span 
-                        className="relative z-10"
-                        animate={{ x: [0, 4, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+
+                {/* Specific Hobby Content */}
+                <div className="flex-1 w-full">
+                  {hobby.id === "photography" ? (
+                    <div className="flex items-center justify-center md:justify-end">
+                      <Link 
+                        href="/hobbies/photography" 
+                        className="group/btn relative px-10 py-5 bg-[#1a1816] hover:bg-[#2a2724] text-[#fcfbf9] rounded-none transition-all duration-500 flex items-center gap-4 overflow-hidden border border-transparent hover:border-[#d4af37]/50"
                       >
-                        ➔
-                      </motion.span>
-                    </Link>
-                  </div>
-                ) : (
-                  <div className="mt-12 h-64 md:h-96 w-full rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-center overflow-hidden relative">
-                      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-background to-background" />
-                      <span className="text-muted-foreground/50 font-mono text-sm relative z-10 uppercase tracking-widest">
-                        [ Content Area ]
-                      </span>
-                  </div>
-                )}
+                        <span className="text-sm uppercase tracking-[0.2em] font-medium relative z-10">Step into the Gallery</span>
+                        <motion.span 
+                          className="relative z-10"
+                          animate={{ x: [0, 6, 0] }}
+                          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                        >
+                          ➔
+                        </motion.span>
+                      </Link>
+                    </div>
+                  ) : (
+                    <div className="h-64 md:h-80 w-full rounded-sm border border-[#e8e4db] bg-white flex items-center justify-center shadow-sm relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent to-[#fcfbf9]/50" />
+                        <span className="text-[#a8a39a] font-serif italic text-lg relative z-10">
+                          Awaiting content...
+                        </span>
+                    </div>
+                  )}
+                </div>
               </div>
+              
+              {/* Elegant divider */}
+              <div className="absolute -bottom-20 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent" />
             </motion.section>
           ))}
         </div>
 
       </div>
-    </div>
+    </main>
   );
 }
