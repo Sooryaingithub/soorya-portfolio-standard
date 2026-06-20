@@ -229,14 +229,14 @@ export default function ProjectPage() {
                     {project.content?.images?.architecture && (
                       <div className="w-full aspect-video rounded-3xl bg-foreground/5 border border-foreground/10 flex items-center justify-center overflow-hidden relative group">
                         <div className="relative w-full h-full">
-                          <Image src={project.content.images.architecture} alt={`${project.title} Architecture`} fill className="object-contain p-4" unoptimized />
+                          <Image src={project.content.images.architecture} alt={`${project.title} Architecture`} fill className="object-contain p-4" />
                         </div>
                       </div>
                     )}
                     {project.content?.images?.flowchart && (
                       <div className="w-full aspect-video rounded-3xl bg-foreground/5 border border-foreground/10 flex items-center justify-center overflow-hidden relative group bg-white/5">
                         <div className="relative w-full h-full">
-                          <Image src={project.content.images.flowchart} alt={`${project.title} Flowchart`} fill className="object-contain p-4" unoptimized />
+                          <Image src={project.content.images.flowchart} alt={`${project.title} Flowchart`} fill className="object-contain p-4" />
                         </div>
                       </div>
                     )}
@@ -248,12 +248,12 @@ export default function ProjectPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                     {project.content?.images?.results && (
                       <div className="w-full aspect-square rounded-3xl bg-foreground/5 border border-foreground/10 overflow-hidden relative">
-                        <Image src={project.content.images.results} alt="Performance Results" fill className="object-contain p-4" unoptimized />
+                        <Image src={project.content.images.results} alt="Performance Results" fill className="object-contain p-4" />
                       </div>
                     )}
                     {project.content?.images?.output && (
                       <div className="w-full aspect-square rounded-3xl bg-foreground/5 border border-foreground/10 overflow-hidden relative">
-                        <Image src={project.content.images.output} alt="Model Output" fill className="object-contain p-4" unoptimized />
+                        <Image src={project.content.images.output} alt="Model Output" fill className="object-contain p-4" />
                       </div>
                     )}
                   </div>
@@ -265,14 +265,14 @@ export default function ProjectPage() {
                     {project.content?.images?.ui && (
                       <div className="w-full aspect-[16/10] rounded-3xl bg-foreground/5 border border-foreground/10 flex items-center justify-center overflow-hidden relative group">
                         <div className="relative w-full h-full">
-                          <Image src={project.content.images.ui} alt={`${project.title} Expected UI`} fill className="object-contain p-4" unoptimized />
+                          <Image src={project.content.images.ui} alt={`${project.title} Expected UI`} fill className="object-contain p-4" />
                         </div>
                       </div>
                     )}
                     {project.content?.images?.icons && (
                       <div className="w-full aspect-[21/9] rounded-3xl bg-foreground/5 border border-foreground/10 flex items-center justify-center overflow-hidden relative group bg-white/5">
                         <div className="relative w-full h-full">
-                          <Image src={project.content.images.icons} alt={`${project.title} App Icons`} fill className="object-contain p-4" unoptimized />
+                          <Image src={project.content.images.icons} alt={`${project.title} App Icons`} fill className="object-contain p-4" />
                         </div>
                       </div>
                     )}

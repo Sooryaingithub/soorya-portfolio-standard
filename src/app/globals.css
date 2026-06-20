@@ -142,7 +142,7 @@
   }
 
   .glass-panel {
-    @apply bg-glass border border-glass-border backdrop-blur-xl rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+    @apply bg-glass border border-glass-border backdrop-blur-sm rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)];
   }
 
   .arcade-scanlines {
