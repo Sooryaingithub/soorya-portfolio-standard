@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Camera, Flower2, AudioLines } from "lucide-react";
+import Image from "next/image";
 
 const hobbies = [
   {
@@ -77,13 +78,35 @@ export default function HobbiesPage() {
                   </div>
                 </div>
                 
-                {/* Content Area placeholder */}
-                <div className="mt-12 h-64 md:h-96 w-full rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-center overflow-hidden relative">
-                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-background to-background" />
-                    <span className="text-muted-foreground/50 font-mono text-sm relative z-10 uppercase tracking-widest">
-                      [ Content Area ]
-                    </span>
-                </div>
+                {hobby.id === "photography" ? (
+                  <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                    <div className="relative aspect-[3/4] md:aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors">
+                      <Image 
+                        src="/images/photography-1.jpg" 
+                        alt="Photography 1" 
+                        fill 
+                        className="object-cover hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div className="relative aspect-[3/4] md:aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors">
+                      <Image 
+                        src="/images/photography-2.jpg" 
+                        alt="Photography 2" 
+                        fill 
+                        className="object-cover hover:scale-105 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="mt-12 h-64 md:h-96 w-full rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-center overflow-hidden relative">
+                      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-background to-background" />
+                      <span className="text-muted-foreground/50 font-mono text-sm relative z-10 uppercase tracking-widest">
+                        [ Content Area ]
+                      </span>
+                  </div>
+                )}
               </div>
             </motion.section>
           ))}
