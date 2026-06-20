@@ -31,6 +31,20 @@ const hobbies = [
   }
 ];
 
+const photographyImages = [
+  "photography/_DSC7693.jpg",
+  "photography/_DSC1141.jpg",
+  "photography/_DSC2127.jpg",
+  "photography/IMG_4386.JPG",
+  "photography/_DSC7843.jpg",
+  "photography/IDG_20250923_140257_407.jpg",
+  "photography/_DSC9741.ARW.jpg",
+  "photography/IMG_4426.JPG",
+  "photography/IMG_4963.jpg",
+  "photography/_DSC7367.jpg",
+  "photography/IMG_4441.heic"
+];
+
 export default function HobbiesPage() {
   return (
     <div className="min-h-screen pt-32 pb-16 px-4">
@@ -79,25 +93,24 @@ export default function HobbiesPage() {
                 </div>
                 
                 {hobby.id === "photography" ? (
-                  <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                    <div className="relative aspect-[3/4] md:aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors">
-                      <Image 
-                        src="/images/photography-1.jpg" 
-                        alt="Photography 1" 
-                        fill 
-                        className="object-cover hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
-                    <div className="relative aspect-[3/4] md:aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors">
-                      <Image 
-                        src="/images/photography-2.jpg" 
-                        alt="Photography 2" 
-                        fill 
-                        className="object-cover hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                    </div>
+                  <div className="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-4 w-full space-y-4">
+                    {photographyImages.map((src, i) => (
+                      <div key={i} className="relative break-inside-avoid w-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors">
+                        {/* 
+                          Use unoptimized for HEIC to prevent Next.js Image Optimization 
+                          from throwing a 500 Sharp missing format error 
+                        */}
+                        <Image 
+                          src={`/images/${src}`} 
+                          alt="" 
+                          width={800}
+                          height={1200}
+                          unoptimized={src.endsWith('.heic')}
+                          className="object-cover w-full h-auto hover:scale-105 transition-transform duration-700"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
+                    ))}
                   </div>
                 ) : (
                   <div className="mt-12 h-64 md:h-96 w-full rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-center overflow-hidden relative">
