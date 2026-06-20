@@ -101,9 +101,7 @@ function PhotoSection({ photo, index, isEven, isInset }: { photo: any, index: nu
         <motion.div 
           className={`relative w-full overflow-hidden ${isInset ? 'aspect-[4/5] shadow-2xl p-4 bg-white' : 'h-full'}`}
           style={{ 
-            scale: scaleImg,
-            maskImage: isInset ? 'none' : `linear-gradient(to ${isEven ? 'right' : 'left'}, black 70%, transparent 100%)`,
-            WebkitMaskImage: isInset ? 'none' : `linear-gradient(to ${isEven ? 'right' : 'left'}, black 70%, transparent 100%)`
+            scale: scaleImg
           }}
         >
           <div className="relative w-full h-full">
@@ -122,7 +120,7 @@ function PhotoSection({ photo, index, isEven, isInset }: { photo: any, index: nu
       <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-24 relative z-10">
         <motion.div 
           style={{ y: yText }}
-          className={`max-w-md space-y-8 ${isEven ? 'md:-ml-24' : 'md:-mr-24'} bg-[#fdfbf7]/80 backdrop-blur-md p-8 md:p-12 shadow-2xl border border-[#2c2a29]/5`}
+          className={`max-w-md space-y-8 ${isEven ? 'md:-ml-24' : 'md:-mr-24'} bg-[#fdfbf7] p-8 md:p-12 shadow-2xl border border-[#2c2a29]/5`}
         >
           <div className="flex items-center gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-[#a8a39a] font-sans">
