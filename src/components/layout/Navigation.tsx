@@ -11,6 +11,7 @@ const links = [
   { href: "/skills", label: "Primary Skills" },
   { href: "/timeline", label: "Timeline" },
   { href: "/about", label: "About" },
+  { href: "/hobbies", label: "Hobbies" },
 ];
 
 export default function Navigation() {

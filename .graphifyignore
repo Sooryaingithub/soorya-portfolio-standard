@@ -1,0 +1,13 @@
+public/
+*.md
+*.json
+*.svg
+*.ico
+*.pdf
+*.jpg
+*.png
+*.html
+*.jp2
+*.txt
+.vercel/
+.agents/
