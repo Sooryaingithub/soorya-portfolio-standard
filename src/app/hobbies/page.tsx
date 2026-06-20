@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Camera, Flower2, AudioLines } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const hobbies = [
   {
@@ -29,20 +30,6 @@ const hobbies = [
     color: "from-purple-500/20 to-purple-500/0",
     iconColor: "text-purple-400"
   }
-];
-
-const photographyImages = [
-  "photography/_DSC7693.jpg",
-  "photography/_DSC1141.jpg",
-  "photography/_DSC2127.jpg",
-  "photography/IMG_4386.JPG",
-  "photography/_DSC7843.jpg",
-  "photography/IDG_20250923_140257_407.jpg",
-  "photography/_DSC9741.ARW.jpg",
-  "photography/IMG_4426.JPG",
-  "photography/IMG_4963.jpg",
-  "photography/_DSC7367.jpg",
-  "photography/IMG_4441.heic"
 ];
 
 export default function HobbiesPage() {
@@ -93,24 +80,18 @@ export default function HobbiesPage() {
                 </div>
                 
                 {hobby.id === "photography" ? (
-                  <div className="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-4 w-full space-y-4">
-                    {photographyImages.map((src, i) => (
-                      <div key={i} className="relative break-inside-avoid w-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-colors">
-                        {/* 
-                          Use unoptimized for HEIC to prevent Next.js Image Optimization 
-                          from throwing a 500 Sharp missing format error 
-                        */}
-                        <Image 
-                          src={`/images/${src}`} 
-                          alt="" 
-                          width={800}
-                          height={1200}
-                          unoptimized={src.endsWith('.heic')}
-                          className="object-cover w-full h-auto hover:scale-105 transition-transform duration-700"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-                    ))}
+                  <div className="mt-12 flex items-center justify-center">
+                    <Link href="/hobbies/photography" className="group/btn relative px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl transition-all duration-300 flex items-center gap-4 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                      <span className="text-lg font-medium text-foreground relative z-10">Step into the Gallery</span>
+                      <motion.span 
+                        className="relative z-10"
+                        animate={{ x: [0, 4, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                      >
+                        ➔
+                      </motion.span>
+                    </Link>
                   </div>
                 ) : (
                   <div className="mt-12 h-64 md:h-96 w-full rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-center overflow-hidden relative">
