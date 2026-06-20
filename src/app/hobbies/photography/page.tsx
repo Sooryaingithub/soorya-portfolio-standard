@@ -17,12 +17,12 @@ const photos = [
   { src: "photography/IMG_4426.JPG", title: "Serendipity", description: "An unplanned capture. The spontaneous alignment of subject, background, and perfectly timed light." },
   { src: "photography/IMG_4963.jpg", title: "Vastness", description: "Emphasizing scale. A reminder of how small we are amidst the sweeping landscapes of the world." },
   { src: "photography/_DSC7367.jpg", title: "Motion Blur", description: "The sensation of speed and passage of time, frozen yet dynamically alive." },
-  { src: "photography/IMG_4441.heic", title: "Epilogue", description: "The final frame. A lingering thought suspended in a quiet, moody atmosphere." }
+  { src: "photography/IMG_4441.jpg", title: "Epilogue", description: "The final frame. A lingering thought suspended in a quiet, moody atmosphere." }
 ];
 
 export default function PhotographyGallery() {
   return (
-    <main className="bg-[#fcfbf9] text-[#2a2724] min-h-screen selection:bg-[#d4af37]/30 font-serif">
+    <main className="bg-[#fdfbf7] text-[#2c2a29] min-h-screen selection:bg-[#d4af37]/30 font-serif">
       
       {/* Navigation Overlay */}
       <nav className="fixed top-0 left-0 w-full z-50 p-6 md:p-12 mix-blend-difference text-white flex justify-between items-center pointer-events-none">
@@ -36,33 +36,42 @@ export default function PhotographyGallery() {
       {/* Intro Header */}
       <header className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden">
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-8 z-10"
+          className="space-y-12 z-10 max-w-4xl"
         >
           <span className="text-sm uppercase tracking-[0.4em] text-[#a8a39a] font-sans block">A Visual Journal</span>
-          <h1 className="text-6xl md:text-9xl italic font-light tracking-tight text-[#1a1816]">
-            Through the Lens.
+          <h1 className="text-7xl md:text-[10rem] italic font-light tracking-tighter text-[#1a1816] leading-none">
+            Through <br/> The Lens.
           </h1>
-          <div className="h-[1px] w-24 bg-[#d4af37]/50 mx-auto mt-12" />
+          <div className="h-[1px] w-32 bg-[#2c2a29]/20 mx-auto" />
         </motion.div>
       </header>
 
-      {/* Full Bleed Sections */}
-      <div className="w-full">
+      {/* Asymmetrical Sections */}
+      <div className="w-full pb-32">
         {photos.map((photo, i) => {
           const isEven = i % 2 === 0;
+          // Every 3rd image will be inset like a polaroid, the rest full bleed
+          const isInset = i % 3 === 0 && i !== 0; 
+          
           return (
-            <PhotoSection key={i} photo={photo} index={i} isEven={isEven} total={photos.length} />
+            <PhotoSection 
+              key={i} 
+              photo={photo} 
+              index={i} 
+              isEven={isEven} 
+              isInset={isInset}
+            />
           );
         })}
       </div>
       
-      <footer className="h-screen flex items-center justify-center text-center px-4 bg-[#1a1816] text-[#fcfbf9]">
+      <footer className="h-[50vh] flex items-center justify-center text-center px-4 bg-[#1a1816] text-[#fdfbf7]">
          <div className="space-y-8">
-           <div className="w-12 h-12 border border-[#d4af37]/30 rounded-full mx-auto flex items-center justify-center">
-             <span className="text-[#d4af37] text-xl font-serif italic">fin</span>
+           <div className="w-16 h-16 border border-[#d4af37]/30 rounded-full mx-auto flex items-center justify-center">
+             <span className="text-[#d4af37] text-2xl font-serif italic">fin</span>
            </div>
            <p className="text-sm uppercase tracking-[0.3em] text-[#a8a39a] font-sans">End of Volume 1.</p>
          </div>
@@ -72,65 +81,67 @@ export default function PhotographyGallery() {
   );
 }
 
-function PhotoSection({ photo, index, isEven, total }: { photo: any, index: number, isEven: boolean, total: number }) {
+function PhotoSection({ photo, index, isEven, isInset }: { photo: any, index: number, isEven: boolean, isInset: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   });
 
-  // Subtle parallax effect for the text
-  const yText = useTransform(scrollYProgress, [0, 1], [100, -100]);
-  // Subtle scale effect for the image
-  const scaleImg = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const yText = useTransform(scrollYProgress, [0, 1], [150, -150]);
+  const scaleImg = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   return (
     <section 
       ref={ref}
-      className={`relative min-h-[100svh] w-full flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} overflow-hidden`}
+      className={`relative min-h-screen w-full flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center my-12 md:my-0`}
     >
       {/* Image Half */}
-      <div className="w-full md:w-1/2 relative h-[60vh] md:h-screen overflow-hidden">
+      <div className={`w-full md:w-1/2 relative flex items-center justify-center ${isInset ? 'p-8 md:p-24' : 'h-[60vh] md:h-screen'}`}>
         <motion.div 
-          className="absolute inset-0 w-full h-full"
+          className={`relative w-full overflow-hidden ${isInset ? 'aspect-[4/5] shadow-2xl p-4 bg-white' : 'h-full'}`}
           style={{ 
             scale: scaleImg,
-            // The gradient mask blends the image into the background color
-            maskImage: `linear-gradient(to ${isEven ? 'right' : 'left'}, black 60%, transparent 100%)`,
-            WebkitMaskImage: `linear-gradient(to ${isEven ? 'right' : 'left'}, black 60%, transparent 100%)`
+            maskImage: isInset ? 'none' : `linear-gradient(to ${isEven ? 'right' : 'left'}, black 70%, transparent 100%)`,
+            WebkitMaskImage: isInset ? 'none' : `linear-gradient(to ${isEven ? 'right' : 'left'}, black 70%, transparent 100%)`
           }}
         >
-          <Image 
-            src={`/images/${photo.src}`}
-            alt={photo.title}
-            fill
-            unoptimized={photo.src.endsWith('.heic')}
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+          <div className="relative w-full h-full">
+            <Image 
+              src={`/images/${photo.src}`}
+              alt={photo.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </motion.div>
       </div>
 
-      {/* Text Half */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-24 relative z-10 bg-[#fcfbf9]">
+      {/* Text Half with editorial overlaps */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-24 relative z-10">
         <motion.div 
           style={{ y: yText }}
-          className="max-w-md space-y-8"
+          className={`max-w-md space-y-8 ${isEven ? 'md:-ml-24' : 'md:-mr-24'} bg-[#fdfbf7]/80 backdrop-blur-md p-8 md:p-12 shadow-2xl border border-[#2c2a29]/5`}
         >
           <div className="flex items-center gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-[#a8a39a] font-sans">
               No. {String(index + 1).padStart(2, '0')}
             </span>
-            <div className="h-[1px] w-12 bg-[#d4af37]/30" />
+            <div className="h-[1px] w-12 bg-[#2c2a29]/20" />
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-light italic text-[#1a1816]">
+          <h2 className="text-4xl md:text-6xl font-light italic text-[#1a1816] leading-tight">
             {photo.title}
           </h2>
           
-          <p className="text-lg md:text-xl text-[#6b655f] leading-relaxed">
-            {photo.description}
-          </p>
+          {/* Magazine Drop Cap */}
+          <div className="text-lg md:text-xl text-[#5c5855] leading-relaxed relative">
+            <span className="float-left text-7xl leading-[0.8] mr-3 font-serif text-[#d4af37] italic">
+              {photo.description.charAt(0)}
+            </span>
+            {photo.description.slice(1)}
+          </div>
         </motion.div>
       </div>
     </section>
