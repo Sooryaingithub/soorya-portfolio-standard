@@ -17,7 +17,9 @@ const photos = [
   { src: "photography/IMG_4426.JPG", title: "Serendipity", description: "An unplanned capture. The spontaneous alignment of subject, background, and perfectly timed light." },
   { src: "photography/IMG_4963.jpg", title: "Vastness", description: "Emphasizing scale. A reminder of how small we are amidst the sweeping landscapes of the world." },
   { src: "photography/_DSC7367.jpg", title: "Motion Blur", description: "The sensation of speed and passage of time, frozen yet dynamically alive." },
-  { src: "photography/IMG_4441.jpg", title: "Epilogue", description: "The final frame. A lingering thought suspended in a quiet, moody atmosphere." }
+  { src: "photography/IMG_4441.jpg", title: "Epilogue", description: "The final frame. A lingering thought suspended in a quiet, moody atmosphere." },
+  { src: "photography/butterfly.jpg", title: "Delicate Symmetry", description: "A macro study of a butterfly with wings spread wide, revealing intricate patterns and resilient beauty." },
+  { src: "photography/kingfisher.jpg", title: "The Perch", description: "A colorful kingfisher resting on a wire fence, a vibrant burst of life against a muted, industrial backdrop." }
 ];
 
 export default function PhotographyGallery() {

@@ -33,11 +33,7 @@ export default function ProjectPage() {
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity1 = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // Hack for hydration mismatch with useParams and useScroll
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
+  // Hack for hydration mismatch removed to fix useScroll ref error
 
   if (!project) {
     return (
