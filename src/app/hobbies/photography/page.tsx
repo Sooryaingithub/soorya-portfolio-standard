@@ -7,17 +7,17 @@ import { ArrowLeft } from "lucide-react";
 import { useRef } from "react";
 
 const photos = [
-  { src: "photography/_DSC7693.jpg", title: "The Golden Hour", description: "A fleeting moment captured as the sun dips below the horizon, painting the world in warm, transient hues." },
-  { src: "photography/_DSC1141.jpg", title: "Urban Geometry", description: "Finding symmetry in the chaos. The stark lines of the city reflecting the structure of modern life." },
-  { src: "photography/_DSC2127.jpg", title: "Stillness", description: "A quiet breath in a loud world. The composition invites the viewer to pause and reflect." },
-  { src: "photography/IMG_4386.JPG", title: "Chasing Light", description: "Shadows dancing across the frame, highlighting the delicate interplay between illumination and darkness." },
-  { src: "photography/_DSC7843.jpg", title: "Organic Textures", description: "A study of nature's imperfections, where every crack and line tells a story of time." },
-  { src: "photography/IDG_20250923_140257_407.jpg", title: "The Observer", description: "Looking outward, a shift in perspective. A candid shot exploring human connection with the environment." },
-  { src: "photography/_DSC9741.ARW.jpg", title: "Monochrome Study", description: "Stripping away color to reveal raw emotion. A high-contrast exploration of depth and form." },
-  { src: "photography/IMG_4426.JPG", title: "Serendipity", description: "An unplanned capture. The spontaneous alignment of subject, background, and perfectly timed light." },
+  { src: "photography/_DSC7693.jpg", title: "Morning Rounds", description: "A golfer practicing on the green, framed naturally by a grove of tropical palms in deep, muted tones." },
+  { src: "photography/_DSC1141.jpg", title: "Curiosity", description: "A young kitten gripping tightly to a wooden post, its attention captured by something just out of frame." },
+  { src: "photography/_DSC2127.jpg", title: "Hidden Gem", description: "A vibrant blue sports car partially obscured behind a slatted wooden gate and dense hanging foliage." },
+  { src: "photography/IMG_4386.JPG", title: "The Estate", description: "A sprawling, geometric tea plantation stretching across the hills, with a single worker dwarfed by the landscape." },
+  { src: "photography/_DSC7843.jpg", title: "After the Rain", description: "A heavily modified white sports car reflecting the moody atmosphere of a wet parking lot." },
+  { src: "photography/IDG_20250923_140257_407.jpg", title: "Infrared Canopy", description: "An otherworldly view of a tree canopy, its leaves rendered in striking crimson against a vibrant cyan sky." },
+  { src: "photography/_DSC9741.ARW.jpg", title: "Minimalist Geometry", description: "A sleek mint-green device resting on dark textured wood, intersected by sharp, dramatic shadows." },
+  { src: "photography/IMG_4426.JPG", title: "Sunlit Perch", description: "A small black kitten curled up on a corrugated roof, perfectly illuminated by a warm ray of sunshine." },
   { src: "photography/IMG_4963.jpg", title: "Vastness", description: "Emphasizing scale. A reminder of how small we are amidst the sweeping landscapes of the world." },
-  { src: "photography/_DSC7367.jpg", title: "Motion Blur", description: "The sensation of speed and passage of time, frozen yet dynamically alive." },
-  { src: "photography/IMG_4441.jpg", title: "Epilogue", description: "The final frame. A lingering thought suspended in a quiet, moody atmosphere." },
+  { src: "photography/_DSC7367.jpg", title: "In Motion", description: "A panning shot capturing a bright blue sports car slicing through the frame with dynamic speed." },
+  { src: "photography/IMG_4441.jpg", title: "Microcosm", description: "A close-up study of delicate pink and yellow Lantana blossoms against a soft, creamy green background." },
   { src: "photography/butterfly.jpg", title: "Delicate Symmetry", description: "A macro study of a butterfly with wings spread wide, revealing intricate patterns and resilient beauty." },
   { src: "photography/kingfisher.jpg", title: "The Perch", description: "A colorful kingfisher resting on a wire fence, a vibrant burst of life against a muted, industrial backdrop." }
 ];
