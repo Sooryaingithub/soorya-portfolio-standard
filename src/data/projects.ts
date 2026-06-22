@@ -79,8 +79,8 @@ export const projects: Project[] = [
         }
       ],
       images: {
-        ui: "/images/skilltree-ui.jpg",
-        icons: "/images/skilltree-icons.png"
+        ui: "/images/projects/skilltree/skilltree-ui.jpg",
+        icons: "/images/projects/skilltree/skilltree-icons.png"
       }
     }
   },
@@ -162,9 +162,9 @@ export const projects: Project[] = [
         }
       ],
       images: {
-        architecture: "/images/weather-image2.png",
-        results: "/images/weather-image3.png",
-        output: "/images/weather-image4.png"
+        architecture: "/images/projects/weather-platform/weather-image2.png",
+        results: "/images/projects/weather-platform/weather-image3.png",
+        output: "/images/projects/weather-platform/weather-image4.png"
       }
     }
   },
@@ -521,11 +521,11 @@ export const projects: Project[] = [
         }
       ],
       images: {
-        architecture: "/images/helmet-architecture.png",
-        flowchart: "/images/helmet-flowchart.png",
-        training: "/images/helmet-training.jpg",
-        output: "/images/helmet-output.jpg",
-        results: "/images/helmet-results.png"
+        architecture: "/images/projects/road-safety-monitoring/helmet-architecture.png",
+        flowchart: "/images/projects/road-safety-monitoring/helmet-flowchart.png",
+        training: "/images/projects/road-safety-monitoring/helmet-training.jpg",
+        output: "/images/projects/road-safety-monitoring/helmet-output.jpg",
+        results: "/images/projects/road-safety-monitoring/helmet-results.png"
       }
     }
   },
@@ -595,7 +595,7 @@ export const projects: Project[] = [
         }
       ],
       images: {
-        architecture: "/images/5g-edge-image2.jpg"
+        architecture: "/images/projects/5g-edge-computing/5g-edge-image2.jpg"
       }
     }
   },
