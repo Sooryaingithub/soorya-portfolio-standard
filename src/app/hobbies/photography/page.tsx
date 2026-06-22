@@ -44,7 +44,7 @@ export default function PhotographyGallery() {
           className="space-y-12 z-10 max-w-4xl"
         >
           <span className="text-sm uppercase tracking-[0.4em] text-[#a8a39a] font-sans block">A Visual Journal</span>
-          <h1 className="text-7xl md:text-[10rem] italic font-light tracking-tighter text-[#1a1816] leading-none">
+          <h1 className="text-5xl sm:text-6xl md:text-[10rem] italic font-light tracking-tighter text-[#1a1816] leading-none">
             Through <br/> The Lens.
           </h1>
           <div className="h-[1px] w-32 bg-[#2c2a29]/20 mx-auto" />
@@ -99,7 +99,7 @@ function PhotoSection({ photo, index, isEven, isInset }: { photo: any, index: nu
       className={`relative min-h-screen w-full flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center my-12 md:my-0`}
     >
       {/* Image Half */}
-      <div className={`w-full md:w-1/2 relative flex items-center justify-center ${isInset ? 'p-8 md:p-24' : 'h-[60vh] md:h-screen'}`}>
+      <div className={`w-full md:w-1/2 relative flex items-center justify-center ${isInset ? 'p-4 sm:p-8 md:p-24' : 'h-[60vh] md:h-screen'}`}>
         <motion.div 
           className={`relative w-full overflow-hidden ${isInset ? 'aspect-[4/5] shadow-2xl p-4 bg-white' : 'h-full'}`}
           style={{ 
@@ -122,7 +122,7 @@ function PhotoSection({ photo, index, isEven, isInset }: { photo: any, index: nu
       <div className="w-full md:w-1/2 flex items-center justify-center p-8 md:p-24 relative z-10">
         <motion.div 
           style={{ y: yText }}
-          className={`max-w-md space-y-8 ${isEven ? 'md:-ml-24' : 'md:-mr-24'} bg-[#fdfbf7] p-8 md:p-12 shadow-2xl border border-[#2c2a29]/5`}
+          className={`max-w-md space-y-6 sm:space-y-8 ${isEven ? 'md:-ml-24' : 'md:-mr-24'} bg-[#fdfbf7] p-6 sm:p-8 md:p-12 shadow-2xl border border-[#2c2a29]/5`}
         >
           <div className="flex items-center gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-[#a8a39a] font-sans">
@@ -131,13 +131,13 @@ function PhotoSection({ photo, index, isEven, isInset }: { photo: any, index: nu
             <div className="h-[1px] w-12 bg-[#2c2a29]/20" />
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-light italic text-[#1a1816] leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light italic text-[#1a1816] leading-tight">
             {photo.title}
           </h2>
           
           {/* Magazine Drop Cap */}
-          <div className="text-lg md:text-xl text-[#5c5855] leading-relaxed relative">
-            <span className="float-left text-7xl leading-[0.8] mr-3 font-serif text-[#d4af37] italic">
+          <div className="text-base sm:text-lg md:text-xl text-[#5c5855] leading-relaxed relative">
+            <span className="float-left text-6xl md:text-7xl leading-[0.8] mr-3 font-serif text-[#d4af37] italic">
               {photo.description.charAt(0)}
             </span>
             {photo.description.slice(1)}

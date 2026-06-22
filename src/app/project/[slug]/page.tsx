@@ -48,7 +48,7 @@ export default function ProjectPage() {
   const isBlueprint = project.status === "Research" || project.status === "Prototype";
 
   return (
-    <main ref={containerRef} className="flex-1 bg-background relative selection:bg-white/20">
+    <main ref={containerRef} className="flex-1 bg-background relative selection:bg-white/20 overflow-x-clip">
       
       {/* Dynamic Background Glow */}
       <div className="fixed inset-0 z-0 pointer-events-none transition-colors duration-1000">
