@@ -97,7 +97,7 @@ export default function About() {
               sooryasendilnath@gmail.com
             </a>
             <span className="w-1 h-1 rounded-full bg-white/20" />
-            <a href="https://linkedin.com/in/soorya-s" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+            <a href="https://www.linkedin.com/in/soorya-sendilnath/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
               LinkedIn
             </a>
           </div>
