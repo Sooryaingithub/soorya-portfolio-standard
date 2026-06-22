@@ -28,7 +28,7 @@ const hobbies = [
 
 export default function HobbiesPage() {
   return (
-    <main className="min-h-screen bg-[#fcfbf9] text-[#2a2724] selection:bg-[#d4af37]/30">
+    <main className="min-h-screen bg-[#0a0a0a] text-[#fcfbf9] selection:bg-[#d4af37]/30">
       <div className="max-w-5xl mx-auto px-4 pt-32 pb-24">
         
         <motion.header
@@ -37,10 +37,10 @@ export default function HobbiesPage() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-6 text-center md:text-left mb-32"
         >
-          <h1 className="text-6xl md:text-8xl font-serif italic tracking-tight text-[#1a1816]">
+          <h1 className="text-6xl md:text-8xl font-serif italic tracking-tight text-white">
             Passions & Pursuits.
           </h1>
-          <p className="text-xl md:text-2xl text-[#6b655f] font-light tracking-wide max-w-2xl">
+          <p className="text-xl md:text-2xl text-[#a8a39a] font-light tracking-wide max-w-2xl">
             A curated collection of interests outside the digital realm.
           </p>
         </motion.header>
@@ -59,13 +59,13 @@ export default function HobbiesPage() {
               <div className="flex flex-col md:flex-row gap-12 items-start md:items-center">
                 {/* Icon & Title */}
                 <div className="flex-1 space-y-6">
-                  <div className="inline-flex p-4 rounded-full border border-[#d4af37]/30 bg-white shadow-sm text-[#d4af37]">
+                  <div className="inline-flex p-4 rounded-full border border-[#d4af37]/30 bg-[#1a1816] shadow-sm text-[#d4af37]">
                     <hobby.icon className="w-8 h-8" strokeWidth={1.5} />
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-serif text-[#1a1816]">
+                  <h2 className="text-4xl md:text-5xl font-serif text-white">
                     {hobby.title}
                   </h2>
-                  <p className="text-xl text-[#6b655f] leading-relaxed max-w-lg font-light">
+                  <p className="text-xl text-[#a8a39a] leading-relaxed max-w-lg font-light">
                     {hobby.description}
                   </p>
                 </div>
@@ -76,7 +76,7 @@ export default function HobbiesPage() {
                     <div className="flex items-center justify-center md:justify-end">
                       <Link 
                         href="/hobbies/photography" 
-                        className="group/btn relative px-10 py-5 bg-[#1a1816] hover:bg-[#2a2724] text-[#fcfbf9] rounded-none transition-all duration-500 flex items-center gap-4 overflow-hidden border border-transparent hover:border-[#d4af37]/50"
+                        className="group/btn relative px-10 py-5 bg-[#d4af37] hover:bg-[#c09d2e] text-black rounded-none transition-all duration-500 flex items-center gap-4 overflow-hidden border border-transparent hover:border-[#fcfbf9]/50"
                       >
                         <span className="text-sm uppercase tracking-[0.2em] font-medium relative z-10">Step into the Gallery</span>
                         <motion.span 
@@ -89,9 +89,9 @@ export default function HobbiesPage() {
                       </Link>
                     </div>
                   ) : (
-                    <div className="h-64 md:h-80 w-full rounded-sm border border-[#e8e4db] bg-white flex items-center justify-center shadow-sm relative overflow-hidden">
-                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent to-[#fcfbf9]/50" />
-                        <span className="text-[#a8a39a] font-serif italic text-lg relative z-10">
+                    <div className="h-64 md:h-80 w-full rounded-sm border border-[#2a2724] bg-[#111111] flex items-center justify-center shadow-sm relative overflow-hidden">
+                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent to-[#0a0a0a]/50" />
+                        <span className="text-[#6b655f] font-serif italic text-lg relative z-10">
                           Awaiting content...
                         </span>
                     </div>
