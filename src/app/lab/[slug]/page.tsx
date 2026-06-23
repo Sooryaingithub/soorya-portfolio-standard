@@ -4,17 +4,18 @@ import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { labArticles } from "@/data/lab-articles";
+import { projects } from "@/data/projects";
+import Image from "next/image";
 
-export default function ArticlePage() {
+export default function ExperiencePage() {
   const { slug } = useParams();
-  const article = labArticles.find((a) => a.slug === slug);
+  const project = projects.find((p) => p.slug === slug);
 
-  if (!article) {
+  if (!project || !project.labWriteup) {
     return (
       <main className="flex-1 flex flex-col items-center justify-center min-h-[100dvh]">
-        <h1 className="text-2xl font-medium">Article not found</h1>
-        <Link href="/lab" className="text-[#00F0FF] mt-4">Back to Lab</Link>
+        <h1 className="text-2xl font-medium">Experience not found</h1>
+        <Link href="/lab" className="text-[#00F0FF] mt-4">Back to Experiences</Link>
       </main>
     );
   }
@@ -31,21 +32,21 @@ export default function ArticlePage() {
         >
           <Link href="/lab" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors mb-12">
             <ArrowLeft className="w-4 h-4" />
-            Back to Lab
+            Back to Experiences
           </Link>
           
           <div className="flex flex-wrap items-center gap-3 text-sm text-[#00F0FF] mb-6">
-            <span>{article.date}</span>
+            <span>{project.year}</span>
             <span className="text-muted-foreground">•</span>
-            <span className="text-muted-foreground">{article.readTime}</span>
+            <span className="uppercase tracking-widest text-xs text-muted-foreground">{project.status}</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mb-8 leading-tight">
-            {article.title}
+            Building {project.title}
           </h1>
 
           <div className="flex flex-wrap gap-2 mb-12 pb-12 border-b border-white/10">
-            {article.tags.map(tag => (
+            {project.category.map(tag => (
               <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-white/80">
                 {tag}
               </span>
@@ -54,7 +55,7 @@ export default function ArticlePage() {
         </motion.div>
 
         <div className="space-y-8">
-          {article.content.map((block, index) => {
+          {project.labWriteup.map((block, index) => {
             if (block.type === "heading") {
               return (
                 <motion.h2 
@@ -62,7 +63,7 @@ export default function ArticlePage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  className="text-2xl md:text-3xl font-semibold tracking-tight mt-16 mb-6"
+                  className="text-2xl md:text-3xl font-semibold tracking-tight mt-16 mb-6 text-emerald-400"
                 >
                   {block.value}
                 </motion.h2>
@@ -75,7 +76,7 @@ export default function ArticlePage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  className="text-lg leading-relaxed text-foreground/80 mb-6"
+                  className="text-lg md:text-xl leading-relaxed text-foreground/80 mb-6"
                 >
                   {block.value}
                 </motion.p>
@@ -88,14 +89,27 @@ export default function ArticlePage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  className="my-8 rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0a]"
+                  className="my-8 rounded-xl overflow-hidden border border-white/10 bg-[#0a0a0a] shadow-2xl"
                 >
                   <div className="px-4 py-2 bg-white/5 text-xs font-mono text-muted-foreground border-b border-white/10 flex justify-between">
                     <span>{block.language}</span>
                   </div>
-                  <pre className="p-6 overflow-x-auto text-sm font-mono text-emerald-400 leading-relaxed">
+                  <pre className="p-6 overflow-x-auto text-sm font-mono text-cyan-400 leading-relaxed">
                     <code>{block.value}</code>
                   </pre>
+                </motion.div>
+              );
+            }
+            if (block.type === "image") {
+              return (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="my-12 w-full aspect-video md:aspect-[16/9] rounded-2xl overflow-hidden relative border border-white/10 bg-white/5 shadow-2xl"
+                >
+                  <Image src={block.value} alt={project.title} fill className="object-contain p-2" />
                 </motion.div>
               );
             }
@@ -103,6 +117,18 @@ export default function ArticlePage() {
           })}
         </div>
 
+        {/* Call to action mapping back to the formal project page */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-32 pt-12 border-t border-white/10 text-center"
+        >
+          <p className="text-muted-foreground mb-6">Want the professional executive summary?</p>
+          <Link href={`/project/${project.slug}`} className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium transition-all">
+            View Formal Project Page
+          </Link>
+        </motion.div>
       </div>
     </main>
   );

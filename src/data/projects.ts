@@ -1,3 +1,9 @@
+export type LabContentBlock = {
+  type: "paragraph" | "code" | "heading" | "image";
+  value: string;
+  language?: string;
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -12,6 +18,7 @@ export type Project = {
   size: "lg" | "md" | "sm";
   metrics?: { label: string; value: string }[];
   techStackRationale?: string;
+  labWriteup?: LabContentBlock[];
   content?: {
     overview: {
       problem: string;
@@ -90,7 +97,21 @@ export const projects: Project[] = [
         ui: "/images/projects/skilltree/skilltree-ui.jpg",
         icons: "/images/projects/skilltree/skilltree-icons.png"
       }
-    }
+    },
+    labWriteup: [
+      { type: "heading", value: "The Origin: Bypassing the Cloud" },
+      { type: "paragraph", value: "When I first sat down to build SkillTree, the goal was simple: create an interactive educational platform. Naturally, my first thought was to just hook up OpenAI's API, wrap it in LangChain, and call it a day. But I quickly realized that teaching involves highly sensitive, iterative data. Pumping every single keystroke of a student's learning journey to a third-party cloud server felt fundamentally wrong." },
+      { type: "paragraph", value: "I decided to go fully local. No cloud APIs, no massive monthly bills, and absolute data privacy. This meant running everything on Apple Silicon." },
+      { type: "heading", value: "The Blueprint: Scrapping LangChain" },
+      { type: "paragraph", value: "My initial prototype used standard orchestration tools like LangChain and LlamaIndex to query local models. It was a disaster. The abstraction layers added hundreds of milliseconds of overhead, and debugging the prompts felt like untangling spaghetti. The platform needed to be snappy; an educational tool that lags loses the student's attention immediately." },
+      { type: "paragraph", value: "So, I ripped it all out. I rebuilt the entire orchestration layer using raw Python HTTP requests to a local Ollama server running Llama 3 and Qwen. It sounds primitive, but the performance gains were staggering. Zero abstraction bloat meant a zero-latency orchestration layer." },
+      { type: "code", language: "python", value: "import requests\nimport json\n\ndef direct_ollama_query(prompt):\n    url = \"http://localhost:11434/api/generate\"\n    payload = {\n        \"model\": \"llama3\",\n        \"prompt\": prompt,\n        \"stream\": False,\n        \"options\": {\"temperature\": 0.2}\n    }\n    response = requests.post(url, json=payload)\n    return response.json()['response']" },
+      { type: "heading", value: "The Struggle: Context Window Bleed" },
+      { type: "paragraph", value: "The biggest hurdle wasn't speed, it was focus. I had a 'strict onboarding' agent and an 'unrestricted RAG sandbox' agent. But LLMs are notoriously bad at staying in their lane. The sandbox agent would randomly try to onboard the user again. I had to engineer a rigid, dual-tier prompt isolation system. Essentially, I built a firewall between the logic engines, forcing the LLM to outright refuse out-of-scope queries using deterministic boundary enforcement." },
+      { type: "heading", value: "The Result" },
+      { type: "image", value: "/images/projects/skilltree/skilltree-ui.jpg" },
+      { type: "paragraph", value: "The final product is a blistering fast, dual-tier educational engine. The raw ChromaDB vector pipeline handles technical markdown instantly, and the dynamic context injection works flawlessly. It taught me that sometimes, the best framework is no framework at all." }
+    ]
   },
   {
     id: "jarvisgemma",
@@ -136,7 +157,19 @@ export const projects: Project[] = [
           body: "Spatial Computing (ARKit) • Multimodal AI Systems Architecture • Local VLM Deployment • Apple Silicon Optimization (MLX) • Swift Engineering • CoreML & Vision Integration • System Action Orchestration"
         }
       ]
-    }
+    },
+    labWriteup: [
+      { type: "heading", value: "The Origin: Eyes for the Machine" },
+      { type: "paragraph", value: "I've always been fascinated by spatial computing, but standard AR apps always felt hollow—they could place 3D objects, but they couldn't actually *understand* the room. I wanted an assistant that could look through the iPad's camera, understand the physical context, and respond intelligently. And I wanted it to happen entirely on-device to ensure privacy." },
+      { type: "heading", value: "The Blueprint: The Dual-Engine Architecture" },
+      { type: "paragraph", value: "Running a massive Vision-Language Model (VLM) like Gemma 2B locally on an iPad is a huge memory bottleneck. If I tried to process high-res camera frames through the VLM on the main thread, ARKit would stutter, dropping frames and ruining the illusion of 'Liquid Glass' UI nodes locked to physical objects." },
+      { type: "paragraph", value: "The breakthrough was decoupling the architecture. I used a lightweight YOLOv3Tiny model compiled via CoreML for high-frequency pathfinding and spatial grounding. This runs at a locked 60 FPS on the Apple Neural Engine. Meanwhile, I offloaded the heavy contextual reasoning to a 4-bit quantized Gemma 2B model using Apple's MLX Swift bindings, running asynchronously in the background." },
+      { type: "code", language: "swift", value: "// Asynchronous MLX VLM Reasoning\nTask.detached(priority: .userInitiated) {\n    let config = GenerationConfig(temperature: 0.2, maxTokens: 128)\n    let response = try await gemmaModel.generate(prompt: contextString, config: config)\n    await MainActor.run { self.updateUI(with: response) }\n}" },
+      { type: "heading", value: "The Struggle: Quantization and Accuracy" },
+      { type: "paragraph", value: "Quantizing the model to 4-bit saved me gigs of RAM, but it initially lobotomized the model's spatial reasoning. It started hallucinating object relationships. I had to carefully tune the generation temperature and inject highly structured system prompts that rigidly formatted how the VLM received the bounding box coordinates from the YOLO layer." },
+      { type: "heading", value: "The Result" },
+      { type: "paragraph", value: "The result is a multimodal agent that feels like magic. It 'sees' the room, understands context, and can even invoke programmatic iOS system events (like toggling the flashlight) based on visual triggers. It proved to me that Apple Silicon's unified memory architecture is a game-changer for edge AI." }
+    ]
   },
   {
     id: "weather-platform",
@@ -186,7 +219,21 @@ export const projects: Project[] = [
         results: "/images/projects/weather-platform/weather-image3.png",
         output: "/images/projects/weather-platform/weather-image4.png"
       }
-    }
+    },
+    labWriteup: [
+      { type: "heading", value: "The Origin: Drowning in Data" },
+      { type: "paragraph", value: "Weather forecasting isn't a modeling problem; it's a data engineering problem. When I set out to build a hyper-localized weather analytics platform, I severely underestimated the sheer volume of telemetry pouring in from IoT sensors and satellite feeds. My initial relational database setup choked within hours under the 10k+ requests per second." },
+      { type: "heading", value: "The Blueprint: Edge Filtering and Spark" },
+      { type: "paragraph", value: "I needed to shed weight. Instead of sending every raw data point to the cloud, I deployed edge-filtering scripts to the IoT stations themselves. If a sensor reported the exact same temperature for 5 minutes, it didn't ping the cloud. This shed 40% of redundant noise immediately." },
+      { type: "image", value: "/images/projects/weather-platform/weather-image2.png" },
+      { type: "paragraph", value: "For the cloud backend, I migrated away from standard DBs and leveraged Apache Spark for distributed memory processing. The data lake ingested the filtered streams in parallel, allowing my deep learning models to access structured telemetry with sub-second pipeline latency." },
+      { type: "code", language: "python", value: "# PySpark Stream Processing\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.functions import window, avg\n\nspark = SparkSession.builder.appName(\"WeatherIngest\").getOrCreate()\n\nstream = spark.readStream.format(\"kafka\").option(\"subscribe\", \"weather_sensors\").load()\n\n# 5-minute tumbling window aggregations\naggregated = stream.groupBy(window(\"timestamp\", \"5 minutes\"), \"sensor_id\").agg(avg(\"temp\"))\nquery = aggregated.writeStream.outputMode(\"append\").format(\"parquet\").start()" },
+      { type: "heading", value: "The Struggle: Training the LSTM" },
+      { type: "paragraph", value: "With the data flowing cleanly, the next nightmare was the neural network. I chose Long Short-Term Memory (LSTM) networks because weather data is intensely sequential. However, hyper-local data is noisy. A sudden localized gust of wind would throw the gradient descent into chaos. I spent weeks implementing custom loss functions that heavily penalized prolonged deviation rather than instantaneous spikes." },
+      { type: "heading", value: "The Result" },
+      { type: "image", value: "/images/projects/weather-platform/weather-image3.png" },
+      { type: "paragraph", value: "The final architecture successfully predicted extreme anomalies up to 72 hours prior to events, boasting a 22% accuracy gain over baseline regional models. It was a brutal lesson in how crucial robust data pipelines are before you even touch a machine learning model." }
+    ]
   },
   {
     id: "local-macos-ai-agents",
@@ -439,7 +486,18 @@ export const projects: Project[] = [
           body: "Cybersecurity • Zero-Trust Networking • Self-Hosting • Infrastructure Engineering"
         }
       ]
-    }
+    },
+    labWriteup: [
+      { type: "heading", value: "The Origin: Taking Back Control" },
+      { type: "paragraph", value: "Like most developers, I relied on tools like TeamViewer and AnyDesk to access my workstation remotely. But the realization that my encrypted keystrokes and screen pixels were being routed through third-party proprietary relays didn't sit well with me. The latency was noticeable (often over 150ms), and the privacy implications were unacceptable. I decided to build my own zero-trust mesh." },
+      { type: "heading", value: "The Blueprint: UDP Hole Punching" },
+      { type: "paragraph", value: "The goal was direct peer-to-peer connection. I self-hosted a RustDesk server, but exposing it directly to the public internet felt too risky. Instead, I layered Tailscale on top. Tailscale uses UDP hole punching to establish direct, encrypted WireGuard tunnels between devices, completely bypassing NAT firewalls." },
+      { type: "code", language: "bash", value: "# Forcing a strict exit node via Tailscale CLI\ntailscale up --exit-node=100.115.x.x --exit-node-allow-lan-access=true\n\n# Verifying direct peer-to-peer connection (no relays!)\ntailscale ping 100.115.x.x\n# pong from workstation (100.115.x.x) via 192.168.1.50:41641 in 2ms" },
+      { type: "heading", value: "The Struggle: Double NAT Nightmares" },
+      { type: "paragraph", value: "It wasn't all smooth sailing. Trying to connect my MacBook on a highly restrictive public Wi-Fi network to my home workstation sitting behind a strict Double NAT resulted in the connection falling back to Tailscale's DERP relay servers. My latency shot back up to 200ms. I had to manually configure Headscale (an open-source Tailscale control server) and set up explicit port forwarding on my home router to ensure a direct UDP connection could always be established." },
+      { type: "heading", value: "The Result" },
+      { type: "paragraph", value: "By binding the RustDesk client strictly to the internal 100.x.x.x Tailscale subnet, the remote desktop traffic became invisible to the public internet. The final result is a sub-30ms control loop. Dragging a window on my remote workstation feels indistinguishable from local bare-metal interaction, and it costs me $0 a month." }
+    ]
   },
   {
     id: "nas-deployment",
