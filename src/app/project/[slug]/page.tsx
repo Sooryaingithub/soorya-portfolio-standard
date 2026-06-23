@@ -135,6 +135,20 @@ export default function ProjectPage() {
             </div>
           </div>
 
+          {/* Hard Engineering Metrics Dashboard */}
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-24 relative z-20">
+              {project.metrics.map((metric, i) => (
+                <div key={i} className="glass-panel p-6 rounded-3xl flex flex-col items-center justify-center text-center transition-transform hover:scale-[1.02]">
+                  <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground mb-2">{metric.label}</p>
+                  <p className="text-3xl md:text-4xl font-bold tracking-tight" style={{ color: secondary, textShadow: `0 0 20px ${secondary}40` }}>
+                    {metric.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* Scroll Storytelling Content */}
           <div className="space-y-32">
             
@@ -161,6 +175,23 @@ export default function ProjectPage() {
                 </p>
               )}
             </motion.div>
+
+            {/* Tech Stack Rationale */}
+            {project.techStackRationale && (
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-8">Engineering Rationale</h2>
+                <div className="glass-panel p-6 md:p-8 rounded-3xl border-l-4" style={{ borderLeftColor: primary }}>
+                  <p className="text-lg md:text-xl leading-relaxed text-foreground/90">
+                    {project.techStackRationale}
+                  </p>
+                </div>
+              </motion.div>
+            )}
 
             {/* Features / Capabilities */}
             {project.content?.capabilities && (
