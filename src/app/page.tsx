@@ -80,8 +80,8 @@ export default function Home() {
           animate="visible"
           className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter text-balance leading-tight text-foreground"
         >
-          {renderHighlightedText("Think local.")} <br className="hidden md:block" />
-          <span className="text-foreground/40">{renderHighlightedText("Scale Global.")}</span>
+          {renderHighlightedText("Think local.")} <span className="text-foreground/40">{renderHighlightedText("Scale Global.")}</span> <br className="hidden md:block" />
+          {renderHighlightedText("The AI Mindset.")}
         </motion.h1>
 
         {/* Highlighted Subtext */}
@@ -92,7 +92,7 @@ export default function Home() {
           className="mt-8 flex flex-col gap-2"
         >
           <p className="text-xl md:text-3xl font-medium tracking-tight text-foreground/80">
-            {renderHighlightedText("The AI Mindset.")}
+            {renderHighlightedText("Beyond the Cloud.")} <span className="text-foreground/40">{renderHighlightedText("Intelligence. Anywhere.")}</span>
           </p>
         </motion.div>
 
