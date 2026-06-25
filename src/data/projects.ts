@@ -237,6 +237,45 @@ export const projects: Project[] = [
   },
   {
     id: "local-macos-ai-agents",
+    labWriteup: [
+          {
+                "type": "heading",
+                "value": "The Origin: Automating the Mac"
+          },
+          {
+                "type": "paragraph",
+                "value": "I wanted an agent that didn't just talk, but actually *did* things on my Mac\u2014managing files, checking system stats, and executing scripts. The problem? Python agents were heavy, slow, and ate up RAM. I needed something native, fast, and deeply integrated into macOS."
+          },
+          {
+                "type": "heading",
+                "value": "The Blueprint: Native Swift & Foundation"
+          },
+          {
+                "type": "paragraph",
+                "value": "I decided to build the agent entirely in Swift. By hooking directly into Apple's Foundation framework and using native XPC services, I could bypass the bloated Python runtimes. The architecture relies on lightweight background daemons that listen for LLM-parsed intents and execute them natively with sub-100ms latency."
+          },
+          {
+                "type": "code",
+                "language": "swift",
+                "value": "let process = Process()\nprocess.executableURL = URL(fileURLWithPath: \"/usr/bin/env\")\nprocess.arguments = [\"bash\", \"-c\", command]\ntry process.run()"
+          },
+          {
+                "type": "heading",
+                "value": "The Struggle: Apple's Sandbox"
+          },
+          {
+                "type": "paragraph",
+                "value": "The biggest hurdle was macOS's strict sandboxing and SIP (System Integrity Protection). Initially, the agent kept crashing with permission denied errors when trying to read user directories. I had to architect a robust entitlements profile and request targeted user-approved FDA (Full Disk Access) gracefully, ensuring security wasn't compromised."
+          },
+          {
+                "type": "heading",
+                "value": "The Result"
+          },
+          {
+                "type": "paragraph",
+                "value": "A native macOS AI agent that runs on less than 150MB of RAM, executing complex multi-step workflows instantly without spinning up your fans. It's the AI assistant Apple should have built."
+          }
+    ],
     title: "macOS AI Agents",
     slug: "local-macos-ai-agents",
     category: ["Local AI", "Apple Ecosystem"],
@@ -255,6 +294,45 @@ export const projects: Project[] = [
   },
   {
     id: "whisperkit-integration",
+    labWriteup: [
+          {
+                "type": "heading",
+                "value": "The Origin: Privacy First Audio"
+          },
+          {
+                "type": "paragraph",
+                "value": "Sending sensitive voice data to the cloud for transcription always felt wrong. With modern Apple Silicon, there was no reason we couldn't do high-fidelity speech-to-text entirely on-device. I set out to build a completely offline dictation pipeline."
+          },
+          {
+                "type": "heading",
+                "value": "The Blueprint: CoreML & WhisperKit"
+          },
+          {
+                "type": "paragraph",
+                "value": "Instead of raw PyTorch models, I leveraged HuggingFace's WhisperKit, optimized specifically for the Apple Neural Engine (ANE). By quantizing the OpenAI Whisper model to INT4 and compiling it to CoreML, the model could run in real-time while barely touching the CPU or GPU, saving massive amounts of battery."
+          },
+          {
+                "type": "code",
+                "language": "swift",
+                "value": "let whisper = try await WhisperKit(model: \"large-v3-turbo-q4\")\nlet result = try await whisper.transcribe(audioBuffer)\nprint(\"Transcription: \\(result.text)\")"
+          },
+          {
+                "type": "heading",
+                "value": "The Struggle: Real-time Streaming"
+          },
+          {
+                "type": "paragraph",
+                "value": "Whisper is inherently a batch-processing model. Making it feel like a real-time dictation engine meant implementing overlapping sliding windows for audio buffers. I battled severe VAD (Voice Activity Detection) truncation issues where the ends of words were cut off. Tuning the silence thresholds and overlap frames finally smoothed out the real-time stream."
+          },
+          {
+                "type": "heading",
+                "value": "The Result"
+          },
+          {
+                "type": "paragraph",
+                "value": "A flawlessly private, zero-data-egress speech-to-text engine that transcribes faster than real-time on a MacBook Air, proving that privacy and performance can coexist."
+          }
+    ],
     title: "WhisperKit Integration",
     slug: "whisperkit-integration",
     category: ["Local AI", "Apple Ecosystem", "CoreML"],
@@ -316,6 +394,45 @@ export const projects: Project[] = [
   },
   {
     id: "document-intelligence",
+    labWriteup: [
+          {
+                "type": "heading",
+                "value": "The Origin: Drowning in PDFs"
+          },
+          {
+                "type": "paragraph",
+                "value": "A logistics client was manually entering data from hundreds of scanned invoices and shipping manifests daily. OCR tools were failing on handwritten notes and varied layouts. We needed a system that actually *understood* the document, not just read it."
+          },
+          {
+                "type": "heading",
+                "value": "The Blueprint: Azure Serverless & Cosmos DB"
+          },
+          {
+                "type": "paragraph",
+                "value": "I designed an event-driven architecture. When a PDF hits Azure Blob Storage, it triggers an Azure Function. The function routes the document through Azure AI Document Intelligence for layout analysis, then uses a multimodal LLM to extract key-value pairs regardless of the invoice format. The structured JSON is then dumped into Cosmos DB for instant querying."
+          },
+          {
+                "type": "code",
+                "language": "python",
+                "value": "poller = document_intelligence_client.begin_analyze_document(\n    \"prebuilt-invoice\", document=blob_data\n)\nresult = poller.result()\nfor field, value in result.fields.items():\n    print(f\"{field}: {value.value}\")"
+          },
+          {
+                "type": "heading",
+                "value": "The Struggle: The Unstructured Chaos"
+          },
+          {
+                "type": "paragraph",
+                "value": "The real nightmare was 'dirty' scans\u2014coffee stains, folded corners, and low-DPI faxes. The prebuilt models dropped to 70% accuracy. I had to build a pre-processing pipeline using OpenCV to deskew, binarize, and enhance contrast before hitting the Azure API, boosting our extraction accuracy back up to 98.5%."
+          },
+          {
+                "type": "heading",
+                "value": "The Result"
+          },
+          {
+                "type": "paragraph",
+                "value": "An automated, infinitely scalable pipeline that eliminated 40 hours of manual data entry a week, turning unstructured paper chaos into structured, searchable data."
+          }
+    ],
     title: "Kosmos-DB Doc Intel",
     slug: "document-intelligence",
     category: ["AI", "Data Engineering", "Azure"],
@@ -384,6 +501,45 @@ export const projects: Project[] = [
   },
   {
     id: "github-automation",
+    labWriteup: [
+          {
+                "type": "heading",
+                "value": "The Origin: The Issue Tracker Nightmare"
+          },
+          {
+                "type": "paragraph",
+                "value": "Managing large open-source repositories means drowning in duplicate issues, vague bug reports, and unlabelled PRs. I wanted an AI that acted as a ruthless but helpful project manager, triaging everything instantly."
+          },
+          {
+                "type": "heading",
+                "value": "The Blueprint: Google Jules & Webhooks"
+          },
+          {
+                "type": "paragraph",
+                "value": "I wired up GitHub Webhooks to an edge function that passes payload data to Google Jules. Jules analyzes the issue text, checks for duplicates against closed issues using vector embeddings, automatically applies severity labels, and even drafts a polite reply asking for reproduction steps if the issue is vague."
+          },
+          {
+                "type": "code",
+                "language": "yaml",
+                "value": "name: AI Triage\non:\n  issues:\n    types: [opened]\njobs:\n  triage:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Run Agent\n        uses: custom-agent-action@v1"
+          },
+          {
+                "type": "heading",
+                "value": "The Struggle: Hallucinated Fixes"
+          },
+          {
+                "type": "paragraph",
+                "value": "Initially, the agent tried to be *too* helpful, suggesting code fixes in the comments that were completely hallucinated or referenced outdated APIs. I had to tightly constrain its system prompt and disable code-generation capabilities during triage, restricting it strictly to categorization and routing."
+          },
+          {
+                "type": "heading",
+                "value": "The Result"
+          },
+          {
+                "type": "paragraph",
+                "value": "A 75% reduction in maintainer triage time. Issues are instantly categorized, duplicates are closed with links to the original, and maintainers only step in when real engineering work is required."
+          }
+    ],
     title: "GitHub Automation using Google Jules",
     slug: "github-automation",
     category: ["Cloud Engineering", "Infrastructure", "DevOps"],
@@ -501,6 +657,45 @@ export const projects: Project[] = [
   },
   {
     id: "nas-deployment",
+    labWriteup: [
+          {
+                "type": "heading",
+                "value": "The Origin: The Cloud is Too Expensive"
+          },
+          {
+                "type": "paragraph",
+                "value": "I was tired of paying monthly subscriptions for cloud storage and hitting arbitrary limits. I had a spare Raspberry Pi 3 and some external hard drives. It was time to build my own localized cloud."
+          },
+          {
+                "type": "heading",
+                "value": "The Blueprint: OpenMediaVault & Liquid Glass"
+          },
+          {
+                "type": "paragraph",
+                "value": "I installed Debian and configured OpenMediaVault (OMV) for headless NAS management. I set up Samba (CIFS) for local network sharing. To make it feel premium, I wrote a custom Vanilla JS and CSS 'Liquid Glass' dashboard to monitor CPU temps and storage capacity, hosted directly on the Pi via Nginx."
+          },
+          {
+                "type": "code",
+                "language": "bash",
+                "value": "sudo apt-get update\nsudo apt-get install openmediavault\nsudo omv-confdbadm populate"
+          },
+          {
+                "type": "heading",
+                "value": "The Struggle: USB 2.0 Bottlenecks"
+          },
+          {
+                "type": "paragraph",
+                "value": "The Raspberry Pi 3 shares its USB and Ethernet on the same bus, leading to atrocious transfer speeds (barely 10MB/s). I spent days deep in Linux kernel tuning, adjusting dirty ratio thresholds and disabling USB autosuspend. I managed to push the sustained transfer speeds to a stable 30MB/s\u2014the absolute physical limit of the hardware."
+          },
+          {
+                "type": "heading",
+                "value": "The Result"
+          },
+          {
+                "type": "paragraph",
+                "value": "A completely free, reliable 4TB network drive that serves media, backups, and acts as a central hub for the house, wrapped in a beautiful custom UI."
+          }
+    ],
     title: "Standalone NAS System",
     slug: "nas-deployment",
     category: ["Infrastructure", "Hardware", "Self-Hosting", "UI Engineering"],
@@ -553,6 +748,45 @@ export const projects: Project[] = [
   },
   {
     id: "iot-data-pipeline",
+    labWriteup: [
+          {
+                "type": "heading",
+                "value": "The Origin: Drowning in Sensor Noise"
+          },
+          {
+                "type": "paragraph",
+                "value": "A fleet of industrial IoT sensors was streaming temperature and vibration data at 100Hz. Sending all that raw telemetry to the cloud was burning through bandwidth and racking up massive AWS bills. Most of the data was just 'normal' baseline noise."
+          },
+          {
+                "type": "heading",
+                "value": "The Blueprint: Edge Filtering"
+          },
+          {
+                "type": "paragraph",
+                "value": "I redesigned the pipeline to push the compute to the edge. I deployed a lightweight Go service onto the local edge gateways. This service uses a sliding window algorithm to aggregate data, only forwarding anomalies or hourly summaries to the cloud via MQTT."
+          },
+          {
+                "type": "code",
+                "language": "go",
+                "value": "if math.Abs(currentTemp - baseline) > threshold {\n    publishToMQTT(topic, payload)\n}"
+          },
+          {
+                "type": "heading",
+                "value": "The Struggle: Network Drops"
+          },
+          {
+                "type": "paragraph",
+                "value": "Industrial environments have terrible Wi-Fi. The edge gateways would frequently disconnect, and we were losing critical anomaly events. I had to implement a local SQLite buffer on the edge devices. If the MQTT broker was unreachable, events were queued locally and batch-synced once the connection was restored."
+          },
+          {
+                "type": "heading",
+                "value": "The Result"
+          },
+          {
+                "type": "paragraph",
+                "value": "Bandwidth usage plummeted by 85%, cloud ingest costs dropped drastically, and not a single critical anomaly was lost to network drops again."
+          }
+    ],
     title: "IoT Pipeline",
     slug: "iot-data-pipeline",
     category: ["IoT", "Edge Computing", "Data Engineering"],

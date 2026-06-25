@@ -20,9 +20,9 @@
     "semantic_hash": "239f3ebf717465dc636818a1a619398d"
   },
   "src/app/about/page.tsx": {
-    "mtime": 1781797623.1959705,
-    "ast_hash": "70adadff1b3cca5e28385e0294782925",
-    "semantic_hash": "70adadff1b3cca5e28385e0294782925"
+    "mtime": 1782153435.862899,
+    "ast_hash": "315170db0598b1b08e5eccbc0ab4f6fc",
+    "semantic_hash": ""
   },
   "src/app/contact/page.tsx": {
     "mtime": 1781719772.9255054,
@@ -30,14 +30,14 @@
     "semantic_hash": "577af719df662026a87c3989c55e58b7"
   },
   "src/app/lab/page.tsx": {
-    "mtime": 1781345757.7515137,
-    "ast_hash": "c5a2aed8bec54a8cd0b215ec2b361c29",
-    "semantic_hash": "c5a2aed8bec54a8cd0b215ec2b361c29"
+    "mtime": 1782193936.6165485,
+    "ast_hash": "62b8452f5d93a8aa7f97a5b8467548e2",
+    "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1781779303.5240092,
-    "ast_hash": "ae73c8e0fd69a94828d557e964410b4e",
-    "semantic_hash": "ae73c8e0fd69a94828d557e964410b4e"
+    "mtime": 1782192938.5589762,
+    "ast_hash": "70f6e7ab6138125b055f8cfdb62d6fb9",
+    "semantic_hash": ""
   },
   "src/app/now/page.tsx": {
     "mtime": 1781347391.5956402,
@@ -45,14 +45,14 @@
     "semantic_hash": "f0ae263efdba9abc86ee666786e4de1c"
   },
   "src/app/page.tsx": {
-    "mtime": 1781782449.3754652,
-    "ast_hash": "09cbeaab7d13a6f2517267bac7f32e62",
-    "semantic_hash": "09cbeaab7d13a6f2517267bac7f32e62"
+    "mtime": 1782187953.5930421,
+    "ast_hash": "8f6a48a8a704240d1b1ad1eefeb1a603",
+    "semantic_hash": ""
   },
   "src/app/project/[slug]/page.tsx": {
-    "mtime": 1781784008.2999184,
-    "ast_hash": "9e3a45b9be24e97385923f90e11bc13d",
-    "semantic_hash": "9e3a45b9be24e97385923f90e11bc13d"
+    "mtime": 1782192782.6942253,
+    "ast_hash": "92f2a04b7095c25d3655f9271860323c",
+    "semantic_hash": ""
   },
   "src/app/projects/page.tsx": {
     "mtime": 1781795098.7749727,
@@ -70,9 +70,9 @@
     "semantic_hash": "fe99c14b532f2214e67f3e462324ab4c"
   },
   "src/components/layout/Navigation.tsx": {
-    "mtime": 1781797025.7390156,
-    "ast_hash": "b531dccb4975d5a916a11ee9258813bf",
-    "semantic_hash": "b531dccb4975d5a916a11ee9258813bf"
+    "mtime": 1782193949.69039,
+    "ast_hash": "8beb4232806a9e81509b7d707c934f93",
+    "semantic_hash": ""
   },
   "src/components/theme-provider.tsx": {
     "mtime": 1781346753.3915424,
@@ -115,13 +115,33 @@
     "semantic_hash": "0842b4931e4c45e742858a2989ae814d"
   },
   "src/data/projects.ts": {
-    "mtime": 1781778458.9804614,
-    "ast_hash": "b89fa47a5c12933caf1063684a2c58ec",
-    "semantic_hash": "b89fa47a5c12933caf1063684a2c58ec"
+    "mtime": 1782193834.802628,
+    "ast_hash": "f62f5422838560039e8a283b035ee568",
+    "semantic_hash": ""
   },
   "src/lib/utils.ts": {
     "mtime": 1781345500.301957,
     "ast_hash": "5a6fd53fdcf2be529e9cc0b718fde352",
     "semantic_hash": "5a6fd53fdcf2be529e9cc0b718fde352"
+  },
+  "src/app/hobbies/page.tsx": {
+    "mtime": 1782153208.5728137,
+    "ast_hash": "d58e88e3122e09b365f3e53ce53246fe",
+    "semantic_hash": ""
+  },
+  "src/app/hobbies/photography/page.tsx": {
+    "mtime": 1782146523.478821,
+    "ast_hash": "4c6a637ca5c8a65f11526c509ee6f80b",
+    "semantic_hash": ""
+  },
+  "src/app/lab/[slug]/page.tsx": {
+    "mtime": 1782193936.68826,
+    "ast_hash": "f145da20c8a7433a634124b0c97f0c65",
+    "semantic_hash": ""
+  },
+  "src/components/ui/TerminalEasterEgg.tsx": {
+    "mtime": 1782192832.4457552,
+    "ast_hash": "e86bbfcec141ae6d114d663813f90ec8",
+    "semantic_hash": ""
   }
 }
