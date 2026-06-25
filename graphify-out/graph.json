@@ -4,6 +4,16 @@
   "graph": {},
   "nodes": [
     {
+      "label": "apply_stories.py",
+      "file_type": "code",
+      "source_file": "apply_stories.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "apply_stories",
+      "community": 19,
+      "norm_label": "apply_stories.py"
+    },
+    {
       "label": "eslint.config.mjs",
       "file_type": "code",
       "source_file": "eslint.config.mjs",
@@ -22,6 +32,46 @@
       "id": "eslint_config_eslintconfig",
       "community": 12,
       "norm_label": "eslintconfig"
+    },
+    {
+      "label": "extract.py",
+      "file_type": "code",
+      "source_file": "extract.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "extract",
+      "community": 20,
+      "norm_label": "extract.py"
+    },
+    {
+      "label": "jules_automator.py",
+      "file_type": "code",
+      "source_file": "jules_automator.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_automator",
+      "community": 18,
+      "norm_label": "jules_automator.py"
+    },
+    {
+      "label": "run_applescript()",
+      "file_type": "code",
+      "source_file": "jules_automator.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "jules_automator_run_applescript",
+      "community": 18,
+      "norm_label": "run_applescript()"
+    },
+    {
+      "label": "get_page_text()",
+      "file_type": "code",
+      "source_file": "jules_automator.py",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "jules_automator_get_page_text",
+      "community": 18,
+      "norm_label": "get_page_text()"
     },
     {
       "label": "next-env.d.ts",
@@ -807,7 +857,7 @@
       "label": "connections",
       "file_type": "code",
       "source_file": "src/data/projects.ts",
-      "source_location": "L732",
+      "source_location": "L966",
       "_origin": "ast",
       "id": "data_projects_connections",
       "community": 0,
@@ -841,8 +891,39 @@
       "source_file": "eslint.config.mjs",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "eslint_config",
-      "target": "eslint_config_eslintconfig",
+      "target": "eslint_config_eslintconfig"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_automator.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "jules_automator",
+      "target": "jules_automator_get_page_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_automator.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "jules_automator",
+      "target": "jules_automator_run_applescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_automator.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "jules_automator_get_page_text",
+      "target": "jules_automator_run_applescript",
       "confidence_score": 1.0
     },
     {
@@ -851,9 +932,9 @@
       "source_file": "next.config.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "next_config",
-      "target": "next_config_nextconfig",
-      "confidence_score": 1.0
+      "target": "next_config_nextconfig"
     },
     {
       "relation": "contains",
@@ -861,9 +942,9 @@
       "source_file": "postcss.config.mjs",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "postcss_config",
-      "target": "postcss_config_config",
-      "confidence_score": 1.0
+      "target": "postcss_config_config"
     },
     {
       "relation": "contains",
@@ -871,9 +952,9 @@
       "source_file": "src/app/about/page.tsx",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "about_page",
-      "target": "about_page_about",
-      "confidence_score": 1.0
+      "target": "about_page_about"
     },
     {
       "relation": "contains",
@@ -881,9 +962,9 @@
       "source_file": "src/app/about/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "about_page",
-      "target": "about_page_pixiedust",
-      "confidence_score": 1.0
+      "target": "about_page_pixiedust"
     },
     {
       "relation": "contains",
@@ -891,9 +972,9 @@
       "source_file": "src/app/contact/page.tsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "contact_page",
-      "target": "contact_page_contact",
-      "confidence_score": 1.0
+      "target": "contact_page_contact"
     },
     {
       "relation": "contains",
@@ -901,9 +982,9 @@
       "source_file": "src/app/contact/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "contact_page",
-      "target": "contact_page_githubicon",
-      "confidence_score": 1.0
+      "target": "contact_page_githubicon"
     },
     {
       "relation": "contains",
@@ -911,9 +992,9 @@
       "source_file": "src/app/contact/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "contact_page",
-      "target": "contact_page_linkedinicon",
-      "confidence_score": 1.0
+      "target": "contact_page_linkedinicon"
     },
     {
       "relation": "contains",
@@ -921,9 +1002,9 @@
       "source_file": "src/app/hobbies/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hobbies_page",
-      "target": "hobbies_page_hobbies",
-      "confidence_score": 1.0
+      "target": "hobbies_page_hobbies"
     },
     {
       "relation": "contains",
@@ -931,9 +1012,9 @@
       "source_file": "src/app/hobbies/page.tsx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "hobbies_page",
-      "target": "hobbies_page_hobbiespage",
-      "confidence_score": 1.0
+      "target": "hobbies_page_hobbiespage"
     },
     {
       "relation": "contains",
@@ -941,9 +1022,9 @@
       "source_file": "src/app/hobbies/photography/page.tsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "photography_page",
-      "target": "photography_page_photographygallery",
-      "confidence_score": 1.0
+      "target": "photography_page_photographygallery"
     },
     {
       "relation": "contains",
@@ -951,9 +1032,9 @@
       "source_file": "src/app/hobbies/photography/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "photography_page",
-      "target": "photography_page_photos",
-      "confidence_score": 1.0
+      "target": "photography_page_photos"
     },
     {
       "relation": "contains",
@@ -961,9 +1042,9 @@
       "source_file": "src/app/hobbies/photography/page.tsx",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "photography_page",
-      "target": "photography_page_photosection",
-      "confidence_score": 1.0
+      "target": "photography_page_photosection"
     },
     {
       "relation": "imports_from",
@@ -972,9 +1053,9 @@
       "source_file": "src/app/lab/[slug]/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_lab_slug_page_tsx_slug_page",
-      "target": "data_projects",
-      "confidence_score": 1.0
+      "target": "data_projects"
     },
     {
       "relation": "imports",
@@ -983,9 +1064,9 @@
       "source_file": "src/app/lab/[slug]/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_lab_slug_page_tsx_slug_page",
-      "target": "data_projects_projects",
-      "confidence_score": 1.0
+      "target": "data_projects_projects"
     },
     {
       "relation": "contains",
@@ -993,9 +1074,9 @@
       "source_file": "src/app/lab/[slug]/page.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_lab_slug_page_tsx_slug_page",
-      "target": "slug_page_experiencepage",
-      "confidence_score": 1.0
+      "target": "slug_page_experiencepage"
     },
     {
       "relation": "imports_from",
@@ -1004,9 +1085,9 @@
       "source_file": "src/app/lab/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lab_page",
-      "target": "data_projects",
-      "confidence_score": 1.0
+      "target": "data_projects"
     },
     {
       "relation": "imports",
@@ -1015,9 +1096,9 @@
       "source_file": "src/app/lab/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lab_page",
-      "target": "data_projects_projects",
-      "confidence_score": 1.0
+      "target": "data_projects_projects"
     },
     {
       "relation": "contains",
@@ -1025,9 +1106,9 @@
       "source_file": "src/app/lab/page.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lab_page",
-      "target": "lab_page_labpage",
-      "confidence_score": 1.0
+      "target": "lab_page_labpage"
     },
     {
       "relation": "contains",
@@ -1035,9 +1116,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "app_layout_metadata",
-      "confidence_score": 1.0
+      "target": "app_layout_metadata"
     },
     {
       "relation": "contains",
@@ -1045,9 +1126,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "app_layout_rootlayout",
-      "confidence_score": 1.0
+      "target": "app_layout_rootlayout"
     },
     {
       "relation": "imports_from",
@@ -1056,9 +1137,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "components_theme_provider",
-      "confidence_score": 1.0
+      "target": "components_theme_provider"
     },
     {
       "relation": "imports",
@@ -1067,9 +1148,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "components_theme_provider_themeprovider",
-      "confidence_score": 1.0
+      "target": "components_theme_provider_themeprovider"
     },
     {
       "relation": "imports_from",
@@ -1078,9 +1159,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "layout_navigation",
-      "confidence_score": 1.0
+      "target": "layout_navigation"
     },
     {
       "relation": "imports",
@@ -1089,9 +1170,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "layout_navigation_navigation",
-      "confidence_score": 1.0
+      "target": "layout_navigation_navigation"
     },
     {
       "relation": "imports_from",
@@ -1100,9 +1181,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "ui_commandpalette",
-      "confidence_score": 1.0
+      "target": "ui_commandpalette"
     },
     {
       "relation": "imports_from",
@@ -1111,9 +1192,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "ui_terminaleasteregg",
-      "confidence_score": 1.0
+      "target": "ui_terminaleasteregg"
     },
     {
       "relation": "imports_from",
@@ -1122,9 +1203,9 @@
       "source_file": "src/app/layout.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_layout",
-      "target": "visuals_minimalbackground",
-      "confidence_score": 1.0
+      "target": "visuals_minimalbackground"
     },
     {
       "relation": "contains",
@@ -1132,9 +1213,9 @@
       "source_file": "src/app/now/page.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "now_page",
-      "target": "now_page_now",
-      "confidence_score": 1.0
+      "target": "now_page_now"
     },
     {
       "relation": "contains",
@@ -1142,9 +1223,9 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_page",
-      "target": "app_page_home",
-      "confidence_score": 1.0
+      "target": "app_page_home"
     },
     {
       "relation": "imports_from",
@@ -1153,9 +1234,9 @@
       "source_file": "src/app/page.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_page",
-      "target": "visuals_neuralnodes",
-      "confidence_score": 1.0
+      "target": "visuals_neuralnodes"
     },
     {
       "relation": "imports_from",
@@ -1164,9 +1245,9 @@
       "source_file": "src/app/project/[slug]/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_project_slug_page_tsx_slug_page",
-      "target": "data_projects",
-      "confidence_score": 1.0
+      "target": "data_projects"
     },
     {
       "relation": "imports",
@@ -1175,9 +1256,9 @@
       "source_file": "src/app/project/[slug]/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_project_slug_page_tsx_slug_page",
-      "target": "data_projects_project",
-      "confidence_score": 1.0
+      "target": "data_projects_project"
     },
     {
       "relation": "imports",
@@ -1186,9 +1267,9 @@
       "source_file": "src/app/project/[slug]/page.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_project_slug_page_tsx_slug_page",
-      "target": "data_projects_projects",
-      "confidence_score": 1.0
+      "target": "data_projects_projects"
     },
     {
       "relation": "contains",
@@ -1196,9 +1277,9 @@
       "source_file": "src/app/project/[slug]/page.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_project_slug_page_tsx_slug_page",
-      "target": "slug_page_gettheme",
-      "confidence_score": 1.0
+      "target": "slug_page_gettheme"
     },
     {
       "relation": "contains",
@@ -1206,9 +1287,9 @@
       "source_file": "src/app/project/[slug]/page.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app_project_slug_page_tsx_slug_page",
-      "target": "slug_page_projectpage",
-      "confidence_score": 1.0
+      "target": "slug_page_projectpage"
     },
     {
       "relation": "calls",
@@ -1217,9 +1298,9 @@
       "source_file": "src/app/project/[slug]/page.tsx",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "slug_page_projectpage",
-      "target": "slug_page_gettheme",
-      "confidence_score": 1.0
+      "target": "slug_page_gettheme"
     },
     {
       "relation": "imports_from",
@@ -1228,9 +1309,9 @@
       "source_file": "src/app/projects/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_page",
-      "target": "data_projects",
-      "confidence_score": 1.0
+      "target": "data_projects"
     },
     {
       "relation": "imports",
@@ -1239,9 +1320,9 @@
       "source_file": "src/app/projects/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_page",
-      "target": "data_projects_project",
-      "confidence_score": 1.0
+      "target": "data_projects_project"
     },
     {
       "relation": "imports",
@@ -1250,9 +1331,9 @@
       "source_file": "src/app/projects/page.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_page",
-      "target": "data_projects_projects",
-      "confidence_score": 1.0
+      "target": "data_projects_projects"
     },
     {
       "relation": "contains",
@@ -1260,9 +1341,9 @@
       "source_file": "src/app/projects/page.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_page",
-      "target": "projects_page_allcategories",
-      "confidence_score": 1.0
+      "target": "projects_page_allcategories"
     },
     {
       "relation": "contains",
@@ -1270,9 +1351,9 @@
       "source_file": "src/app/projects/page.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_page",
-      "target": "projects_page_gettheme",
-      "confidence_score": 1.0
+      "target": "projects_page_gettheme"
     },
     {
       "relation": "contains",
@@ -1280,9 +1361,9 @@
       "source_file": "src/app/projects/page.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_page",
-      "target": "projects_page_projectcard",
-      "confidence_score": 1.0
+      "target": "projects_page_projectcard"
     },
     {
       "relation": "contains",
@@ -1290,9 +1371,9 @@
       "source_file": "src/app/projects/page.tsx",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_page",
-      "target": "projects_page_projects",
-      "confidence_score": 1.0
+      "target": "projects_page_projects"
     },
     {
       "relation": "calls",
@@ -1301,9 +1382,9 @@
       "source_file": "src/app/projects/page.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "projects_page_projectcard",
-      "target": "projects_page_gettheme",
-      "confidence_score": 1.0
+      "target": "projects_page_gettheme"
     },
     {
       "relation": "contains",
@@ -1311,9 +1392,9 @@
       "source_file": "src/app/skills/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "skills_page",
-      "target": "skills_page_skillcategories",
-      "confidence_score": 1.0
+      "target": "skills_page_skillcategories"
     },
     {
       "relation": "contains",
@@ -1321,9 +1402,9 @@
       "source_file": "src/app/skills/page.tsx",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "skills_page",
-      "target": "skills_page_skills",
-      "confidence_score": 1.0
+      "target": "skills_page_skills"
     },
     {
       "relation": "contains",
@@ -1331,9 +1412,9 @@
       "source_file": "src/app/timeline/page.tsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "timeline_page",
-      "target": "timeline_page_gettheme",
-      "confidence_score": 1.0
+      "target": "timeline_page_gettheme"
     },
     {
       "relation": "contains",
@@ -1341,9 +1422,9 @@
       "source_file": "src/app/timeline/page.tsx",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "timeline_page",
-      "target": "timeline_page_timeline",
-      "confidence_score": 1.0
+      "target": "timeline_page_timeline"
     },
     {
       "relation": "contains",
@@ -1351,9 +1432,9 @@
       "source_file": "src/app/timeline/page.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "timeline_page",
-      "target": "timeline_page_timelineevents",
-      "confidence_score": 1.0
+      "target": "timeline_page_timelineevents"
     },
     {
       "relation": "contains",
@@ -1361,9 +1442,9 @@
       "source_file": "src/components/layout/Navigation.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "layout_navigation",
-      "target": "layout_navigation_links",
-      "confidence_score": 1.0
+      "target": "layout_navigation_links"
     },
     {
       "relation": "contains",
@@ -1371,9 +1452,9 @@
       "source_file": "src/components/layout/Navigation.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "layout_navigation",
-      "target": "layout_navigation_navigation",
-      "confidence_score": 1.0
+      "target": "layout_navigation_navigation"
     },
     {
       "relation": "contains",
@@ -1381,9 +1462,9 @@
       "source_file": "src/components/theme-provider.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_theme_provider",
-      "target": "components_theme_provider_themeprovider",
-      "confidence_score": 1.0
+      "target": "components_theme_provider_themeprovider"
     },
     {
       "relation": "imports_from",
@@ -1392,9 +1473,9 @@
       "source_file": "src/components/ui/CommandPalette.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_commandpalette",
-      "target": "data_projects",
-      "confidence_score": 1.0
+      "target": "data_projects"
     },
     {
       "relation": "imports",
@@ -1403,9 +1484,9 @@
       "source_file": "src/components/ui/CommandPalette.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_commandpalette",
-      "target": "data_projects_projects",
-      "confidence_score": 1.0
+      "target": "data_projects_projects"
     },
     {
       "relation": "contains",
@@ -1413,9 +1494,9 @@
       "source_file": "src/components/ui/CommandPalette.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_commandpalette",
-      "target": "ui_commandpalette_commandpalette",
-      "confidence_score": 1.0
+      "target": "ui_commandpalette_commandpalette"
     },
     {
       "relation": "contains",
@@ -1423,9 +1504,9 @@
       "source_file": "src/components/ui/TerminalEasterEgg.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_terminaleasteregg",
-      "target": "ui_terminaleasteregg_terminaleasteregg",
-      "confidence_score": 1.0
+      "target": "ui_terminaleasteregg_terminaleasteregg"
     },
     {
       "relation": "contains",
@@ -1433,9 +1514,9 @@
       "source_file": "src/components/ui/ThemeToggle.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_themetoggle",
-      "target": "ui_themetoggle_themetoggle",
-      "confidence_score": 1.0
+      "target": "ui_themetoggle_themetoggle"
     },
     {
       "relation": "imports_from",
@@ -1444,9 +1525,9 @@
       "source_file": "src/components/ui/button.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_button",
-      "target": "lib_utils",
-      "confidence_score": 1.0
+      "target": "lib_utils"
     },
     {
       "relation": "imports",
@@ -1455,9 +1536,9 @@
       "source_file": "src/components/ui/button.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_button",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     },
     {
       "relation": "contains",
@@ -1465,9 +1546,9 @@
       "source_file": "src/components/ui/button.tsx",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_button",
-      "target": "ui_button_button",
-      "confidence_score": 1.0
+      "target": "ui_button_button"
     },
     {
       "relation": "contains",
@@ -1475,9 +1556,9 @@
       "source_file": "src/components/ui/button.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_button",
-      "target": "ui_button_buttonvariants",
-      "confidence_score": 1.0
+      "target": "ui_button_buttonvariants"
     },
     {
       "relation": "calls",
@@ -1486,9 +1567,9 @@
       "source_file": "src/components/ui/button.tsx",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_button_button",
-      "target": "ui_button_buttonvariants",
-      "confidence_score": 1.0
+      "target": "ui_button_buttonvariants"
     },
     {
       "relation": "calls",
@@ -1507,9 +1588,9 @@
       "source_file": "src/components/visuals/MinimalBackground.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_minimalbackground",
-      "target": "visuals_minimalbackground_colors",
-      "confidence_score": 1.0
+      "target": "visuals_minimalbackground_colors"
     },
     {
       "relation": "contains",
@@ -1517,9 +1598,9 @@
       "source_file": "src/components/visuals/MinimalBackground.tsx",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_minimalbackground",
-      "target": "visuals_minimalbackground_minimalbackground",
-      "confidence_score": 1.0
+      "target": "visuals_minimalbackground_minimalbackground"
     },
     {
       "relation": "contains",
@@ -1527,9 +1608,9 @@
       "source_file": "src/components/visuals/MinimalBackground.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_minimalbackground",
-      "target": "visuals_minimalbackground_shapes",
-      "confidence_score": 1.0
+      "target": "visuals_minimalbackground_shapes"
     },
     {
       "relation": "contains",
@@ -1537,9 +1618,9 @@
       "source_file": "src/components/visuals/MinimalBackground.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_minimalbackground",
-      "target": "visuals_minimalbackground_tetromino",
-      "confidence_score": 1.0
+      "target": "visuals_minimalbackground_tetromino"
     },
     {
       "relation": "contains",
@@ -1547,9 +1628,9 @@
       "source_file": "src/components/visuals/NeuralNodes.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_neuralnodes",
-      "target": "visuals_neuralnodes_neuralnodes",
-      "confidence_score": 1.0
+      "target": "visuals_neuralnodes_neuralnodes"
     },
     {
       "relation": "contains",
@@ -1557,9 +1638,9 @@
       "source_file": "src/components/visuals/NeuralParticles.tsx",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_neuralparticles",
-      "target": "visuals_neuralparticles_neuralparticles",
-      "confidence_score": 1.0
+      "target": "visuals_neuralparticles_neuralparticles"
     },
     {
       "relation": "contains",
@@ -1567,9 +1648,9 @@
       "source_file": "src/components/visuals/NeuralParticles.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_neuralparticles",
-      "target": "visuals_neuralparticles_particle",
-      "confidence_score": 1.0
+      "target": "visuals_neuralparticles_particle"
     },
     {
       "relation": "method",
@@ -1577,9 +1658,9 @@
       "source_file": "src/components/visuals/NeuralParticles.tsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_neuralparticles_particle",
-      "target": "visuals_neuralparticles_particle_constructor",
-      "confidence_score": 1.0
+      "target": "visuals_neuralparticles_particle_constructor"
     },
     {
       "relation": "method",
@@ -1587,9 +1668,9 @@
       "source_file": "src/components/visuals/NeuralParticles.tsx",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_neuralparticles_particle",
-      "target": "visuals_neuralparticles_particle_draw",
-      "confidence_score": 1.0
+      "target": "visuals_neuralparticles_particle_draw"
     },
     {
       "relation": "method",
@@ -1597,9 +1678,9 @@
       "source_file": "src/components/visuals/NeuralParticles.tsx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_neuralparticles_particle",
-      "target": "visuals_neuralparticles_particle_update",
-      "confidence_score": 1.0
+      "target": "visuals_neuralparticles_particle_update"
     },
     {
       "relation": "imports_from",
@@ -1608,9 +1689,9 @@
       "source_file": "src/components/visuals/ProjectGalaxy.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_projectgalaxy",
-      "target": "data_projects",
-      "confidence_score": 1.0
+      "target": "data_projects"
     },
     {
       "relation": "imports",
@@ -1619,9 +1700,9 @@
       "source_file": "src/components/visuals/ProjectGalaxy.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_projectgalaxy",
-      "target": "data_projects_connections",
-      "confidence_score": 1.0
+      "target": "data_projects_connections"
     },
     {
       "relation": "imports",
@@ -1630,9 +1711,9 @@
       "source_file": "src/components/visuals/ProjectGalaxy.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_projectgalaxy",
-      "target": "data_projects_projects",
-      "confidence_score": 1.0
+      "target": "data_projects_projects"
     },
     {
       "relation": "contains",
@@ -1640,9 +1721,9 @@
       "source_file": "src/components/visuals/ProjectGalaxy.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "visuals_projectgalaxy",
-      "target": "visuals_projectgalaxy_projectgalaxy",
-      "confidence_score": 1.0
+      "target": "visuals_projectgalaxy_projectgalaxy"
     },
     {
       "relation": "contains",
@@ -1650,9 +1731,9 @@
       "source_file": "src/data/projects.ts",
       "source_location": "L605",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_projects",
-      "target": "data_projects_connections",
-      "confidence_score": 1.0
+      "target": "data_projects_connections"
     },
     {
       "relation": "contains",
@@ -1660,9 +1741,9 @@
       "source_file": "src/data/projects.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_projects",
-      "target": "data_projects_labcontentblock",
-      "confidence_score": 1.0
+      "target": "data_projects_labcontentblock"
     },
     {
       "relation": "contains",
@@ -1670,9 +1751,9 @@
       "source_file": "src/data/projects.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_projects",
-      "target": "data_projects_project",
-      "confidence_score": 1.0
+      "target": "data_projects_project"
     },
     {
       "relation": "contains",
@@ -1680,9 +1761,9 @@
       "source_file": "src/data/projects.ts",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "data_projects",
-      "target": "data_projects_projects",
-      "confidence_score": 1.0
+      "target": "data_projects_projects"
     },
     {
       "relation": "contains",
@@ -1690,11 +1771,11 @@
       "source_file": "src/lib/utils.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_utils",
-      "target": "lib_utils_cn",
-      "confidence_score": 1.0
+      "target": "lib_utils_cn"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7d8ec028f3d50bcba7dfa645661235ef1521dcfa"
+  "built_at_commit": "b4d137eb27f91b22d55a303adef3ed490b3ca461"
 }

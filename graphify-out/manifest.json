@@ -115,8 +115,8 @@
     "semantic_hash": "0842b4931e4c45e742858a2989ae814d"
   },
   "src/data/projects.ts": {
-    "mtime": 1782193834.802628,
-    "ast_hash": "f62f5422838560039e8a283b035ee568",
+    "mtime": 1782383929.7320511,
+    "ast_hash": "f386314391f1693109e17c700da407a6",
     "semantic_hash": ""
   },
   "src/lib/utils.ts": {
@@ -142,6 +142,21 @@
   "src/components/ui/TerminalEasterEgg.tsx": {
     "mtime": 1782192832.4457552,
     "ast_hash": "e86bbfcec141ae6d114d663813f90ec8",
+    "semantic_hash": ""
+  },
+  "apply_stories.py": {
+    "mtime": 1782383915.3804398,
+    "ast_hash": "5112b8717c781e9fe749f3d8ca6e528d",
+    "semantic_hash": ""
+  },
+  "extract.py": {
+    "mtime": 1782383804.1496577,
+    "ast_hash": "84f8f2dad27f77a8a0a1b7b2c3b2585a",
+    "semantic_hash": ""
+  },
+  "jules_automator.py": {
+    "mtime": 1782383716.3034773,
+    "ast_hash": "ae86f45ee688f82858bd63e553198bcc",
     "semantic_hash": ""
   }
 }
