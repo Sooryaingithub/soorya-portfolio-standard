@@ -30,35 +30,26 @@ def run_applescript(script):
 # 1. Copy to clipboard
 subprocess.run(['pbcopy'], input=prompt.encode('utf-8'))
 
-# 2. Focus input and clear it
-js_focus = """
-let pm = document.querySelector('.ProseMirror');
-if (pm) {
-    // try to click it to ensure focus
-    pm.focus();
-}
-"""
-js_escaped = js_focus.replace('"', '\\"')
-run_applescript(f'tell application "Google Chrome" to execute front window\'s active tab javascript "{js_escaped}"')
-
-# 3. Paste and Enter
-run_applescript("""
+# 2. Activate Chrome and paste
+applescript = """
 tell application "Google Chrome" to activate
 delay 0.5
+tell application "Google Chrome" to execute front window's active tab javascript "
+    let pm = document.querySelector('.ProseMirror');
+    if(pm) { pm.focus(); pm.click(); }
+"
+delay 0.5
 tell application "System Events"
-    keystroke "a" using command down
-    delay 0.2
-    key code 51 -- delete key to clear previous stuff just in case
-    delay 0.5
     keystroke "v" using command down
-    delay 0.5
+    delay 1.0
     keystroke return
 end tell
-""")
+"""
+run_applescript(applescript)
 
-print("Prompt sent. Waiting for Jules to refine the code...")
+print("Prompt pasted and Enter pressed. Waiting for Jules to refine the code...")
 
-# 4. Polling for response
+# 3. Polling for response
 def get_page_text():
     js = "document.body.innerText"
     js_escaped = js.replace('"', '\\"')
@@ -70,7 +61,6 @@ time.sleep(15) # Wait for generation to start
 
 for _ in range(60):
     text = get_page_text()
-    # we want to wait until it stabilizes and contains the new tsx block
     if text == last_text and len(text) > 1000:
         stable_count += 1
     else:
@@ -85,7 +75,7 @@ for _ in range(60):
             break
     time.sleep(5)
 
-# 5. Extract Code
+# 4. Extract Code
 match = re.search(r'```(?:tsx|typescript)?(.*?)```', last_text, re.DOTALL | re.IGNORECASE)
 if match:
     refined_code = match.group(1).strip()
@@ -94,6 +84,3 @@ if match:
     print("Successfully overwritten CommandPalette.tsx with Jules's refined code!")
 else:
     print("Could not find the tsx code block in Jules's response.")
-    # dump to debug
-    with open("jules_debug.txt", "w", encoding="utf-8") as f:
-        f.write(last_text)
