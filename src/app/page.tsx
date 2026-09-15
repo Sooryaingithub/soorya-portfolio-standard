@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -128,19 +129,37 @@ export default function HomePage() {
       {/* 1. HERO SECTION: Clean Architectural Minimalism */}
       <section className="w-full max-w-5xl mx-auto px-6 md:px-12 flex flex-col items-center text-center relative z-20 pt-4 pb-20">
         
-        {/* Availability Pill */}
-        <motion.div
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-zinc-200/90 text-[11px] font-mono tracking-widest text-zinc-700 mb-8 shadow-xs"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
-          </span>
-          <span>AVAILABLE FOR AI SYSTEMS &amp; SPATIAL COMPUTING</span>
-        </motion.div>
+        {/* Calligraphic Seal & Availability Pill */}
+        <div className="flex flex-col sm:flex-row items-center gap-3.5 mb-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="w-12 h-12 rounded-full overflow-hidden bg-white border border-zinc-200/90 p-1 shadow-xs hover:border-zinc-400 transition-all flex items-center justify-center shrink-0"
+          >
+            <Image
+              src="/images/calligraphy-logo.jpg"
+              alt="Soorya Calligraphic Monogram"
+              width={48}
+              height={48}
+              className="w-full h-full object-cover mix-blend-multiply"
+              priority
+            />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-zinc-200/90 text-[11px] font-mono tracking-widest text-zinc-700 shadow-xs"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
+            </span>
+            <span>AVAILABLE FOR AI SYSTEMS &amp; SPATIAL COMPUTING</span>
+          </motion.div>
+        </div>
 
         {/* Monumental Editorial Headline */}
         <motion.h1
@@ -655,16 +674,34 @@ export default function HomePage() {
       {/* 6. INTERACTIVE CONTACT DOCK: Clean Light Minimal */}
       <section id="contact" className="w-full max-w-3xl mx-auto px-6 md:px-12 relative z-20 text-center mb-24 scroll-mt-24">
         <div className="rounded-3xl bg-white border border-zinc-200/80 p-10 md:p-14 shadow-xs">
-          <div className="w-14 h-14 rounded-full bg-zinc-950 text-white mx-auto flex items-center justify-center text-lg font-bold shadow-sm mb-6">
-            SS
+          {/* Calligraphic Seal */}
+          <div className="w-16 h-16 rounded-full overflow-hidden bg-white border border-zinc-200/90 mx-auto flex items-center justify-center p-1.5 shadow-xs mb-6 hover:scale-105 transition-transform">
+            <Image
+              src="/images/calligraphy-logo.jpg"
+              alt="Soorya Calligraphic Monogram"
+              width={64}
+              height={64}
+              className="w-full h-full object-cover mix-blend-multiply"
+            />
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-serif text-zinc-950 tracking-tight mb-4">
             Let&apos;s Build Together.
           </h2>
-          <p className="text-sm sm:text-base text-zinc-600 max-w-xl mx-auto leading-relaxed font-light mb-8">
+          <p className="text-sm sm:text-base text-zinc-600 max-w-xl mx-auto leading-relaxed font-light mb-6">
             Actively open to high-impact opportunities in AI Systems Engineering, Spatial Computing, On-Device Intelligence, and Cloud-Edge Architecture.
           </p>
+
+          {/* Calligraphic Signature Wordmark */}
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/images/calligraphy-signature.jpg"
+              alt="Soorya Calligraphic Signature"
+              width={260}
+              height={90}
+              className="h-16 sm:h-20 w-auto object-contain mix-blend-multiply opacity-90 hover:opacity-100 transition-opacity"
+            />
+          </div>
 
           {/* Direct Connect Buttons */}
           <div className="flex flex-wrap items-center justify-center gap-3.5 mb-10">

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Command, Menu, X } from "lucide-react";
@@ -35,13 +36,20 @@ export default function Navigation() {
         aria-label="Main Navigation"
         className="pointer-events-auto bg-white/85 backdrop-blur-md border border-zinc-200/90 px-3.5 py-2 rounded-full flex items-center justify-between gap-2 sm:gap-6 w-full max-w-4xl shadow-sm transition-all duration-300"
       >
-        {/* Monogram Brand */}
+        {/* Calligraphic Monogram Brand */}
         <Link
           href="/"
           className="flex items-center gap-2.5 px-2 py-1 group transition-transform active:scale-95"
         >
-          <div className="w-7 h-7 rounded-full bg-zinc-900 flex items-center justify-center text-white text-xs font-semibold tracking-tight shadow-sm">
-            S
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-zinc-200/90 flex items-center justify-center p-0.5 shadow-2xs group-hover:border-zinc-400 transition-colors shrink-0">
+            <Image
+              src="/images/calligraphy-logo.jpg"
+              alt="Soorya Calligraphic Monogram"
+              width={32}
+              height={32}
+              className="w-full h-full object-cover mix-blend-multiply"
+              priority
+            />
           </div>
           <span className="hidden sm:inline text-xs font-mono font-medium tracking-wider uppercase text-zinc-900 group-hover:text-zinc-600 transition-colors">
             SOORYA

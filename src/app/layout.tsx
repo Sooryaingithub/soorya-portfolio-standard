@@ -83,6 +83,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://soorya-portfolio-vert.vercel.app",
   },
+  icons: {
+    icon: "/images/calligraphy-logo.jpg",
+    shortcut: "/images/calligraphy-logo.jpg",
+    apple: "/images/calligraphy-logo.jpg",
+  },
 };
 
 const jsonLd = {
