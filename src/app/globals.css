@@ -44,8 +44,8 @@
   --font-playfair: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-geist-mono: "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
 
-  /* Architectural Clean Light Mode */
-  --background: #FAFAFA;
+  /* Architectural Clean Light Mode (5% subtle gray canvas) */
+  --background: #F2F2F4;
   --foreground: #09090B;
   --color-white-custom: #FFFFFF;
   --color-black-custom: #000000;

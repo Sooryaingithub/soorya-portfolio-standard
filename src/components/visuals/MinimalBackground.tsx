@@ -10,7 +10,7 @@ export default function MinimalBackground() {
         zIndex: -1,
         pointerEvents: "none",
         overflow: "hidden",
-        backgroundColor: "#FAFAFA",
+        backgroundColor: "#F2F2F4",
       }}
     >
       {/* Subtle Minimal Architectural Grid */}
