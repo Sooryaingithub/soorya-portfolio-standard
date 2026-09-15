@@ -44,6 +44,16 @@
       "norm_label": "extract.py"
     },
     {
+      "label": "extract_jules_code.py",
+      "file_type": "code",
+      "source_file": "extract_jules_code.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "extract_jules_code",
+      "community": 26,
+      "norm_label": "extract_jules_code.py"
+    },
+    {
       "label": "jules_automator.py",
       "file_type": "code",
       "source_file": "jules_automator.py",
@@ -72,6 +82,156 @@
       "id": "jules_automator_get_page_text",
       "community": 18,
       "norm_label": "get_page_text()"
+    },
+    {
+      "label": "jules_diag.py",
+      "file_type": "code",
+      "source_file": "jules_diag.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_diag",
+      "community": 22,
+      "norm_label": "jules_diag.py"
+    },
+    {
+      "label": "run_js()",
+      "file_type": "code",
+      "source_file": "jules_diag.py",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "jules_diag_run_js",
+      "community": 22,
+      "norm_label": "run_js()"
+    },
+    {
+      "label": "jules_dump.py",
+      "file_type": "code",
+      "source_file": "jules_dump.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_dump",
+      "community": 27,
+      "norm_label": "jules_dump.py"
+    },
+    {
+      "label": "jules_dump_final.py",
+      "file_type": "code",
+      "source_file": "jules_dump_final.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_dump_final",
+      "community": 28,
+      "norm_label": "jules_dump_final.py"
+    },
+    {
+      "label": "jules_extract.py",
+      "file_type": "code",
+      "source_file": "jules_extract.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_extract",
+      "community": 23,
+      "norm_label": "jules_extract.py"
+    },
+    {
+      "label": "run_applescript()",
+      "file_type": "code",
+      "source_file": "jules_extract.py",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "jules_extract_run_applescript",
+      "community": 23,
+      "norm_label": "run_applescript()"
+    },
+    {
+      "label": "jules_inject.py",
+      "file_type": "code",
+      "source_file": "jules_inject.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_inject",
+      "community": 24,
+      "norm_label": "jules_inject.py"
+    },
+    {
+      "label": "run_js()",
+      "file_type": "code",
+      "source_file": "jules_inject.py",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "jules_inject_run_js",
+      "community": 24,
+      "norm_label": "run_js()"
+    },
+    {
+      "label": "jules_read.py",
+      "file_type": "code",
+      "source_file": "jules_read.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_read",
+      "community": 25,
+      "norm_label": "jules_read.py"
+    },
+    {
+      "label": "run_js()",
+      "file_type": "code",
+      "source_file": "jules_read.py",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "jules_read_run_js",
+      "community": 25,
+      "norm_label": "run_js()"
+    },
+    {
+      "label": "jules_read_all.py",
+      "file_type": "code",
+      "source_file": "jules_read_all.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_read_all",
+      "community": 29,
+      "norm_label": "jules_read_all.py"
+    },
+    {
+      "label": "jules_refiner.py",
+      "file_type": "code",
+      "source_file": "jules_refiner.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_refiner",
+      "community": 21,
+      "norm_label": "jules_refiner.py"
+    },
+    {
+      "label": "run_applescript()",
+      "file_type": "code",
+      "source_file": "jules_refiner.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "jules_refiner_run_applescript",
+      "community": 21,
+      "norm_label": "run_applescript()"
+    },
+    {
+      "label": "get_page_text()",
+      "file_type": "code",
+      "source_file": "jules_refiner.py",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "jules_refiner_get_page_text",
+      "community": 21,
+      "norm_label": "get_page_text()"
+    },
+    {
+      "label": "jules_reply.py",
+      "file_type": "code",
+      "source_file": "jules_reply.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "jules_reply",
+      "community": 30,
+      "norm_label": "jules_reply.py"
     },
     {
       "label": "next-env.d.ts",
@@ -380,7 +540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_app_project_slug_page_tsx_slug_page",
-      "community": 0,
+      "community": 4,
       "norm_label": "page.tsx"
     },
     {
@@ -390,7 +550,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "slug_page_gettheme",
-      "community": 0,
+      "community": 4,
       "norm_label": "gettheme()"
     },
     {
@@ -400,7 +560,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "slug_page_projectpage",
-      "community": 0,
+      "community": 4,
       "norm_label": "projectpage()"
     },
     {
@@ -584,10 +744,20 @@
       "norm_label": "commandpalette.tsx"
     },
     {
-      "label": "CommandPalette()",
+      "label": "actions",
       "file_type": "code",
       "source_file": "src/components/ui/CommandPalette.tsx",
       "source_location": "L8",
+      "_origin": "ast",
+      "id": "ui_commandpalette_actions",
+      "community": 0,
+      "norm_label": "actions"
+    },
+    {
+      "label": "CommandPalette()",
+      "file_type": "code",
+      "source_file": "src/components/ui/CommandPalette.tsx",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "ui_commandpalette_commandpalette",
       "community": 0,
@@ -840,7 +1010,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "data_projects_project",
-      "community": 0,
+      "community": 4,
       "norm_label": "project"
     },
     {
@@ -901,9 +1071,9 @@
       "source_file": "jules_automator.py",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jules_automator",
-      "target": "jules_automator_get_page_text",
-      "confidence_score": 1.0
+      "target": "jules_automator_get_page_text"
     },
     {
       "relation": "contains",
@@ -911,9 +1081,9 @@
       "source_file": "jules_automator.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jules_automator",
-      "target": "jules_automator_run_applescript",
-      "confidence_score": 1.0
+      "target": "jules_automator_run_applescript"
     },
     {
       "relation": "calls",
@@ -922,8 +1092,79 @@
       "source_file": "jules_automator.py",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "jules_automator_get_page_text",
-      "target": "jules_automator_run_applescript",
+      "target": "jules_automator_run_applescript"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_diag.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "jules_diag",
+      "target": "jules_diag_run_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_extract.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "jules_extract",
+      "target": "jules_extract_run_applescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_inject.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "jules_inject",
+      "target": "jules_inject_run_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_read.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "jules_read",
+      "target": "jules_read_run_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_refiner.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "jules_refiner",
+      "target": "jules_refiner_get_page_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_refiner.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "jules_refiner",
+      "target": "jules_refiner_run_applescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "jules_refiner.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "jules_refiner_get_page_text",
+      "target": "jules_refiner_run_applescript",
       "confidence_score": 1.0
     },
     {
@@ -1494,6 +1735,16 @@
       "source_file": "src/components/ui/CommandPalette.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "source": "ui_commandpalette",
+      "target": "ui_commandpalette_actions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ui/CommandPalette.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "ui_commandpalette",
       "target": "ui_commandpalette_commandpalette"
@@ -1777,5 +2028,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b4d137eb27f91b22d55a303adef3ed490b3ca461"
+  "built_at_commit": "04d6c531343c56271d47f7dc39dee70db3821211"
 }

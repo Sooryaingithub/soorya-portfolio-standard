@@ -80,9 +80,9 @@
     "semantic_hash": "c00fa9d4a460ac4f9c808ad29d573581"
   },
   "src/components/ui/CommandPalette.tsx": {
-    "mtime": 1781718160.8020132,
-    "ast_hash": "2eb2738a2e1ee5277321e2b4fe4cbd11",
-    "semantic_hash": "2eb2738a2e1ee5277321e2b4fe4cbd11"
+    "mtime": 1782385653.8066971,
+    "ast_hash": "a4f5781a350520ffc86b197582ce0ecd",
+    "semantic_hash": ""
   },
   "src/components/ui/ThemeToggle.tsx": {
     "mtime": 1781346753.4010878,
@@ -157,6 +157,56 @@
   "jules_automator.py": {
     "mtime": 1782383716.3034773,
     "ast_hash": "ae86f45ee688f82858bd63e553198bcc",
+    "semantic_hash": ""
+  },
+  "extract_jules_code.py": {
+    "mtime": 1782385645.462832,
+    "ast_hash": "bed9f707cc6b78cb523e254b07ddd00e",
+    "semantic_hash": ""
+  },
+  "jules_diag.py": {
+    "mtime": 1782384092.2982538,
+    "ast_hash": "990d998db6317f8eb9f37640c2492aab",
+    "semantic_hash": ""
+  },
+  "jules_dump.py": {
+    "mtime": 1782385512.7595563,
+    "ast_hash": "0b2a3721e44efaa51950643a85d13b03",
+    "semantic_hash": ""
+  },
+  "jules_dump_final.py": {
+    "mtime": 1782385612.2527184,
+    "ast_hash": "a85ecbb39b2b6d7e1821833ce7d4bf42",
+    "semantic_hash": ""
+  },
+  "jules_extract.py": {
+    "mtime": 1782385569.345495,
+    "ast_hash": "82c8f1a8bba039f3a2387d1e7327f123",
+    "semantic_hash": ""
+  },
+  "jules_inject.py": {
+    "mtime": 1782384877.0086586,
+    "ast_hash": "3cad84a5b5a3ca2ff6f5bd8ef44c6d09",
+    "semantic_hash": ""
+  },
+  "jules_read.py": {
+    "mtime": 1782385180.4150455,
+    "ast_hash": "31676cd710d29606601d1d1cceaf1fe5",
+    "semantic_hash": ""
+  },
+  "jules_read_all.py": {
+    "mtime": 1782385200.6780055,
+    "ast_hash": "7e571b8efdf56507e0916cf3b66731ed",
+    "semantic_hash": ""
+  },
+  "jules_refiner.py": {
+    "mtime": 1782384904.6485107,
+    "ast_hash": "171b6c5eb180d2cc2fdffdf427feb659",
+    "semantic_hash": ""
+  },
+  "jules_reply.py": {
+    "mtime": 1782385543.2584727,
+    "ast_hash": "e87ee791f5107e31f76e604e9fe2b866",
     "semantic_hash": ""
   }
 }
