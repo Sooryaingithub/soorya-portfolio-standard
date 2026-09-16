@@ -15,46 +15,43 @@ export default function InteractiveBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#FAFAFA] pointer-events-none">
-      {/* High-end stark architectural grid */}
-      <div 
-        className="absolute inset-0 opacity-[0.15]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #000 1px, transparent 1px),
-            linear-gradient(to bottom, #000 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px'
+    <div className="fixed inset-0 z-[-1] overflow-hidden bg-[#FDFCF8] pointer-events-none">
+      
+      {/* English Pastel Gradient Blobs */}
+      <motion.div
+        className="absolute w-[900px] h-[900px] rounded-full blur-[140px] bg-[#E6DFD3]/40 mix-blend-multiply hidden md:block"
+        animate={{
+          x: mousePosition.x - 450,
+          y: mousePosition.y - 450,
         }}
+        transition={{ type: "tween", ease: "circOut", duration: 1.2 }}
       />
       
-      {/* Cursor tracking blur/flashlight */}
       <motion.div
-        className="absolute w-[800px] h-[800px] rounded-full blur-[120px] bg-black/5 mix-blend-multiply hidden md:block"
+        className="absolute w-[600px] h-[600px] rounded-full blur-[100px] bg-[#D6C5C3]/30 mix-blend-multiply hidden md:block"
         animate={{
-          x: mousePosition.x - 400,
-          y: mousePosition.y - 400,
+          x: mousePosition.x - 300,
+          y: mousePosition.y - 300,
         }}
-        transition={{ type: "tween", ease: "circOut", duration: 0.8 }}
+        transition={{ type: "tween", ease: "backOut", duration: 0.8 }}
       />
       
-      {/* A second smaller cursor follower for depth */}
       <motion.div
-        className="absolute w-[300px] h-[300px] rounded-full blur-[80px] bg-zinc-300/30 mix-blend-multiply hidden md:block"
+        className="absolute w-[400px] h-[400px] rounded-full blur-[80px] bg-[#B2BFAF]/25 mix-blend-multiply hidden md:block"
         animate={{
-          x: mousePosition.x - 150,
-          y: mousePosition.y - 150,
+          x: mousePosition.x - 200,
+          y: mousePosition.y - 200,
         }}
-        transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
+        transition={{ type: "tween", ease: "linear", duration: 0.4 }}
       />
 
       {/* Fade out edges and top for clean content rendering */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#FAFAFA] via-transparent to-[#FAFAFA] opacity-80" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAFA] via-transparent to-[#FAFAFA] opacity-80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FDFCF8] via-transparent to-[#FDFCF8] opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#FDFCF8] via-transparent to-[#FDFCF8] opacity-60" />
 
-      {/* Extreme subtle noise to prevent banding and give it a 'raw' feel */}
+      {/* Extreme subtle noise to give it a soft canvas feel */}
       <div 
-        className="absolute inset-0 opacity-[0.04] mix-blend-multiply"
+        className="absolute inset-0 opacity-[0.03] mix-blend-multiply"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
         }}

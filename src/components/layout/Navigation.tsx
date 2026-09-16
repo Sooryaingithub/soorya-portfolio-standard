@@ -41,7 +41,7 @@ export default function Navigation() {
           href="/"
           className="flex items-center gap-2.5 px-2 py-1 group transition-transform hover:scale-95 active:scale-90"
         >
-          <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-black/10 flex items-center justify-center p-0.5 shadow-sm group-hover:border-black/20 transition-colors shrink-0">
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-[#2C2928]/10 flex items-center justify-center p-0.5 shadow-sm group-hover:border-[#2C2928]/20 transition-colors shrink-0">
             <Image
               src="/images/calligraphy-logo.jpg"
               alt="Soorya Calligraphic Monogram"
@@ -51,7 +51,7 @@ export default function Navigation() {
               priority
             />
           </div>
-          <span className="hidden sm:inline text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-zinc-950 group-hover:text-zinc-600 transition-colors">
+          <span className="hidden sm:inline text-[11px] font-mono font-bold tracking-[0.2em] uppercase text-[#2C2928] group-hover:text-[#7A7571] transition-colors">
             SOORYA
           </span>
         </Link>
@@ -70,17 +70,17 @@ export default function Navigation() {
                 className={`relative px-4 py-2 text-xs font-semibold tracking-wide transition-colors duration-300 rounded-full ${
                   isActive
                     ? "text-white"
-                    : "text-zinc-500 hover:text-zinc-900"
+                    : "text-[#7A7571] hover:text-[#2C2928]"
                 }`}
               >
                 {isActive ? (
                   <motion.div
                     layoutId="nav-indicator"
-                    className="absolute inset-0 rounded-full bg-zinc-950 -z-10 shadow-md"
+                    className="absolute inset-0 rounded-full bg-[#2C2928] -z-10 shadow-md"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 ) : (
-                  <div className="absolute inset-0 rounded-full bg-black/5 opacity-0 hover:opacity-100 -z-10 transition-opacity duration-300" />
+                  <div className="absolute inset-0 rounded-full bg-[#2C2928]/5 opacity-0 hover:opacity-100 -z-10 transition-opacity duration-300" />
                 )}
                 <span className="relative z-10">{link.label}</span>
               </Link>
@@ -98,7 +98,7 @@ export default function Navigation() {
                 new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })
               );
             }}
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-mono font-medium text-zinc-500 hover:text-zinc-900 bg-white/50 hover:bg-white rounded-full border border-black/5 hover:border-black/10 shadow-sm transition-all"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-mono font-medium text-[#7A7571] hover:text-[#2C2928] bg-white/50 hover:bg-white rounded-full border border-[#2C2928]/5 hover:border-[#2C2928]/10 shadow-sm transition-all"
           >
             <Command className="w-3.5 h-3.5" />
             <span>K</span>
@@ -107,7 +107,7 @@ export default function Navigation() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-zinc-600 hover:text-zinc-950 rounded-full bg-white active:scale-95 transition-all border border-black/5 shadow-sm"
+            className="md:hidden p-2 text-[#7A7571] hover:text-[#2C2928] rounded-full bg-white active:scale-95 transition-all border border-[#2C2928]/5 shadow-sm"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -136,8 +136,8 @@ export default function Navigation() {
                   href={link.href}
                   className={`px-5 py-3 text-sm font-semibold rounded-2xl transition-all ${
                     isActive
-                      ? "bg-zinc-950 text-white shadow-md scale-[0.98]"
-                      : "text-zinc-600 hover:text-zinc-950 hover:bg-black/5 active:scale-95"
+                      ? "bg-[#2C2928] text-white shadow-md scale-[0.98]"
+                      : "text-[#7A7571] hover:text-[#2C2928] hover:bg-[#2C2928]/5 active:scale-95"
                   }`}
                 >
                   {link.label}

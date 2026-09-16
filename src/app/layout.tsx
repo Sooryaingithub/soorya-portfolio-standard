@@ -1,5 +1,4 @@
 import InteractiveBackground from "@/components/visuals/InteractiveBackground";
-import CustomCursor from "@/components/ui/CustomCursor";
 import Navigation from "@/components/layout/Navigation";
 import CommandPalette from "@/components/ui/CommandPalette";
 import TerminalEasterEgg from "@/components/ui/TerminalEasterEgg";
@@ -8,7 +7,7 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
-  themeColor: "#FAFAFA",
+  themeColor: "#FDFCF8",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
@@ -138,7 +137,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="light cursor-none">
+    <html lang="en" suppressHydrationWarning className="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -151,9 +150,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col relative antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden font-sans cursor-none">
+      <body className="min-h-full flex flex-col relative antialiased bg-[#FDFCF8] text-[#2C2928] transition-colors duration-300 overflow-x-hidden font-sans">
         <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light" enableSystem={false}>
-          <CustomCursor />
           <InteractiveBackground />
           <Navigation />
           <CommandPalette />
