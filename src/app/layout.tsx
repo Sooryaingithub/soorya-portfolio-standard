@@ -1,4 +1,4 @@
-import AmbientMesh from "@/components/visuals/AmbientMesh";
+import GridPattern from "@/components/visuals/GridPattern";
 import Navigation from "@/components/layout/Navigation";
 import CommandPalette from "@/components/ui/CommandPalette";
 import TerminalEasterEgg from "@/components/ui/TerminalEasterEgg";
@@ -7,8 +7,8 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
-  colorScheme: "dark",
+  themeColor: "#FDFDFD",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
@@ -137,7 +137,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning className="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -151,8 +151,8 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col relative antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden font-sans">
-        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" enableSystem={false}>
-          <AmbientMesh />
+        <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light" enableSystem={false}>
+          <GridPattern />
           <Navigation />
           <CommandPalette />
           <TerminalEasterEgg />
