@@ -44,42 +44,42 @@
   --font-playfair: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-geist-mono: "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
 
-  /* Architectural Clean Light Mode (5% subtle gray canvas) */
-  --background: #F2F2F4;
-  --foreground: #09090B;
+  /* Apple Glassmorphism Dark Mode Theme */
+  --background: #000000;
+  --foreground: #F2F2F4;
   --color-white-custom: #FFFFFF;
   --color-black-custom: #000000;
   
-  --card: #FFFFFF;
-  --card-foreground: #09090B;
+  --card: rgba(20, 20, 20, 0.4);
+  --card-foreground: #F2F2F4;
   
-  --popover: #FFFFFF;
-  --popover-foreground: #09090B;
+  --popover: rgba(20, 20, 20, 0.4);
+  --popover-foreground: #F2F2F4;
   
-  --primary: #18181B;
-  --primary-foreground: #FAFAFA;
+  --primary: #FAFAFA;
+  --primary-foreground: #09090B;
   
-  --secondary: #F4F4F5;
-  --secondary-foreground: #18181B;
+  --secondary: rgba(255, 255, 255, 0.1);
+  --secondary-foreground: #FAFAFA;
   
-  --muted: #F4F4F5; 
-  --muted-foreground: #71717A;
+  --muted: rgba(255, 255, 255, 0.1); 
+  --muted-foreground: #A1A1AA;
   
-  --accent: #18181B;
+  --accent: rgba(255, 255, 255, 0.1);
   --accent-foreground: #FAFAFA;
   
   --destructive: #EF4444;
   
-  --border: rgba(0, 0, 0, 0.08);
-  --input: rgba(0, 0, 0, 0.08);
-  --ring: rgba(24, 24, 27, 0.2);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: rgba(255, 255, 255, 0.3);
   
-  --radius: 16px;
+  --radius: 20px;
   
-  --glass: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass: rgba(20, 20, 20, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
 
-  --particle-color: 100, 100, 100;
+  --particle-color: 255, 255, 255;
 }
 
 @layer base {
@@ -91,8 +91,8 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     letter-spacing: -0.015em;
-    selection-background-color: rgba(24, 24, 27, 0.1);
-    selection-color: #09090B;
+    selection-background-color: rgba(255, 255, 255, 0.2);
+    selection-color: #FFFFFF;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   html {
@@ -107,38 +107,50 @@
     background: transparent; 
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.15); 
+    background: rgba(255, 255, 255, 0.2); 
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.3); 
+    background: rgba(255, 255, 255, 0.4); 
   }
 }
 
-/* Architectural Minimal Design Primitives */
+/* Glassmorphic Primitives */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(24, 24, 27, 0.35);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(24, 24, 27, 0.2);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.award-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.04), 0 2px 8px -2px rgba(0, 0, 0, 0.02);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+.glass-card:hover {
+  background: rgba(24, 24, 27, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
 }
 
-.award-card:hover {
-  border-color: rgba(0, 0, 0, 0.16);
-  box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
-  transform: translateY(-2px);
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
-.award-pill {
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.09);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

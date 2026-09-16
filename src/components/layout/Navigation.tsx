@@ -34,24 +34,24 @@ export default function Navigation() {
     >
       <nav
         aria-label="Main Navigation"
-        className="pointer-events-auto bg-white/85 backdrop-blur-md border border-zinc-200/90 px-3.5 py-2 rounded-full flex items-center justify-between gap-2 sm:gap-6 w-full max-w-4xl shadow-sm transition-all duration-300"
+        className="pointer-events-auto glass-pill px-3.5 py-2 rounded-full flex items-center justify-between gap-2 sm:gap-6 w-full max-w-4xl transition-all duration-300"
       >
         {/* Calligraphic Monogram Brand */}
         <Link
           href="/"
           className="flex items-center gap-2.5 px-2 py-1 group transition-transform active:scale-95"
         >
-          <div className="w-8 h-8 rounded-full overflow-hidden bg-white border border-zinc-200/90 flex items-center justify-center p-0.5 shadow-2xs group-hover:border-zinc-400 transition-colors shrink-0">
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-white/5 border border-white/10 flex items-center justify-center p-0.5 group-hover:border-white/20 transition-colors shrink-0">
             <Image
               src="/images/calligraphy-logo.jpg"
               alt="Soorya Calligraphic Monogram"
               width={32}
               height={32}
-              className="w-full h-full object-cover mix-blend-multiply"
+              className="w-full h-full object-cover mix-blend-screen invert"
               priority
             />
           </div>
-          <span className="hidden sm:inline text-xs font-mono font-medium tracking-wider uppercase text-zinc-900 group-hover:text-zinc-600 transition-colors">
+          <span className="hidden sm:inline text-xs font-mono font-medium tracking-wider uppercase text-zinc-100 group-hover:text-white transition-colors">
             SOORYA
           </span>
         </Link>
@@ -69,14 +69,14 @@ export default function Navigation() {
                 href={link.href}
                 className={`relative px-3 py-1.5 text-xs font-medium tracking-wide transition-all duration-200 rounded-full ${
                   isActive
-                    ? "text-white font-semibold"
-                    : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100/80"
+                    ? "text-zinc-950 font-semibold"
+                    : "text-zinc-400 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {isActive && (
                   <motion.div
-                    layoutId="nav-pill-light"
-                    className="absolute inset-0 rounded-full bg-zinc-900 -z-10 shadow-sm"
+                    layoutId="nav-pill-dark"
+                    className="absolute inset-0 rounded-full bg-white -z-10 shadow-sm"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
@@ -96,7 +96,7 @@ export default function Navigation() {
                 new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })
               );
             }}
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono text-zinc-500 hover:text-zinc-900 bg-zinc-100 hover:bg-zinc-200/70 rounded-full border border-zinc-200 transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-mono text-zinc-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-full border border-white/10 transition-colors"
           >
             <Command className="w-3 h-3" />
             <span>K</span>
@@ -105,7 +105,7 @@ export default function Navigation() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-zinc-600 hover:text-zinc-900 rounded-full bg-zinc-100 active:scale-95 transition-all"
+            className="md:hidden p-2 text-zinc-400 hover:text-white rounded-full bg-white/5 active:scale-95 transition-all border border-white/10"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -121,7 +121,7 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="pointer-events-auto md:hidden w-full max-w-sm mt-2 p-3.5 rounded-3xl bg-white/95 backdrop-blur-lg border border-zinc-200 flex flex-col gap-1 shadow-xl"
+            className="pointer-events-auto md:hidden w-full max-w-sm mt-2 p-3.5 rounded-3xl glass-panel flex flex-col gap-1"
           >
             {links.map((link) => {
               const isActive =
@@ -134,8 +134,8 @@ export default function Navigation() {
                   href={link.href}
                   className={`px-4 py-2 text-sm font-medium rounded-2xl transition-colors ${
                     isActive
-                      ? "bg-zinc-900 text-white font-semibold"
-                      : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
+                      ? "bg-white text-zinc-950 font-semibold"
+                      : "text-zinc-400 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {link.label}
