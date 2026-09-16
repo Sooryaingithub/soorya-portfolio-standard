@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ArrowUpRight,
   ArrowRight,
   Sparkles,
   Terminal,
@@ -20,6 +19,7 @@ import {
   Zap,
 } from "lucide-react";
 import { projects } from "@/data/projects";
+import Magnetic from "@/components/ui/Magnetic";
 
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -42,7 +42,7 @@ const skillClusters = [
     icon: Sparkles,
     description: "Architecting autonomous systems, fine-tuned neural models, and real-time vision pipelines.",
     colSpan: "md:col-span-2",
-    bgColor: "bg-[#FDFDFD]",
+    bgColor: "bg-white",
   },
   {
     number: "02",
@@ -66,7 +66,7 @@ const skillClusters = [
     icon: Code2,
     description: "Production-grade systems programming from embedded IoT microcontrollers to full-stack web.",
     colSpan: "md:col-span-2",
-    bgColor: "bg-[#FDFDFD]",
+    bgColor: "bg-white",
   },
 ];
 
@@ -111,9 +111,9 @@ export default function HomePage() {
   };
 
   return (
-    <main className="flex-1 flex flex-col items-center w-full min-h-screen relative pt-32 sm:pt-40 pb-24 overflow-x-hidden selection:bg-zinc-900 selection:text-white">
+    <main className="flex-1 flex flex-col items-center w-full min-h-screen relative pt-32 sm:pt-40 pb-24 overflow-x-hidden selection:bg-zinc-950 selection:text-white">
       
-      {/* 1. HERO SECTION: Massive Typography & Mask Reveals */}
+      {/* 1. HERO SECTION: Massive Typography & Magnetic Interactions */}
       <section className="w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-center text-center relative z-20 pt-4 pb-24">
         
         <motion.div 
@@ -122,33 +122,36 @@ export default function HomePage() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div
-            variants={springReveal}
-            whileHover={{ scale: 1.05, rotate: -5 }}
-            className="w-16 h-16 rounded-full overflow-hidden bg-white border border-black/10 flex items-center justify-center p-1.5 shadow-md"
-          >
-            <Image
-              src="/images/calligraphy-logo.jpg"
-              alt="Soorya Calligraphic Monogram"
-              width={64}
-              height={64}
-              className="w-full h-full object-cover mix-blend-multiply"
-              priority
-            />
-          </motion.div>
+          <Magnetic>
+            <motion.div
+              variants={springReveal}
+              className="w-16 h-16 rounded-full overflow-hidden bg-white border border-black/10 flex items-center justify-center p-1.5 shadow-md"
+            >
+              <Image
+                src="/images/calligraphy-logo.jpg"
+                alt="Soorya Calligraphic Monogram"
+                width={64}
+                height={64}
+                className="w-full h-full object-cover mix-blend-multiply"
+                priority
+              />
+            </motion.div>
+          </Magnetic>
           
-          <motion.div
-            variants={springReveal}
-            className="bg-white border border-black/5 shadow-sm px-5 py-2.5 rounded-full flex items-center gap-3"
-          >
-            <div className="relative flex h-2.5 w-2.5 items-center justify-center">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </div>
-            <span className="text-xs font-mono font-medium tracking-wide text-zinc-600">
-              <span className="font-bold text-zinc-950">Status:</span> Open for Fall 2025
-            </span>
-          </motion.div>
+          <Magnetic>
+            <motion.div
+              variants={springReveal}
+              className="bg-white border border-black/5 shadow-sm px-5 py-2.5 rounded-full flex items-center gap-3 cursor-default"
+            >
+              <div className="relative flex h-2.5 w-2.5 items-center justify-center">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </div>
+              <span className="text-xs font-mono font-medium tracking-wide text-zinc-600">
+                <span className="font-bold text-zinc-950">Status:</span> Open for Fall 2025
+              </span>
+            </motion.div>
+          </Magnetic>
         </motion.div>
 
         <motion.div
@@ -157,7 +160,7 @@ export default function HomePage() {
           animate="visible"
           className="max-w-4xl flex flex-col items-center"
         >
-          {/* Masked text reveals for a high-end feel */}
+          {/* Masked text reveals */}
           <div className="overflow-hidden pb-2">
             <motion.h1 
               variants={maskReveal}
@@ -185,16 +188,20 @@ export default function HomePage() {
           </motion.p>
           
           <motion.div variants={springReveal} className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/projects" className="bg-zinc-950 text-white px-8 py-4 rounded-full text-sm font-bold hover:scale-105 hover:bg-zinc-900 transition-all flex items-center gap-2 shadow-xl shadow-zinc-900/20 active:scale-95">
-              Explore Systems <ArrowRight className="w-4 h-4" />
-            </Link>
-            <button
-              onClick={handleCopyEmail}
-              className="bg-white border border-black/5 text-zinc-700 px-8 py-4 rounded-full text-sm font-bold hover:bg-zinc-50 hover:text-zinc-950 hover:scale-105 transition-all flex items-center gap-2 shadow-sm active:scale-95 group"
-            >
-              {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 transition-colors" />}
-              {copied ? "Copied!" : "sooryasendilnath@gmail.com"}
-            </button>
+            <Magnetic>
+              <Link href="/projects" className="bg-zinc-950 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-zinc-900 transition-all flex items-center gap-2 shadow-xl shadow-zinc-900/20 active:scale-95">
+                Explore Systems <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Magnetic>
+            <Magnetic>
+              <button
+                onClick={handleCopyEmail}
+                className="bg-white border border-black/5 text-zinc-700 px-8 py-4 rounded-full text-sm font-bold hover:bg-zinc-50 hover:text-zinc-950 transition-all flex items-center gap-2 shadow-sm active:scale-95 group"
+              >
+                {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 transition-colors" />}
+                {copied ? "Copied!" : "sooryasendilnath@gmail.com"}
+              </button>
+            </Magnetic>
           </motion.div>
         </motion.div>
       </section>
@@ -253,7 +260,6 @@ export default function HomePage() {
               viewport={{ once: true, margin: "-50px" }}
               variants={springReveal}
               custom={idx}
-              whileHover={{ y: -5 }}
               className={`bento-card p-8 md:p-10 flex flex-col h-full ${cluster.colSpan} ${cluster.bgColor} relative overflow-hidden group`}
             >
               <div className="absolute -right-10 -top-10 text-zinc-900/5 group-hover:text-zinc-900/10 transition-colors duration-500 transform rotate-12 group-hover:rotate-0 group-hover:scale-110">
@@ -274,7 +280,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. SYSTEMS GALLERY: Minimal Brutalist Showcase */}
+      {/* 4. SYSTEMS GALLERY: Interactive Hover Rows */}
       <section className="w-full max-w-6xl mx-auto px-6 md:px-12 relative z-20 mb-32">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -286,42 +292,56 @@ export default function HomePage() {
           <h2 className="text-4xl md:text-6xl font-serif text-zinc-950 tracking-tight">Engineered Systems.</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {projects.slice(0, 4).map((project, idx) => (
-            <motion.div
-              key={project.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={springReveal}
-              custom={idx}
-              className="group flex flex-col bento-card p-2"
-            >
-              <div className="relative w-full h-[320px] bg-zinc-100 rounded-[1.5rem] overflow-hidden mb-4">
-                <div className="w-full h-full flex items-center justify-center relative">
-                  <Terminal className="w-24 h-24 text-zinc-900/5 relative z-10 group-hover:scale-125 group-hover:rotate-6 transition-all duration-700 ease-out" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-200/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-              
-              <div className="p-6 pt-2 flex-1 flex flex-col">
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {project.category.slice(0, 2).map((cat) => (
-                    <span key={cat} className="px-3 py-1.5 text-[10px] font-mono font-bold tracking-widest uppercase rounded-full bg-zinc-100 text-zinc-600">
-                      {cat}
-                    </span>
-                  ))}
+        <div className="w-full flex flex-col border-t border-black/10">
+          {projects.slice(0, 5).map((project, idx) => (
+            <Link href={`/projects#${project.slug}`} key={project.title}>
+              <motion.div 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={springReveal}
+                custom={idx}
+                whileHover="hover"
+                className="group border-b border-black/10 py-10 md:py-16 px-6 relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between cursor-none"
+              >
+                {/* Background color slide on hover */}
+                <motion.div 
+                  variants={{ hover: { top: 0 } }} 
+                  initial={{ top: "100%" }} 
+                  className="absolute inset-0 bg-zinc-950 -z-10 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]" 
+                />
+                
+                {/* Marquee Text Background (visible on hover) */}
+                <div className="absolute inset-0 flex items-center overflow-hidden opacity-0 group-hover:opacity-10 pointer-events-none z-0">
+                   <motion.div 
+                     animate={{ x: ["0%", "-50%"] }} 
+                     transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                     className="whitespace-nowrap text-[8rem] font-serif font-bold text-white uppercase tracking-tighter"
+                   >
+                     {project.category.join(" — ")} — {project.category.join(" — ")}
+                   </motion.div>
                 </div>
                 
-                <h3 className="text-3xl font-serif text-zinc-950 tracking-tight mb-3 group-hover:text-zinc-600 transition-colors">{project.title}</h3>
-                <p className="text-base text-zinc-500 font-medium leading-relaxed mb-8 flex-1">{project.shortDescription}</p>
+                <div className="flex flex-col z-10 max-w-3xl">
+                  <div className="flex flex-wrap gap-2 mb-5">
+                    {project.category.slice(0, 3).map((cat) => (
+                      <span key={cat} className="px-3 py-1.5 text-[10px] font-mono font-bold tracking-widest uppercase rounded-full bg-zinc-100 group-hover:bg-white/10 text-zinc-600 group-hover:text-zinc-300 transition-colors duration-500">
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-4xl md:text-6xl font-serif text-zinc-950 group-hover:text-white transition-colors duration-500 tracking-tight leading-none mb-4">{project.title}</h3>
+                  <p className="text-lg text-zinc-500 group-hover:text-zinc-400 max-w-xl transition-colors duration-500">{project.shortDescription}</p>
+                </div>
                 
-                <Link href={`/projects#${project.slug}`} className="inline-flex items-center gap-2 text-sm font-bold text-zinc-950 hover:text-zinc-600 transition-colors mt-auto w-fit group/link">
-                  <span className="group-hover/link:underline underline-offset-4 decoration-2">Analyze System</span>
-                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
+                <div className="z-10 flex items-center gap-4 mt-8 lg:mt-0 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-8 group-hover:translate-x-0">
+                  <span className="text-white font-mono font-bold uppercase tracking-widest text-xs hidden md:block">View System</span>
+                  <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-2xl">
+                    <ArrowRight className="w-6 h-6 text-zinc-950" />
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
         
@@ -331,10 +351,12 @@ export default function HomePage() {
           viewport={{ once: true }}
           className="mt-16 flex justify-center"
         >
-          <Link href="/projects" className="bg-white border border-black/5 text-zinc-950 px-10 py-5 rounded-full text-sm font-bold hover:scale-105 hover:bg-zinc-50 hover:shadow-lg transition-all flex items-center gap-3 shadow-sm active:scale-95 group">
-            View All 12 Systems
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <Magnetic>
+            <Link href="/projects" className="bg-white border border-black/5 text-zinc-950 px-10 py-5 rounded-full text-sm font-bold hover:bg-zinc-50 transition-all flex items-center gap-3 shadow-sm active:scale-95 group">
+              View All 12 Systems
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Magnetic>
         </motion.div>
       </section>
 
@@ -358,28 +380,36 @@ export default function HomePage() {
             </p>
             
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-2">
-              <a href="mailto:sooryasendilnath@gmail.com" className="bg-zinc-950 text-white px-8 py-4 rounded-full text-sm font-bold hover:scale-105 hover:bg-zinc-900 transition-all flex items-center gap-2 shadow-xl active:scale-95">
-                <Mail className="w-4 h-4" /> Start Transmission
-              </a>
-              <Link href="https://linkedin.com/in/soorya-sendilnath" target="_blank" className="w-14 h-14 rounded-full bg-white border border-black/5 shadow-sm flex items-center justify-center hover:scale-110 active:scale-95 text-zinc-950 transition-all">
-                <LinkedinIcon className="w-5 h-5" />
-              </Link>
-              <Link href="https://github.com/Sooryaingithub" target="_blank" className="w-14 h-14 rounded-full bg-white border border-black/5 shadow-sm flex items-center justify-center hover:scale-110 active:scale-95 text-zinc-950 transition-all">
-                <GithubIcon className="w-5 h-5" />
-              </Link>
+              <Magnetic>
+                <a href="mailto:sooryasendilnath@gmail.com" className="bg-zinc-950 text-white px-8 py-4 rounded-full text-sm font-bold hover:bg-zinc-900 transition-all flex items-center gap-2 shadow-xl active:scale-95">
+                  <Mail className="w-4 h-4" /> Start Transmission
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <Link href="https://linkedin.com/in/soorya-sendilnath" target="_blank" className="w-14 h-14 rounded-full bg-white border border-black/5 shadow-sm flex items-center justify-center hover:scale-110 active:scale-95 text-zinc-950 transition-all">
+                  <LinkedinIcon className="w-5 h-5" />
+                </Link>
+              </Magnetic>
+              <Magnetic>
+                <Link href="https://github.com/Sooryaingithub" target="_blank" className="w-14 h-14 rounded-full bg-white border border-black/5 shadow-sm flex items-center justify-center hover:scale-110 active:scale-95 text-zinc-950 transition-all">
+                  <GithubIcon className="w-5 h-5" />
+                </Link>
+              </Magnetic>
             </div>
           </div>
           
           <div className="relative z-10 flex flex-col items-center gap-6 shrink-0">
-            <div className="w-64 md:w-80 h-auto bg-white border border-black/5 p-4 rounded-3xl shadow-sm transform rotate-[-3deg] hover:rotate-1 hover:scale-105 transition-all duration-500">
-              <Image
-                src="/images/calligraphy-signature.jpg"
-                alt="Soorya Calligraphic Signature"
-                width={400}
-                height={200}
-                className="w-full h-auto mix-blend-multiply opacity-90"
-              />
-            </div>
+            <Magnetic>
+              <div className="w-64 md:w-80 h-auto bg-white border border-black/5 p-4 rounded-3xl shadow-sm transform rotate-[-3deg] hover:rotate-1 transition-all duration-500 cursor-none">
+                <Image
+                  src="/images/calligraphy-signature.jpg"
+                  alt="Soorya Calligraphic Signature"
+                  width={400}
+                  height={200}
+                  className="w-full h-auto mix-blend-multiply opacity-90"
+                />
+              </div>
+            </Magnetic>
             <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full border border-black/5 shadow-sm">
               <div className="w-2 h-2 rounded-full bg-zinc-950" />
               <p className="text-[11px] font-mono font-bold tracking-widest text-zinc-500 uppercase">Authentic Signature</p>
